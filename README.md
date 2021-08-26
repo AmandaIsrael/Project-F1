@@ -2,7 +2,7 @@
 
 Software em desenvolvimento
 
-Feito para a matéria da Banco de dados
+Feito para a matéria de Banco de dados
 
 Autores:
 

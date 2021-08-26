@@ -99,19 +99,14 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-        <Label alignment="CENTER" layoutX="155.0" layoutY="177.0" style="&#10;" text="Drag components from Library here…" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
-          <font>
-            <Font size="18.0" />
-          </font>
-        </Label>
             <BorderPane prefHeight="695.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <bottom>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="60.0" prefWidth="215.0" style="-fx-background-color: #000000;" text="Adicionar Piloto" textFill="WHITE" BorderPane.alignment="BOTTOM_RIGHT">
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="39.0" prefWidth="162.0" style="-fx-background-color: #000000;" text="Adicionar Piloto" textFill="WHITE" BorderPane.alignment="BOTTOM_RIGHT">
                      <BorderPane.margin>
                         <Insets bottom="30.0" right="50.0" />
                      </BorderPane.margin>
                      <font>
-                        <Font name="System Bold" size="24.0" />
+                        <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
                </bottom>
@@ -125,10 +120,20 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                      <BorderPane.margin>
-                        <Insets bottom="50.0" left="100.0" right="100.0" top="100.0" />
+                        <Insets bottom="50.0" left="150.0" right="150.0" top="40.0" />
                      </BorderPane.margin>
                   </TableView>
                </center>
+               <top>
+                  <Label text="Pilotos" textFill="WHITE" BorderPane.alignment="TOP_LEFT">
+                     <BorderPane.margin>
+                        <Insets left="150.0" top="50.0" />
+                     </BorderPane.margin>
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+               </top>
             </BorderPane>
       </children>
     </AnchorPane>
