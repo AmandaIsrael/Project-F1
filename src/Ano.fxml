@@ -6,7 +6,7 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitMenuButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -20,51 +20,11 @@
    <children>
       <MenuBar VBox.vgrow="NEVER">
          <menus>
-            <Menu mnemonicParsing="false" text="Home">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="New" />
-                  <MenuItem mnemonicParsing="false" text="Open…" />
-                  <Menu mnemonicParsing="false" text="Open Recent" />
-                  <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" text="Close" />
-                  <MenuItem mnemonicParsing="false" text="Save" />
-                  <MenuItem mnemonicParsing="false" text="Save As…" />
-                  <MenuItem mnemonicParsing="false" text="Revert" />
-                  <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" text="Preferences…" />
-                  <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" text="Quit" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Ano">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Undo" />
-                  <MenuItem mnemonicParsing="false" text="Redo" />
-                  <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" text="Cut" />
-                  <MenuItem mnemonicParsing="false" text="Copy" />
-                  <MenuItem mnemonicParsing="false" text="Paste" />
-                  <MenuItem mnemonicParsing="false" text="Delete" />
-                  <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" text="Select All" />
-                  <MenuItem mnemonicParsing="false" text="Unselect All" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Pilotos">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Equipes">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Pistas">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
-               </items>
-            </Menu>
+            <Menu mnemonicParsing="false" text="Home" />
+            <Menu mnemonicParsing="false" text="Ano" />
+            <Menu mnemonicParsing="false" text="Pilotos" />
+            <Menu mnemonicParsing="false" text="Equipes" />
+            <Menu mnemonicParsing="false" text="Pistas" />
          </menus>
       </MenuBar>
       <AnchorPane maxHeight="-1.0" maxWidth="-1.0" VBox.vgrow="ALWAYS">
@@ -79,8 +39,7 @@
                                  <children>
                                     <SplitMenuButton mnemonicParsing="false" prefHeight="39.0" prefWidth="176.0" text="Selecione o ano">
                                       <items>
-                                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                                        <MenuItem mnemonicParsing="false" text="Action 2" />
+                                        <MenuItem mnemonicParsing="false" text="2020" />
                                       </items>
                                        <HBox.margin>
                                           <Insets left="40.0" top="30.0" />
@@ -127,16 +86,20 @@
                   </HBox>
                </top>
                <center>
-                  <TableView prefHeight="429.0" prefWidth="885.0" BorderPane.alignment="CENTER">
-                    <columns>
-                      <TableColumn prefWidth="194.0" text="Nome Grand Prix" />
-                      <TableColumn prefWidth="205.0" text="Pista" />
-                        <TableColumn minWidth="3.0" prefWidth="190.0" text="Data" />
-                    </columns>
+                  <ScrollPane prefHeight="427.0" prefWidth="590.0" BorderPane.alignment="CENTER">
                      <BorderPane.margin>
                         <Insets bottom="20.0" left="40.0" right="650.0" top="50.0" />
                      </BorderPane.margin>
-                  </TableView>
+                     <content>
+                        <TableView prefHeight="429.0" prefWidth="885.0">
+                          <columns>
+                            <TableColumn prefWidth="194.0" text="Nome Grand Prix" />
+                            <TableColumn prefWidth="205.0" text="Pista" />
+                              <TableColumn minWidth="3.0" prefWidth="190.0" text="Data" />
+                          </columns>
+                        </TableView>
+                     </content>
+                  </ScrollPane>
                </center>
                <bottom>
                   <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="39.0" prefWidth="176.0" style="-fx-background-color: #000000;" text="Adicionar GP" textFill="WHITE" BorderPane.alignment="CENTER_RIGHT">
