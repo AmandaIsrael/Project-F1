@@ -91,7 +91,7 @@
                         <Insets bottom="20.0" left="40.0" right="650.0" top="50.0" />
                      </BorderPane.margin>
                      <content>
-                        <TableView prefHeight="429.0" prefWidth="885.0">
+                        <TableView prefHeight="399.0" prefWidth="574.0">
                           <columns>
                             <TableColumn prefWidth="194.0" text="Nome Grand Prix" />
                             <TableColumn prefWidth="205.0" text="Pista" />
