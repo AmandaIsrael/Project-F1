@@ -22,11 +22,7 @@
             "name": "Launch ProjectF1",
             "request": "launch",
             "mainClass": "ProjectF1",
-<<<<<<< HEAD
             "projectName": "ProjectF1_74c9c94e",
-=======
-            "projectName": "ProjectF1_5ff87b10",
->>>>>>> 50c1307d8fc302227a1ebea9ed823bc98461021d
             "vmArgs": "--module-path C:/JavaFX/javafx-sdk-16/lib --add-modules javafx.controls,javafx.fxml"
         }
     ]

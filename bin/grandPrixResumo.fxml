@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #3d3c41;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <MenuBar VBox.vgrow="NEVER">
+         <menus>
+            <Menu mnemonicParsing="false" text="Home" />
+            <Menu mnemonicParsing="false" text="Ano" />
+            <Menu mnemonicParsing="false" text="Pilotos" />
+            <Menu mnemonicParsing="false" text="Equipes" />
+            <Menu mnemonicParsing="false" text="Pistas" />
+         </menus>
+      </MenuBar>
+      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <BorderPane prefHeight="695.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <top>
+                  <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="1060.0">
+                           <children>
+                              <RadioButton mnemonicParsing="false" prefHeight="35.0" prefWidth="257.0" text="Resumo" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="30.0" top="30.0" />
+                                 </HBox.margin>
+                              </RadioButton>
+                              <RadioButton mnemonicParsing="false" prefHeight="35.0" prefWidth="257.0" text="Corrida" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets top="30.0" />
+                                 </HBox.margin>
+                              </RadioButton>
+                              <RadioButton mnemonicParsing="false" prefHeight="35.0" prefWidth="257.0" text="Qualificatório" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets top="30.0" />
+                                 </HBox.margin>
+                              </RadioButton>
+                           </children>
+                        </HBox>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="39.0" prefWidth="176.0" style="-fx-background-color: #000000;" text="Editar" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="30.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <BorderPane.margin>
+                        <Insets bottom="10.0" left="10.0" />
+                     </BorderPane.margin>
+                  </HBox>
+               </top>
+               <center>
+                  <VBox spacing="20.0" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets bottom="100.0" left="200.0" right="200.0" />
+                     </BorderPane.margin>
+                     <children>
+                        <ScrollPane>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <content>
+                              <TableView prefHeight="429.0" prefWidth="880.0">
+                                 <columns>
+                                    <TableColumn prefWidth="194.0" text="Nome" />
+                                    <TableColumn prefWidth="219.0" text="Data Início" />
+                                    <TableColumn minWidth="3.0" prefWidth="255.0" text="Data Fim" />
+                                    <TableColumn minWidth="0.0" prefWidth="211.0" text="Pista" />
+                                 </columns>
+                              </TableView>
+                           </content>
+                        </ScrollPane>
+                        <ScrollPane>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <content>
+                              <TableView prefHeight="429.0" prefWidth="885.0">
+                                 <columns>
+                                    <TableColumn prefWidth="298.0" text="1º Colocado" />
+                                    <TableColumn prefWidth="296.0" text="2º Colocado" />
+                                    <TableColumn minWidth="3.0" prefWidth="285.0" text="3º Colocado" />
+                                 </columns>
+                              </TableView>
+                           </content>
+                        </ScrollPane>
+                        <ScrollPane>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <content>
+                              <TableView prefHeight="429.0" prefWidth="885.0">
+                                 <columns>
+                                    <TableColumn prefWidth="299.0" text="Driver of the Day" />
+                                    <TableColumn prefWidth="295.0" text="Melhor Volta (tempo)" />
+                                    <TableColumn minWidth="3.0" prefWidth="285.0" text="Melhor Volta (Piloto)" />
+                                 </columns>
+                              </TableView>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </VBox>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
