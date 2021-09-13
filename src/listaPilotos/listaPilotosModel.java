@@ -46,38 +46,4 @@ public class listaPilotosModel {
         this.sobrenome = sobrenome;
     }
 
-    public listaPilotosModel nome(SimpleStringProperty nome) {
-        setNome(nome);
-        return this;
-    }
-
-    public listaPilotosModel sobrenome(SimpleStringProperty sobrenome) {
-        setSobrenome(sobrenome);
-        return this;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == this)
-            return true;
-        if (!(o instanceof listaPilotosModel)) {
-            return false;
-        }
-        listaPilotosModel listaPilotosModel = (listaPilotosModel) o;
-        return Objects.equals(nome, listaPilotosModel.nome) && Objects.equals(sobrenome, listaPilotosModel.sobrenome);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(nome, sobrenome);
-    }
-
-    @Override
-    public String toString() {
-        return "{" +
-            " nome='" + getNome() + "'" +
-            ", sobrenome='" + getSobrenome() + "'" +
-            "}";
-    }
-
 }

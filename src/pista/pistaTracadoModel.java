@@ -1,4 +1,5 @@
 package pista;
+import javafx.beans.property.SimpleStringProperty;
 
 public class pistaTracadoModel {
     SimpleStringProperty anoAlteracao;

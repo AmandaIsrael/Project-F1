@@ -1,4 +1,19 @@
 package listaEquipes;
+import java.sql.Statement;
+import java.net.URL;
+import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import utils.ConnectPostgre;
 
 public class listaEquipesController implements Initializable /*, controlledScreen */ {
     @FXML private TableView<listaEquipesModel> tableView;
@@ -37,7 +52,7 @@ public class listaEquipesController implements Initializable /*, controlledScree
 
             while(resultado.next()){
                 SimpleStringProperty nome = new SimpleStringProperty(resultado.getString("equipeNome"));
-                SimpleStringProperty pais = new SimpleStringProperty(resultado.getString("equipeNacionalidade"));
+                SimpleStringProperty nacionalidade = new SimpleStringProperty(resultado.getString("equipeNacionalidade"));
 
                 listaEquipesModel equipe = new listaEquipesModel(nome, nacionalidade);
 

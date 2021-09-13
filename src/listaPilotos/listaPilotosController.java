@@ -37,7 +37,7 @@ public class listaPilotosController implements Initializable /*, controlledScree
         tableView.setItems(pilotos);
     }
 
-    public static ArrayList<listaPilotosModel> readlistaPilotos(){
+    public static ArrayList<listaPilotosModel> readListaPilotos(){
         
         ArrayList<listaPilotosModel> pilotos = new ArrayList<>();
         String sql = "SELECT pilotoNome, pilotoSobrenome FROM piloto";
@@ -50,7 +50,7 @@ public class listaPilotosController implements Initializable /*, controlledScree
                 SimpleStringProperty nome = new SimpleStringProperty(resultado.getString("pilotoNome"));
                 SimpleStringProperty sobrenome = new SimpleStringProperty(resultado.getString("pilotoSobrenome"));
 
-                listaPilotosModel pista = new listaPilotosModel(nome, sobrenome);
+                listaPilotosModel piloto = new listaPilotosModel(nome, sobrenome);
 
                 pilotos.add(piloto);
 

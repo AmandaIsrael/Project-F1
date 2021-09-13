@@ -1,6 +1,21 @@
 package equipe;
+import java.sql.Statement;
+import java.net.URL;
+import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import utils.ConnectPostgre;
 
-public class equipeLiderController {
+public class equipeLiderController implements Initializable /*, controlledScreen */{
     @FXML private TableView<equipeLiderModel> tableView;
     @FXML private TableColumn<equipeLiderModel, SimpleStringProperty> tableColumn1;
     @FXML private TableColumn<equipeLiderModel, SimpleStringProperty> tableColumn2;
@@ -34,12 +49,12 @@ public class equipeLiderController {
         tableColumn7.setCellValueFactory(new PropertyValueFactory<>("anoInicio"));
         tableColumn8.setCellValueFactory(new PropertyValueFactory<>("anoFim"));
 
-        ObservableList<equipeLiderModel> lideres = FXCollections.observableArrayList(readListaLideres());
+        ObservableList<equipeLiderModel> lideres = FXCollections.observableArrayList(readListaLideres(equipeNome));
 
         tableView.setItems(lideres);
     }
 
-    public static ArrayList<equipeLiderModel> readListaLideres(){
+    public static ArrayList<equipeLiderModel> readListaLideres(String equipeNome){
         
         ArrayList<equipeLiderModel> lideres = new ArrayList<>();
         String sql = "SELECT liderNome, liderSobrenome, liderNacionalidade, liderCidade, liderNacimento, cargo, lideradaAnoInicio, lideradaAnoFim FROM lider, liderada, liderRegistro, equipeRegistro WHERE lideradaLiderID = liderID AND liderRegistroNome = liderNome AND liderRegistroSobrenome = liderSobrenome AND lideradaEquipeID=equipeID AND equipeRegistroNome="+equipeNome;

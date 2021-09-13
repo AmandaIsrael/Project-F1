@@ -1,5 +1,7 @@
 package equipe;
 
+import javafx.beans.property.SimpleStringProperty;
+
 public class equipeLiderModel {
     SimpleStringProperty nome;
     SimpleStringProperty nacionalidade;
