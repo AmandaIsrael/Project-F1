@@ -1,6 +1,6 @@
 package ano;
 
-public class anoController {
+public class anoController implements Initializable /*, controlledScreen */{
     @FXML private TableView<anoModel> tableView;
     @FXML private TableColumn<anoModel, SimpleStringProperty> tableColumn1;
     @FXML private TableColumn<anoModel, SimpleStringProperty> tableColumn2;

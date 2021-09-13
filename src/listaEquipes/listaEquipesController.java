@@ -1,6 +1,6 @@
 package listaEquipes;
 
-public class listaEquipesController {
+public class listaEquipesController implements Initializable /*, controlledScreen */ {
     @FXML private TableView<listaEquipesModel> tableView;
     @FXML private TableColumn<listaEquipesModel, SimpleStringProperty> tableColumn1;
     @FXML private TableColumn<listaEquipesModel, SimpleStringProperty> tableColumn2;
