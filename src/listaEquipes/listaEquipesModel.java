@@ -1,4 +1,5 @@
 package listaEquipes;
+import javafx.beans.property.SimpleStringProperty;
 
 public class listaEquipesModel {
     SimpleStringProperty nome;

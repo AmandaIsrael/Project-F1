@@ -1,4 +1,5 @@
 package ano;
+import javafx.beans.property.SimpleStringProperty;
 
 public class anoModel {
     SimpleStringProperty nome;

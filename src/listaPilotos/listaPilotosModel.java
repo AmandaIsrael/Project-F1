@@ -1,4 +1,5 @@
 package listaPilotos;
+import javafx.beans.property.SimpleStringProperty;
 
 public class listaPilotosModel {
     SimpleStringProperty nome;
