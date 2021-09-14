@@ -6,7 +6,6 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitMenuButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -86,20 +85,16 @@
                   </HBox>
                </top>
                <center>
-                  <ScrollPane prefHeight="427.0" prefWidth="590.0" BorderPane.alignment="CENTER">
+                  <TableView fx:id="tableView" prefHeight="403.0" prefWidth="575.0">
+                    <columns>
+                      <TableColumn fx:id="tableColumn1" prefWidth="194.0" text="Nome Grand Prix" />
+                      <TableColumn fx:id="tableColumn2" prefWidth="205.0" text="Pista" />
+                        <TableColumn fx:id="tableColumn3" minWidth="3.0" prefWidth="190.0" text="Data" />
+                    </columns>
                      <BorderPane.margin>
                         <Insets bottom="20.0" left="40.0" right="650.0" top="50.0" />
                      </BorderPane.margin>
-                     <content>
-                        <TableView fx:id="tableView" prefHeight="399.0" prefWidth="574.0">
-                          <columns>
-                            <TableColumn fx:id="tableColumn1" prefWidth="194.0" text="Nome Grand Prix" />
-                            <TableColumn fx:id="tableColumn2" prefWidth="205.0" text="Pista" />
-                              <TableColumn fx:id="tableColumn3" minWidth="3.0" prefWidth="190.0" text="Data" />
-                          </columns>
-                        </TableView>
-                     </content>
-                  </ScrollPane>
+                  </TableView>
                </center>
                <bottom>
                   <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="39.0" prefWidth="176.0" style="-fx-background-color: #000000;" text="Adicionar GP" textFill="WHITE" BorderPane.alignment="CENTER_RIGHT">

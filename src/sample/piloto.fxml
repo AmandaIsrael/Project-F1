@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -45,46 +44,38 @@
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Label>
-                        <ScrollPane>
+                        <TableView prefHeight="241.0" prefWidth="970.0">
+                           <columns>
+                              <TableColumn prefWidth="62.0" text="Nome" />
+                              <TableColumn prefWidth="91.0" text="Sobrenome" />
+                              <TableColumn minWidth="3.0" prefWidth="87.0" text="Número" />
+                              <TableColumn minWidth="3.0" prefWidth="100.0" text="Abreviação" />
+                              <TableColumn minWidth="3.0" prefWidth="134.0" text="Data de nascimento" />
+                              <TableColumn minWidth="3.0" text="Cidade" />
+                              <TableColumn minWidth="3.0" prefWidth="121.0" text="Nacionalidade" />
+                              <TableColumn minWidth="3.0" prefWidth="126.0" text="Número de poles" />
+                              <TableColumn minWidth="3.0" prefWidth="160.0" text="Número de vitórias" />
+                           </columns>
                            <VBox.margin>
-                              <Insets right="110.0" />
+                              <Insets right="120.0" />
                            </VBox.margin>
-                           <content>
-                              <TableView prefHeight="241.0" prefWidth="970.0">
-                                 <columns>
-                                    <TableColumn prefWidth="62.0" text="Nome" />
-                                    <TableColumn prefWidth="91.0" text="Sobrenome" />
-                                    <TableColumn minWidth="3.0" prefWidth="87.0" text="Número" />
-                                    <TableColumn minWidth="3.0" prefWidth="100.0" text="Abreviação" />
-                                    <TableColumn minWidth="3.0" prefWidth="134.0" text="Data de nascimento" />
-                                    <TableColumn minWidth="3.0" text="Cidade" />
-                                    <TableColumn minWidth="3.0" prefWidth="121.0" text="Nacionalidade" />
-                                    <TableColumn minWidth="3.0" prefWidth="126.0" text="Número de poles" />
-                                    <TableColumn minWidth="3.0" prefWidth="160.0" text="Número de vitórias" />
-                                 </columns>
-                              </TableView>
-                           </content>
-                        </ScrollPane>
+                        </TableView>
                         <Label text="Contratos" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Label>
-                        <ScrollPane>
+                        <TableView prefHeight="200.0" prefWidth="655.0">
+                           <columns>
+                              <TableColumn prefWidth="158.0" text="Equipe" />
+                              <TableColumn prefWidth="143.0" text="Ano inicial" />
+                              <TableColumn prefWidth="176.0" text="Ano Final" />
+                              <TableColumn prefWidth="176.0" text="Salário" />
+                           </columns>
                            <VBox.margin>
                               <Insets right="430.0" />
                            </VBox.margin>
-                           <content>
-                              <TableView prefHeight="200.0" prefWidth="655.0">
-                                 <columns>
-                                    <TableColumn prefWidth="158.0" text="Equipe" />
-                                    <TableColumn prefWidth="143.0" text="Ano inicial" />
-                                    <TableColumn prefWidth="176.0" text="Ano Final" />
-                                    <TableColumn prefWidth="176.0" text="Salário" />
-                                 </columns>
-                              </TableView>
-                           </content>
-                        </ScrollPane>
+                        </TableView>
                      </children>
                      <BorderPane.margin>
                         <Insets left="100.0" right="100.0" />

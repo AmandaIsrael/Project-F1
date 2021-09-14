@@ -1,4 +1,4 @@
-package listaPista;     
+package listaPista;
 import java.sql.Statement;
 import java.net.URL;
 import java.sql.*;
@@ -13,7 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import utils.ConnectPostgre;
+import sample.utils.ConnectPostgre;
 
 public class listaPistasController implements Initializable /*, controlledScreen */{
 

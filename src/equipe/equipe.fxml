@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -35,18 +34,14 @@
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Label>
-                        <ScrollPane prefHeight="304.0" prefWidth="387.0">
-                           <content>
-                              <TableView prefHeight="304.0" prefWidth="372.0">
-                                 <columns>
-                                    <TableColumn prefWidth="75.0" text="Motor" />
-                                    <TableColumn prefWidth="105.0" text="Nacionalidade" />
-                                    <TableColumn prefWidth="103.0" text="Ano inicial" />
-                                    <TableColumn prefWidth="98.0" text="Ano final" />
-                                 </columns>
-                              </TableView>
-                           </content>
-                        </ScrollPane>
+                        <TableView prefHeight="304.0" prefWidth="372.0">
+                           <columns>
+                              <TableColumn prefWidth="75.0" text="Motor" />
+                              <TableColumn prefWidth="105.0" text="Nacionalidade" />
+                              <TableColumn prefWidth="103.0" text="Ano inicial" />
+                              <TableColumn prefWidth="98.0" text="Ano final" />
+                           </columns>
+                        </TableView>
                      </children>
                      <BorderPane.margin>
                         <Insets right="120.0" top="20.0" />
@@ -76,21 +71,14 @@
                                     <Font name="System Bold" size="24.0" />
                                  </font>
                               </Label>
-                              <ScrollPane prefHeight="91.0" prefWidth="660.0">
-                                 <VBox.margin>
-                                    <Insets />
-                                 </VBox.margin>
-                                 <content>
-                                    <TableView prefHeight="91.0" prefWidth="549.0">
-                                       <columns>
-                                          <TableColumn prefWidth="86.0" text="Nome" />
-                                          <TableColumn prefWidth="110.0" text="Cidade" />
-                                          <TableColumn minWidth="3.0" prefWidth="163.0" text="Nacionalidade" />
-                                          <TableColumn minWidth="3.0" prefWidth="211.0" text="Ano inicial" />
-                                       </columns>
-                                    </TableView>
-                                 </content>
-                              </ScrollPane>
+                              <TableView prefHeight="95.0" prefWidth="548.0">
+                                 <columns>
+                                    <TableColumn prefWidth="86.0" text="Nome" />
+                                    <TableColumn prefWidth="110.0" text="Cidade" />
+                                    <TableColumn minWidth="3.0" prefWidth="163.0" text="Nacionalidade" />
+                                    <TableColumn minWidth="3.0" prefWidth="211.0" text="Ano inicial" />
+                                 </columns>
+                              </TableView>
                            </children>
                         </VBox>
                         <VBox prefHeight="192.0" prefWidth="533.0" spacing="20.0">
@@ -100,17 +88,13 @@
                                     <Font name="System Bold" size="24.0" />
                                  </font>
                               </Label>
-                              <ScrollPane prefHeight="134.0" prefWidth="332.0">
-                                 <content>
-                                    <TableView prefHeight="134.0" prefWidth="549.0">
-                                       <columns>
-                                          <TableColumn prefWidth="143.0" text="Nome antigo" />
-                                          <TableColumn prefWidth="220.0" text="Ano inicial" />
-                                          <TableColumn prefWidth="161.0" text="Ano final" />
-                                       </columns>
-                                    </TableView>
-                                 </content>
-                              </ScrollPane>
+                              <TableView prefHeight="134.0" prefWidth="549.0">
+                                 <columns>
+                                    <TableColumn prefWidth="143.0" text="Nome antigo" />
+                                    <TableColumn prefWidth="220.0" text="Ano inicial" />
+                                    <TableColumn prefWidth="161.0" text="Ano final" />
+                                 </columns>
+                              </TableView>
                            </children>
                            <VBox.margin>
                               <Insets />
@@ -127,25 +111,18 @@
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Label>
-                        <ScrollPane prefHeight="131.0" prefWidth="1090.0">
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                           <content>
-                              <TableView prefHeight="131.0" prefWidth="1025.0">
-                                 <columns>
-                                    <TableColumn prefWidth="77.0" text="Nome" />
-                                    <TableColumn prefWidth="122.66668701171875" text="Sobrenome" />
-                                    <TableColumn prefWidth="107.33334350585938" text="Cargo" />
-                                    <TableColumn prefWidth="160.33331298828125" text="Data de nascimento" />
-                                    <TableColumn prefWidth="110.66668701171875" text="Cidade" />
-                                    <TableColumn prefWidth="164.0" text="Nacionalidade" />
-                                    <TableColumn maxWidth="405.0" prefWidth="135.0" text="Ano Inicial" />
-                                    <TableColumn prefWidth="148.3333740234375" text="Ano final" />
-                                 </columns>
-                              </TableView>
-                           </content>
-                        </ScrollPane>
+                        <TableView prefHeight="131.0" prefWidth="1025.0">
+                           <columns>
+                              <TableColumn prefWidth="77.0" text="Nome" />
+                              <TableColumn prefWidth="122.66668701171875" text="Sobrenome" />
+                              <TableColumn prefWidth="107.33334350585938" text="Cargo" />
+                              <TableColumn prefWidth="160.33331298828125" text="Data de nascimento" />
+                              <TableColumn prefWidth="110.66668701171875" text="Cidade" />
+                              <TableColumn prefWidth="164.0" text="Nacionalidade" />
+                              <TableColumn maxWidth="405.0" prefWidth="135.0" text="Ano Inicial" />
+                              <TableColumn prefWidth="148.3333740234375" text="Ano final" />
+                           </columns>
+                        </TableView>
                      </children>
                      <BorderPane.margin>
                         <Insets left="120.0" right="120.0" />

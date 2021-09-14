@@ -13,7 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import utils.ConnectPostgre;
+import sample.utils.ConnectPostgre;
 
 
 public class listaPilotosController implements Initializable /*, controlledScreen */{
