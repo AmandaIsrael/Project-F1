@@ -9,14 +9,18 @@ import java.util.ResourceBundle;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import sample.Main;
 import sample.utils.ConnectPostgre;
+import sample.utils.controlledScreen;
+import sample.utils.screensController;
 
-public class listaPistasController implements Initializable /*, controlledScreen */{
-
+public class listaPistasController implements Initializable, controlledScreen {
+    screensController myController;
     @FXML private TableView<listaPistaModel> tableView;
     @FXML private TableColumn<listaPistaModel, SimpleStringProperty> tableColumn1;
     @FXML private TableColumn<listaPistaModel, SimpleStringProperty> tableColumn2;
@@ -28,10 +32,28 @@ public class listaPistasController implements Initializable /*, controlledScreen
         initTable();
     }
 
-    /*
     @Override
-    public void setScreenParent(screensController screenPage) {}
-    */
+    public void setScreenParent(screensController screenPage) { myController = screenPage; }
+
+    @FXML
+    private void goToAno(ActionEvent event){
+        myController.setScreen(Main.screen2ID);
+    }
+
+    @FXML
+    private void goToPilotos(ActionEvent event){
+        myController.setScreen(Main.screen3ID);
+    }
+
+    @FXML
+    private void goToEquipes(ActionEvent event){
+        myController.setScreen(Main.screen4ID);
+    }
+
+    @FXML
+    private void goToHome(ActionEvent event){
+        myController.setScreen(Main.screen1ID);
+    }
 
     public void initTable(){
 

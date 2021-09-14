@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TelaInicialController">
    <children>
       <BorderPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #3d3c41;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
@@ -30,22 +30,22 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" style="-fx-background-color: #000000;" text="Ano" textFill="WHITE">
+                        <Button onAction="#goToAno" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" style="-fx-background-color: #000000;" text="Ano" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" style="-fx-background-color: #000000;" text="Pilotos" textFill="WHITE">
+                        <Button onAction="#goToPilotos" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" style="-fx-background-color: #000000;" text="Pilotos" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" style="-fx-background-color: #000000;" text="Equipes" textFill="WHITE">
+                        <Button onAction="#goToEquipes" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" style="-fx-background-color: #000000;" text="Equipes" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" style="-fx-background-color: #000000;" text="Pistas" textFill="WHITE">
+                        <Button onAction="#goToPistas" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" style="-fx-background-color: #000000;" text="Pistas" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>

@@ -12,15 +12,19 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.MenuItem?>
 <VBox prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #3d3c41;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="listaPista.listaPistasController">
    <children>
       <MenuBar VBox.vgrow="NEVER">
          <menus>
-            <Menu mnemonicParsing="false" text="Home" />
-            <Menu mnemonicParsing="false" text="Ano" />
-            <Menu mnemonicParsing="false" text="Pilotos" />
-            <Menu mnemonicParsing="false" text="Equipes" />
-            <Menu mnemonicParsing="false" text="Pistas" />
+            <Menu mnemonicParsing="false" text="Telas">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Home" onAction="#goToHome" />
+                  <MenuItem mnemonicParsing="false" text="Ano" onAction="#goToAno"/>
+                  <MenuItem mnemonicParsing="false" text="Pilotos" onAction="#goToPilotos"/>
+                  <MenuItem mnemonicParsing="false" text="Equipes" onAction="#goToEquipes"/>
+                  <MenuItem mnemonicParsing="false" text="Pistas"/>
+               </items></Menu>
          </menus>
       </MenuBar>
       <AnchorPane maxHeight="-1.0" maxWidth="-1.0" VBox.vgrow="ALWAYS">

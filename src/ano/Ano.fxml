@@ -6,6 +6,7 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.RadioMenuItem?>
 <?import javafx.scene.control.SplitMenuButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -19,11 +20,14 @@
    <children>
       <MenuBar VBox.vgrow="NEVER">
          <menus>
-            <Menu mnemonicParsing="false" text="Home" />
-            <Menu mnemonicParsing="false" text="Ano" />
-            <Menu mnemonicParsing="false" text="Pilotos" />
-            <Menu mnemonicParsing="false" text="Equipes" />
-            <Menu mnemonicParsing="false" text="Pistas" />
+            <Menu mnemonicParsing="false" text="Telas">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Home" onAction="#goToHome" />
+                  <MenuItem mnemonicParsing="false" text="Ano" />
+                  <MenuItem mnemonicParsing="false" text="Pilotos" onAction="#goToPilotos"/>
+                  <MenuItem mnemonicParsing="false" text="Equipes" onAction="#goToEquipes"/>
+                  <MenuItem mnemonicParsing="false" text="Pistas" onAction="#goToPistas"/>
+               </items></Menu>
          </menus>
       </MenuBar>
       <AnchorPane maxHeight="-1.0" maxWidth="-1.0" VBox.vgrow="ALWAYS">
