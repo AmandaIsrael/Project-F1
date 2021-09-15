@@ -1,9 +1,9 @@
 package pista;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.ResourceBundle;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -27,24 +27,29 @@ public class pistaMainTableController implements Initializable, controlledScreen
     @FXML private TableColumn<pistaTracadoModel, String> t2tableColumn1;
     @FXML private TableColumn<pistaTracadoModel, String> t2tableColumn2;
     @FXML private TableColumn<pistaTracadoModel, String> t2tableColumn3;
-    private pistaMainTableModel pistaAnterior;
-    private pistaMainTableModel pistaAtual;
-    private pistaTracadoModel tracadoAnterior;
-    private pistaTracadoModel tracadoAtual;
+
+    private pistaMainTableModel pista = null;
+    private pistaTracadoModel tracado = null;
+
+    private ArrayList<pistaMainTableModel> pistaValuesAnterior = new ArrayList<>();
+    public static ArrayList<pistaMainTableModel> staticPistaValuesAnterior = new ArrayList<>();
+
+    private ArrayList<pistaTracadoModel> tracadoValuesAnterior = new ArrayList<>();
+    public static ArrayList<pistaTracadoModel> staticTracadoValuesAnterior = new ArrayList<>();
+
+    private HashMap<Integer, pistaMainTableModel> pistaValuesAtual = new HashMap<>();
+    private HashMap<Integer, pistaTracadoModel> tracadoValuesAtual = new HashMap<>();
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initTable();
         initTable2();
         setTable();
-
-        pistaAnterior = null;
-        pistaAtual = null;
-        tracadoAnterior = null;
-        tracadoAtual = null;
-
         staticTableView = tableView;
         staticTableView2 = tableView2;
+        staticPistaValuesAnterior = pistaValuesAnterior;
+        staticTracadoValuesAnterior = tracadoValuesAnterior;
     }
 
     @Override
@@ -77,7 +82,13 @@ public class pistaMainTableController implements Initializable, controlledScreen
 
     @FXML
     private void Update(ActionEvent event){
-        pistaDAO.updatePista(pistaAnterior, pistaAtual);
+        for(int i = 0; i < pistaValuesAtual.size(); ++i){
+            pistaDAO.updatePista(pistaValuesAnterior.get(i), pistaValuesAtual.get(i));
+        }
+
+        for(int i = 0; i < tracadoValuesAtual.size(); ++i){
+            pistaDAO.updateTracado(tracadoValuesAnterior.get(i), tracadoValuesAtual.get(i));
+        }
     }
 
     public void initTable(){
@@ -105,14 +116,36 @@ public class pistaMainTableController implements Initializable, controlledScreen
         this.t2tableColumn3.setCellFactory(TextFieldTableCell.forTableColumn());
     }
 
+    public int findRowPista(pistaMainTableModel pista){
+        for(int i = 0; i < pistaValuesAnterior.size(); ++i){
+            if(pista == pistaValuesAnterior.get(i)){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public int findRowTracado(pistaTracadoModel tracado){
+        for(int i = 0; i < tracadoValuesAnterior.size(); ++i){
+            if(tracado == tracadoValuesAnterior.get(i)){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+
     public void setTable(){
+
+
         this.tableColumn1.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<pistaMainTableModel, String>>() {
             @Override
             public void handle(TableColumn.CellEditEvent<pistaMainTableModel, String> pistaMainTableModelStringCellEditEvent) {
 
-                pistaAnterior = pistaMainTableModelStringCellEditEvent.getRowValue();
-                pistaAtual = pistaMainTableModelStringCellEditEvent.getRowValue();
-                pistaAtual.setNome(pistaMainTableModelStringCellEditEvent.getNewValue());
+                pista = pistaMainTableModelStringCellEditEvent.getRowValue();
+                pista.setNome(pistaMainTableModelStringCellEditEvent.getNewValue());
+                int i = findRowPista(pista);
+                pistaValuesAtual.put(i, pista);
             }
         });
 
@@ -120,12 +153,10 @@ public class pistaMainTableController implements Initializable, controlledScreen
             @Override
             public void handle(TableColumn.CellEditEvent<pistaMainTableModel, String> pistaMainTableModelStringCellEditEvent) {
 
-                if(pistaAnterior == pistaMainTableModelStringCellEditEvent.getRowValue()){
-                    pistaAtual.setCidade(pistaMainTableModelStringCellEditEvent.getNewValue());
-                }else{
-                    tableView.getItems().remove(pistaAtual);
-                    tableView.getItems().add(pistaAnterior);
-                }
+                pista = pistaMainTableModelStringCellEditEvent.getRowValue();
+                pista.setPais(pistaMainTableModelStringCellEditEvent.getNewValue());
+                int i = findRowPista(pista);
+                pistaValuesAtual.put(i, pista);
 
             }
         });
@@ -134,47 +165,48 @@ public class pistaMainTableController implements Initializable, controlledScreen
             @Override
             public void handle(TableColumn.CellEditEvent<pistaMainTableModel, String> pistaMainTableModelStringCellEditEvent) {
 
-                if(pistaAnterior == pistaMainTableModelStringCellEditEvent.getRowValue()){
-                    pistaAtual.setPais(pistaMainTableModelStringCellEditEvent.getNewValue());
-                }else{
-                    tableView.getItems().remove(pistaAtual);
-                    tableView.getItems().add(pistaAnterior);
-                }
+                pista = pistaMainTableModelStringCellEditEvent.getRowValue();
+                pista.setCidade(pistaMainTableModelStringCellEditEvent.getNewValue());
+                int i = findRowPista(pista);
+                pistaValuesAtual.put(i, pista);
+
             }
         });
 
         this.t2tableColumn1.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<pistaTracadoModel, String>>() {
             @Override
             public void handle(TableColumn.CellEditEvent<pistaTracadoModel, String> pistaTracadoModelStringCellEditEvent) {
-                tracadoAnterior = pistaTracadoModelStringCellEditEvent.getRowValue();
-                tracadoAtual = pistaTracadoModelStringCellEditEvent.getRowValue();
-                tracadoAtual.setAnoAlteracao(pistaTracadoModelStringCellEditEvent.getNewValue());
+
+                tracado = pistaTracadoModelStringCellEditEvent.getRowValue();
+                tracado.setAnoAlteracao(pistaTracadoModelStringCellEditEvent.getNewValue());
+                int i = findRowTracado(tracado);
+                tracadoValuesAtual.put(i, tracado);
             }
         });
 
         this.t2tableColumn2.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<pistaTracadoModel, String>>() {
             @Override
             public void handle(TableColumn.CellEditEvent<pistaTracadoModel, String> pistaTracadoModelStringCellEditEvent) {
-                if(tracadoAnterior == pistaTracadoModelStringCellEditEvent.getRowValue()){
-                    tracadoAtual.setDistancia(pistaTracadoModelStringCellEditEvent.getNewValue());
-                }else{
-                    tableView2.getItems().remove(tracadoAtual);
-                    tableView2.getItems().add(tracadoAnterior);
-                }
+                tracado = pistaTracadoModelStringCellEditEvent.getRowValue();
+                tracado.setDistancia(pistaTracadoModelStringCellEditEvent.getNewValue());
+                int i = findRowTracado(tracado);
+                tracadoValuesAtual.put(i, tracado);
             }
         });
 
         this.t2tableColumn3.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<pistaTracadoModel, String>>() {
             @Override
             public void handle(TableColumn.CellEditEvent<pistaTracadoModel, String> pistaTracadoModelStringCellEditEvent) {
-                if(tracadoAnterior == pistaTracadoModelStringCellEditEvent.getRowValue()){
-                    tracadoAtual.setAnoAlteracao(pistaTracadoModelStringCellEditEvent.getNewValue());
-                }else{
-                    tableView2.getItems().remove(tracadoAtual);
-                    tableView2.getItems().add(tracadoAnterior);
-                }
+                tracado = pistaTracadoModelStringCellEditEvent.getRowValue();
+                tracado.setNumeroVoltas(pistaTracadoModelStringCellEditEvent.getNewValue());
+                int i = findRowTracado(tracado);
+                tracadoValuesAtual.put(i, tracado);
             }
         });
+
+
     }
+
+
 
 }

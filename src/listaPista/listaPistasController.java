@@ -47,6 +47,14 @@ public class listaPistasController extends pistaMainTableController implements I
                     staticTableView.setItems(pistas);
                     ObservableList<pistaTracadoModel> tracado = FXCollections.observableArrayList(pistaDAO.readListaTracados(listaPista.getNome()));
                     staticTableView2.setItems(tracado);
+
+                    for(int i = 0; i < staticTableView.getItems().size(); ++i){
+                        staticPistaValuesAnterior.add(staticTableView.getItems().get(i));
+                    }
+
+                    for(int i = 0; i < staticTableView2.getItems().size(); ++i){
+                        staticTracadoValuesAnterior.add(staticTableView2.getItems().get(i));
+                    }
                 }
             }});
     }

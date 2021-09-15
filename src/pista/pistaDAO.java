@@ -14,8 +14,7 @@ public final class pistaDAO {
 
     public static void updatePista(pistaMainTableModel pistaAnterior, pistaMainTableModel pistaAtual){
 
-        String sql = "UPDATE pista SET nomepista = '" + pistaAtual.getNome() + "', paispista = '" + pistaAtual.getPais() + "', cidadepista = '" + pistaAtual.getCidade() + "' WHERE nomepista = '" + pistaAnterior.getNome() +"' AND" +
-                "paispista = '" + pistaAnterior.getPais() + "' AND cidadepista = '" + pistaAnterior.getCidade() + "';";
+        String sql = "UPDATE pista SET nomepista = '" + pistaAtual.getNome() + "', paispista = '" + pistaAtual.getPais() + "', cidadepista = '" + pistaAtual.getCidade() + "' WHERE nomepista = '" + pistaAnterior.getNome() +"' AND paispista = '" + pistaAnterior.getPais() + "' AND cidadepista = '" + pistaAnterior.getCidade() + "'";
 
         try{
             Statement declaracao = con.createStatement();
@@ -26,9 +25,9 @@ public final class pistaDAO {
         }
     }
 
-    public static void updateTracado(pistaTracadoModel tracado){
+    public static void updateTracado(pistaTracadoModel tracadoAnterior, pistaTracadoModel tracadoAtual){
 
-        String sql = "UPDATE tracado SET anoAlteracaoTracado = '" + tracado.getAnoAlteracao() + "', distanciaTracado = '" + tracado.getDistancia() + "', numeroVoltasTracado = '" + tracado.getNumeroVoltas() + "'";
+        String sql = "UPDATE tracado SET anoAlteracaoTracado = '" + tracadoAtual.getAnoAlteracao() + "', distanciaTracado = '" + tracadoAtual.getDistancia() + "', numeroVoltasTracado = '" + tracadoAtual.getNumeroVoltas() + "' WHERE anoAlteracaoTracado = '" + tracadoAtual.getAnoAlteracao() + "' AND distanciaTracado = '" + tracadoAtual.getAnoAlteracao() + "' AND numeroVoltasTracado = '" + tracadoAtual.getNumeroVoltas() + "'";
 
         try{
             Statement declaracao = con.createStatement();
