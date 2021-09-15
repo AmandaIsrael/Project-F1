@@ -10,16 +10,24 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import sample.Main;
 import sample.utils.ConnectPostgre;
 import sample.utils.controlledScreen;
 import sample.utils.screensController;
+import equipe.equipeMainTableController;
+import equipe.equipeDAO;
+import equipe.equipeLiderModel;
+import equipe.equipeMainTableModel;
+import equipe.equipeMotoresModel;
+import equipe.equipeNomeAntigoModel;
 
-public class listaEquipesController implements Initializable, controlledScreen {
+public class listaEquipesController extends equipeMainTableController implements Initializable, controlledScreen {
     screensController myController;
     @FXML private TableView<listaEquipesModel> tableView;
     @FXML private TableColumn<listaEquipesModel, SimpleStringProperty> tableColumn1;
@@ -29,6 +37,24 @@ public class listaEquipesController implements Initializable, controlledScreen {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initTable();
+
+        tableView.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                listaEquipesModel listaEquipes = tableView.getSelectionModel().getSelectedItem();
+                if (mouseEvent.getClickCount() == 2){
+                    goToEquipe();
+
+                    ObservableList<equipeLiderModel> lider = FXCollections.observableArrayList(equipeDAO.readListaLideres(listaEquipes.getNome()));
+                    staticTableView.setItems(lider);
+                    ObservableList<equipeNomeAntigoModel> nomes = FXCollections.observableArrayList(equipeDAO.readListaNomesAntigos(listaEquipes.getNome()));
+                    staticTableView2.setItems(nomes);
+                    ObservableList<equipeMotoresModel> motores = FXCollections.observableArrayList(equipeDAO.readListaMotores(listaEquipes.getNome()));
+                    staticTableView3.setItems(motores);
+                    ObservableList<equipeMainTableModel> equipe = FXCollections.observableArrayList(equipeDAO.readListaEquipes(listaEquipes.getNome()));
+                    staticTableView4.setItems(equipe);
+                }
+            }});
     }
 
     @Override
@@ -52,6 +78,10 @@ public class listaEquipesController implements Initializable, controlledScreen {
     @FXML
     private void goToPistas(ActionEvent event){
         myController.setScreen(Main.screen5ID);
+    }
+
+    private void goToEquipe(){
+        myController.setScreen(Main.screen7ID);
     }
 
     public void initTable(){

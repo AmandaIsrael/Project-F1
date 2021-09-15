@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #3d3c41;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #3d3c41;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="equipe.equipeMainTableController">
    <children>
       <MenuBar VBox.vgrow="NEVER">
          <menus>
@@ -34,12 +34,12 @@
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Label>
-                        <TableView prefHeight="304.0" prefWidth="372.0">
+                        <TableView fx:id="tableView3" prefHeight="304.0" prefWidth="372.0">
                            <columns>
-                              <TableColumn prefWidth="75.0" text="Motor" />
-                              <TableColumn prefWidth="105.0" text="Nacionalidade" />
-                              <TableColumn prefWidth="103.0" text="Ano inicial" />
-                              <TableColumn prefWidth="98.0" text="Ano final" />
+                              <TableColumn fx:id="t3tableColumn1" prefWidth="75.0" text="Motor" />
+                              <TableColumn fx:id="t3tableColumn2" prefWidth="105.0" text="Nacionalidade" />
+                              <TableColumn fx:id="t3tableColumn3" prefWidth="103.0" text="Ano inicial" />
+                              <TableColumn fx:id="t3tableColumn4" prefWidth="98.0" text="Ano final" />
                            </columns>
                         </TableView>
                      </children>
@@ -71,12 +71,11 @@
                                     <Font name="System Bold" size="24.0" />
                                  </font>
                               </Label>
-                              <TableView prefHeight="95.0" prefWidth="548.0">
+                              <TableView fx:id="tableView4" prefHeight="95.0" prefWidth="548.0">
                                  <columns>
-                                    <TableColumn prefWidth="86.0" text="Nome" />
-                                    <TableColumn prefWidth="110.0" text="Cidade" />
-                                    <TableColumn minWidth="3.0" prefWidth="163.0" text="Nacionalidade" />
-                                    <TableColumn minWidth="3.0" prefWidth="211.0" text="Ano inicial" />
+                                    <TableColumn fx:id="t4tableColumn1" prefWidth="86.0" text="Nome" />
+                                    <TableColumn fx:id="t4tableColumn2" prefWidth="110.0" text="Cidade" />
+                                    <TableColumn fx:id="t4tableColumn3" minWidth="3.0" prefWidth="163.0" text="Nacionalidade" />
                                  </columns>
                               </TableView>
                            </children>
@@ -88,11 +87,11 @@
                                     <Font name="System Bold" size="24.0" />
                                  </font>
                               </Label>
-                              <TableView prefHeight="134.0" prefWidth="549.0">
+                              <TableView fx:id="tableView2" prefHeight="134.0" prefWidth="549.0">
                                  <columns>
-                                    <TableColumn prefWidth="143.0" text="Nome antigo" />
-                                    <TableColumn prefWidth="220.0" text="Ano inicial" />
-                                    <TableColumn prefWidth="161.0" text="Ano final" />
+                                    <TableColumn fx:id="t2tableColumn1" prefWidth="143.0" text="Nome antigo" />
+                                    <TableColumn fx:id="t2tableColumn2" prefWidth="220.0" text="Ano inicial" />
+                                    <TableColumn fx:id="t2tableColumn3" prefWidth="161.0" text="Ano final" />
                                  </columns>
                               </TableView>
                            </children>
@@ -111,16 +110,16 @@
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Label>
-                        <TableView prefHeight="131.0" prefWidth="1025.0">
+                        <TableView fx:id="tableView" prefHeight="131.0" prefWidth="1025.0">
                            <columns>
-                              <TableColumn prefWidth="77.0" text="Nome" />
-                              <TableColumn prefWidth="122.66668701171875" text="Sobrenome" />
-                              <TableColumn prefWidth="107.33334350585938" text="Cargo" />
-                              <TableColumn prefWidth="160.33331298828125" text="Data de nascimento" />
-                              <TableColumn prefWidth="110.66668701171875" text="Cidade" />
-                              <TableColumn prefWidth="164.0" text="Nacionalidade" />
-                              <TableColumn maxWidth="405.0" prefWidth="135.0" text="Ano Inicial" />
-                              <TableColumn prefWidth="148.3333740234375" text="Ano final" />
+                              <TableColumn fx:id="tableColumn1" prefWidth="77.0" text="Nome" />
+                              <TableColumn fx:id="tableColumn2" prefWidth="122.66668701171875" text="Sobrenome" />
+                              <TableColumn fx:id="tableColumn3" prefWidth="107.33334350585938" text="Cargo" />
+                              <TableColumn fx:id="tableColumn4" prefWidth="160.33331298828125" text="Data de nascimento" />
+                              <TableColumn fx:id="tableColumn5" prefWidth="110.66668701171875" text="Cidade" />
+                              <TableColumn fx:id="tableColumn6" prefWidth="164.0" text="Nacionalidade" />
+                              <TableColumn fx:id="tableColumn7" maxWidth="405.0" prefWidth="135.0" text="Ano Inicial" />
+                              <TableColumn fx:id="tableColumn8" prefWidth="148.3333740234375" text="Ano final" />
                            </columns>
                         </TableView>
                      </children>
