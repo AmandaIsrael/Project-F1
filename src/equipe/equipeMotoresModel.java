@@ -8,7 +8,7 @@ public class equipeMotoresModel {
     SimpleStringProperty anoInicio;
     SimpleStringProperty anoFim;
 
-    public equipeMotoresModel(SimpleStringProperty motor, SimpleStringProperty nacionalidade, SimpleStringProperty anoFim, SimpleStringProperty anoInicio) {
+    public equipeMotoresModel(SimpleStringProperty motor, SimpleStringProperty nacionalidade, SimpleStringProperty anoInicio, SimpleStringProperty anoFim) {
         this.motor = motor;
         this.nacionalidade = nacionalidade;
         this.anoFim = anoFim;

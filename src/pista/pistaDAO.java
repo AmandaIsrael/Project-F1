@@ -12,6 +12,33 @@ import java.util.ArrayList;
 public final class pistaDAO {
     private static Connection con = ConnectPostgre.ConnectDatabase();
 
+    public static void updatePista(pistaMainTableModel pistaAnterior, pistaMainTableModel pistaAtual){
+
+        String sql = "UPDATE pista SET nomepista = '" + pistaAtual.getNome() + "', paispista = '" + pistaAtual.getPais() + "', cidadepista = '" + pistaAtual.getCidade() + "' WHERE nomepista = '" + pistaAnterior.getNome() +"' AND" +
+                "paispista = '" + pistaAnterior.getPais() + "' AND cidadepista = '" + pistaAnterior.getCidade() + "';";
+
+        try{
+            Statement declaracao = con.createStatement();
+            declaracao.executeQuery(sql);
+
+        }catch(SQLException e){
+            System.out.println("Error updatePista");
+        }
+    }
+
+    public static void updateTracado(pistaTracadoModel tracado){
+
+        String sql = "UPDATE tracado SET anoAlteracaoTracado = '" + tracado.getAnoAlteracao() + "', distanciaTracado = '" + tracado.getDistancia() + "', numeroVoltasTracado = '" + tracado.getNumeroVoltas() + "'";
+
+        try{
+            Statement declaracao = con.createStatement();
+            declaracao.executeQuery(sql);
+
+        }catch(SQLException e){
+            System.out.println("Error updateTracado");
+        }
+    }
+
     public static ArrayList<pistaMainTableModel> readListaPistas(String nomePista){
 
         ArrayList<pistaMainTableModel> pistas = new ArrayList<>();

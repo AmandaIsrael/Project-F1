@@ -15,7 +15,7 @@ public class equipeDAO {
     public static ArrayList<equipeLiderModel> readListaLideres(String equipeNome){
         
         ArrayList<equipeLiderModel> lideres = new ArrayList<>();
-        String sql = "SELECT liderNome, liderSobrenome, liderNacionalidade, liderCidade, liderNacimento, cargo, lideradaAnoInicio, lideradaAnoFim FROM lider, liderada, liderRegistro, equipeRegistro WHERE lideradaLiderID = liderID AND liderRegistroNome = liderNome AND liderRegistroSobrenome = liderSobrenome AND lideradaEquipeID=equipeID AND equipeRegistroNome="+equipeNome;
+        String sql = "SELECT liderNome, liderSobrenome, liderNacionalidade, liderCidade, liderNascimento, cargo, lideradaAnoInicio, COALESCE(lideradaAnoFim, -1) as lideradaAnoFim FROM lider, liderada, liderRegistro, equipeRegistro WHERE lideradaLiderID = liderID AND liderRegistroNome = liderNome AND liderRegistroSobrenome = liderSobrenome AND lideradaEquipeID=equipeID AND equipeRegistroNome= '"+equipeNome + "'";
 
         try{
             Statement declaracao = con.createStatement();
@@ -26,13 +26,15 @@ public class equipeDAO {
                 SimpleStringProperty sobrenome = new SimpleStringProperty(resultado.getString("liderSobrenome"));
                 SimpleStringProperty cargo = new SimpleStringProperty(resultado.getString("cargo"));
                 SimpleStringProperty nascimento = new SimpleStringProperty(resultado.getString("liderNascimento"));
-                SimpleStringProperty cidade = new SimpleStringProperty(resultado.getString("liderCidade "));
+                SimpleStringProperty cidade = new SimpleStringProperty(resultado.getString("liderCidade"));
                 SimpleStringProperty nacionalidade = new SimpleStringProperty(resultado.getString("liderNacionalidade"));
                 SimpleStringProperty anoInicio = new SimpleStringProperty(resultado.getString("lideradaAnoInicio"));
                 SimpleStringProperty anoFim = new SimpleStringProperty(resultado.getString("lideradaAnoFim"));
 
+                if(anoFim.get().equals("-1")){
+                    anoFim.set("Atual");
+                }
                 equipeLiderModel lider = new equipeLiderModel(nome, sobrenome, cargo, nascimento, cidade, nacionalidade, anoInicio, anoFim);
-
                 lideres.add(lider);
 
             }
@@ -72,7 +74,7 @@ public class equipeDAO {
     public static ArrayList<equipeMotoresModel> readListaMotores(String equipeNome){
         
         ArrayList<equipeMotoresModel> motores = new ArrayList<>();
-        String sql = "(SELECT motorNome, nacionalidadeFornecedor, motorAnoInicio, motorAnoFim FROM utilizouMotor, fornecedorMotor, equiperegistro WHERE nomeFornecedor=motorNome AND motorEquipe=equipeID AND equipeRegistroNome='"+equipeNome+"') UNION (SELECT motorAtual, nacionalidadeMotorAtual, equipeAnoInicioMotorAtual, NULL FROM MotorEquipe, Equipe WHERE equipeMotorAtual=motorAtual AND equipeNome='"+equipeNome+"') ORDER BY motorAnoInicio";
+        String sql = "(SELECT motorNome, nacionalidadeFornecedor, motorAnoInicio, motorAnoFim FROM utilizouMotor, fornecedorMotor, equiperegistro WHERE nomeFornecedor=motorNome AND motorEquipe=equipeID AND equipeRegistroNome='"+equipeNome+"') UNION (SELECT motorAtual, nacionalidadeMotorAtual, equipeAnoInicioMotorAtual, -1 FROM MotorEquipe, Equipe WHERE equipeMotorAtual=motorAtual AND equipeNome='"+equipeNome+"') ORDER BY motorAnoInicio";
 
         try{
             Statement declaracao = con.createStatement();
@@ -84,6 +86,9 @@ public class equipeDAO {
                 SimpleStringProperty anoInicio = new SimpleStringProperty(resultado.getString("motorAnoInicio"));
                 SimpleStringProperty anoFim = new SimpleStringProperty(resultado.getString("motorAnoFim"));
 
+                if(anoFim.get().equals("-1")){
+                    anoFim.set("Atual");
+                }
                 equipeMotoresModel motor = new equipeMotoresModel(motorNome, nacionalidade, anoInicio, anoFim);
 
                 motores.add(motor);

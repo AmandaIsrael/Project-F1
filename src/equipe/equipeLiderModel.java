@@ -11,9 +11,8 @@ public class equipeLiderModel {
     SimpleStringProperty nascimento;
     SimpleStringProperty anoInicio;
     SimpleStringProperty anoFim;
-    
 
-    public equipeLiderModel(SimpleStringProperty nome, SimpleStringProperty nacionalidade, SimpleStringProperty cidade, SimpleStringProperty sobrenome, SimpleStringProperty cargo, SimpleStringProperty nascimento, SimpleStringProperty anoInicio, SimpleStringProperty anoFim) {
+    public equipeLiderModel(SimpleStringProperty nome, SimpleStringProperty sobrenome, SimpleStringProperty cargo, SimpleStringProperty nascimento, SimpleStringProperty cidade, SimpleStringProperty nacionalidade, SimpleStringProperty anoInicio, SimpleStringProperty anoFim) {
         this.nome = nome;
         this.nacionalidade = nacionalidade;
         this.cidade = cidade;

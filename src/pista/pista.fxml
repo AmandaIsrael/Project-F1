@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,7 +13,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.scene.control.MenuItem?>
 <VBox prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #3d3c41;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pista.pistaMainTableController">
    <children>
       <MenuBar VBox.vgrow="NEVER">
@@ -23,7 +23,7 @@
                   <MenuItem mnemonicParsing="false" onAction="#goToAno" text="Ano" />
                   <MenuItem mnemonicParsing="false" onAction="#goToPilotos" text="Pilotos" />
                   <MenuItem mnemonicParsing="false" onAction="#goToEquipes" text="Equipes" />
-                  <MenuItem mnemonicParsing="false" onAction="#goToPistas" text="Pistas"/>
+                  <MenuItem mnemonicParsing="false" onAction="#goToPistas" text="Pistas" />
                </items></Menu>
          </menus>
       </MenuBar>
@@ -31,7 +31,7 @@
          <children>
             <BorderPane prefHeight="695.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <top>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="39.0" prefWidth="176.0" style="-fx-background-color: #000000;" text="Editar" textFill="WHITE" BorderPane.alignment="TOP_RIGHT">
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#Update" prefHeight="39.0" prefWidth="176.0" style="-fx-background-color: #000000;" text="Editar" textFill="WHITE" BorderPane.alignment="TOP_RIGHT">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -53,7 +53,7 @@
                                     <Font name="System Bold" size="24.0" />
                                  </font>
                               </Label>
-                              <TableView fx:id="tableView" prefHeight="228.0" prefWidth="865.0">
+                              <TableView fx:id="tableView" editable="true" prefHeight="228.0" prefWidth="865.0">
                                  <columns>
                                     <TableColumn fx:id="tableColumn1" prefWidth="262.0" text="Nome" />
                                     <TableColumn fx:id="tableColumn2" prefWidth="350.0" text="País" />
@@ -69,7 +69,7 @@
                                     <Font name="System Bold" size="24.0" />
                                  </font>
                               </Label>
-                              <TableView fx:id="tableView2" prefHeight="204.0" prefWidth="864.0">
+                              <TableView fx:id="tableView2" editable="true" prefHeight="204.0" prefWidth="864.0">
                                  <columns>
                                     <TableColumn fx:id="t2tableColumn1" prefWidth="257.0" text="Ano de alteração" />
                                     <TableColumn fx:id="t2tableColumn2" prefWidth="353.0" text="Distância" />

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #3d3c41;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="listaPista.listaPistasController">
+    <children>
+        <MenuBar VBox.vgrow="NEVER">
+            <menus>
+                <Menu mnemonicParsing="false" text="Telas">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#goToHome" text="Home" />
+                        <MenuItem mnemonicParsing="false" onAction="#goToAno" text="Ano" />
+                        <MenuItem mnemonicParsing="false" onAction="#goToPilotos" text="Pilotos" />
+                        <MenuItem mnemonicParsing="false" onAction="#goToEquipes" text="Equipes" />
+                        <MenuItem mnemonicParsing="false" text="Pistas" />
+                    </items></Menu>
+            </menus>
+        </MenuBar>
+        <AnchorPane maxHeight="-1.0" maxWidth="-1.0" VBox.vgrow="ALWAYS">
+            <children>
+                <BorderPane prefHeight="695.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <bottom>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="39.0" prefWidth="162.0" style="-fx-background-color: #000000;" text="Adicionar Pista" textFill="WHITE" BorderPane.alignment="BOTTOM_RIGHT">
+                            <BorderPane.margin>
+                                <Insets bottom="30.0" right="50.0" />
+                            </BorderPane.margin>
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Button>
+                    </bottom>
+                    <top>
+                        <Label text="Campeonato de Equipes" textFill="WHITE" BorderPane.alignment="TOP_LEFT">
+                            <BorderPane.margin>
+                                <Insets left="150.0" top="50.0" />
+                            </BorderPane.margin>
+                            <font>
+                                <Font name="System Bold" size="36.0" />
+                            </font>
+                        </Label>
+                    </top>
+               <center>
+                  <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <columns>
+                        <TableColumn prefWidth="106.0" text="Nome da Equipe" />
+                        <TableColumn prefWidth="56.0" text="AUT" />
+                        <TableColumn prefWidth="63.0" text="STY" />
+                        <TableColumn prefWidth="75.0" text="HUN" />
+                      <TableColumn prefWidth="75.0" text="GBR" />
+                      <TableColumn prefWidth="75.0" text="70" />
+                        <TableColumn prefWidth="75.0" text="ESP" />
+                        <TableColumn prefWidth="75.0" text="BEL" />
+                        <TableColumn prefWidth="75.0" text="ITA" />
+                        <TableColumn prefWidth="75.0" text="TOS" />
+                        <TableColumn prefWidth="82.0" text="RUS" />
+                        <TableColumn prefWidth="73.0" text="EIF" />
+                        <TableColumn prefWidth="78.0" text="PRT" />
+                        <TableColumn prefWidth="67.0" text="ERO" />
+                        <TableColumn prefWidth="75.0" text="TUR" />
+                        <TableColumn prefWidth="75.0" text="BHR" />
+                        <TableColumn prefWidth="75.0" text="SAK" />
+                        <TableColumn prefWidth="75.0" text="ABD" />
+                        <TableColumn prefWidth="75.0" text="Total" />
+                    </columns>
+                     <BorderPane.margin>
+                        <Insets bottom="50.0" left="150.0" right="150.0" top="40.0" />
+                     </BorderPane.margin>
+                  </TableView>
+               </center>
+                </BorderPane>
+            </children>
+        </AnchorPane>
+    </children>
+</VBox>

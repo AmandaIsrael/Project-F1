@@ -7,7 +7,7 @@ public class equipeNomeAntigoModel {
     SimpleStringProperty anoInicio;
     SimpleStringProperty anoFim;
 
-    public equipeNomeAntigoModel(SimpleStringProperty nomeAntigo, SimpleStringProperty anoFim, SimpleStringProperty anoInicio) {
+    public equipeNomeAntigoModel(SimpleStringProperty nomeAntigo, SimpleStringProperty anoInicio, SimpleStringProperty anoFim) {
         this.nomeAntigo = nomeAntigo;
         this.anoFim = anoFim;
         this.anoInicio = anoInicio;
