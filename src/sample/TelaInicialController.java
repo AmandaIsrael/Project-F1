@@ -41,19 +41,6 @@ public class TelaInicialController implements Initializable, controlledScreen {
     @FXML
     private void goToPistas(ActionEvent event) throws IOException {
         myController.setScreen(Main.screen5ID);
-        /*
-        URL url = getClass().getResource(Main.screen6File);
-        FXMLLoader myLoader = new FXMLLoader(url);
-        myLoader.load();
-        //controlledScreen myScreenController = myLoader.getController();
-        pistaMainTableController pistaController = myLoader.getController();
-        myController.setScreen(Main.screen6ID);
-        System.out.println(pistaController.getNomePista());
-        pistaController.populateTable("Hungaroring");
-        System.out.println(pistaController.getNomePista());
-
-         */
-
     }
 
 }

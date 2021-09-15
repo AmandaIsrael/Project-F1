@@ -41,7 +41,7 @@ public class listaPistasController extends pistaMainTableController implements I
             @Override
             public void handle(MouseEvent mouseEvent) {
                 listaPistaModel listaPista = tableView.getSelectionModel().getSelectedItem();
-                if (mouseEvent.getClickCount() == 2){ //Checking double click
+                if (mouseEvent.getClickCount() == 2){
                     goToPista();
                     ObservableList<pistaMainTableModel> pistas = FXCollections.observableArrayList(pistaDAO.readListaPistas(listaPista.getNome()));
                     staticTableView.setItems(pistas);

@@ -23,7 +23,7 @@
                   <MenuItem mnemonicParsing="false" onAction="#goToAno" text="Ano" />
                   <MenuItem mnemonicParsing="false" onAction="#goToPilotos" text="Pilotos" />
                   <MenuItem mnemonicParsing="false" onAction="#goToEquipes" text="Equipes" />
-                  <MenuItem mnemonicParsing="false" text="Pistas" />
+                  <MenuItem mnemonicParsing="false" onAction="#goToPistas" text="Pistas"/>
                </items></Menu>
          </menus>
       </MenuBar>

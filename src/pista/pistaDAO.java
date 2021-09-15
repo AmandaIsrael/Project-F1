@@ -1,6 +1,5 @@
 package pista;
 
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import sample.utils.ConnectPostgre;
 

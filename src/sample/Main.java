@@ -1,9 +1,7 @@
 package sample;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import sample.utils.screensController;
@@ -20,6 +18,7 @@ public class Main extends Application {
     public static String screen4File = "/listaEquipes/ListaEquipes.fxml";
     public static String screen5ID = "Pistas";
     public static String screen5File = "/listaPista/ListaPistas.fxml";
+
     public static String screen6ID = "Pista";
     public static String screen6File = "/pista/pista.fxml";
 
