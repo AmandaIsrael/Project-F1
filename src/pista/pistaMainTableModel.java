@@ -12,6 +12,12 @@ public class pistaMainTableModel {
         this.pais = pais;
         this.cidade = cidade;
     }
+
+    public pistaMainTableModel(String nome, String pais, String cidade){
+        this.nome.set(nome);
+        this.nome.set(pais);
+        this.nome.set(cidade);
+    }
     
     public String getNome() {
         return this.nome.get();

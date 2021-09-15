@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,18 +13,17 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.scene.control.MenuItem?>
 <VBox prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #3d3c41;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="listaPista.listaPistasController">
    <children>
       <MenuBar VBox.vgrow="NEVER">
          <menus>
             <Menu mnemonicParsing="false" text="Telas">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Home" onAction="#goToHome" />
-                  <MenuItem mnemonicParsing="false" text="Ano" onAction="#goToAno"/>
-                  <MenuItem mnemonicParsing="false" text="Pilotos" onAction="#goToPilotos"/>
-                  <MenuItem mnemonicParsing="false" text="Equipes" onAction="#goToEquipes"/>
-                  <MenuItem mnemonicParsing="false" text="Pistas"/>
+                  <MenuItem mnemonicParsing="false" onAction="#goToHome" text="Home" />
+                  <MenuItem mnemonicParsing="false" onAction="#goToAno" text="Ano" />
+                  <MenuItem mnemonicParsing="false" onAction="#goToPilotos" text="Pilotos" />
+                  <MenuItem mnemonicParsing="false" onAction="#goToEquipes" text="Equipes" />
+                  <MenuItem mnemonicParsing="false" text="Pistas" />
                </items></Menu>
          </menus>
       </MenuBar>
@@ -41,7 +41,7 @@
                   </Button>
                </bottom>
                <center>
-                  <TableView fx:id="tableView" prefHeight="435.0" prefWidth="965.0">
+                  <TableView fx:id="tableView" editable="true" prefHeight="435.0" prefWidth="965.0">
                      <columns>
                         <TableColumn fx:id="tableColumn1" prefWidth="279.0" text="Nome" />
                         <TableColumn fx:id="tableColumn2" prefWidth="699.0" text="País" />

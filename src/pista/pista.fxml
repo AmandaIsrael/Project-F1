@@ -12,15 +12,19 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #3d3c41;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.control.MenuItem?>
+<VBox prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #3d3c41;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pista.pistaMainTableController">
    <children>
       <MenuBar VBox.vgrow="NEVER">
          <menus>
-            <Menu mnemonicParsing="false" text="Home" />
-            <Menu mnemonicParsing="false" text="Ano" />
-            <Menu mnemonicParsing="false" text="Pilotos" />
-            <Menu mnemonicParsing="false" text="Equipes" />
-            <Menu mnemonicParsing="false" text="Pistas" />
+            <Menu mnemonicParsing="false" text="Telas">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#goToHome" text="Home" />
+                  <MenuItem mnemonicParsing="false" onAction="#goToAno" text="Ano" />
+                  <MenuItem mnemonicParsing="false" onAction="#goToPilotos" text="Pilotos" />
+                  <MenuItem mnemonicParsing="false" onAction="#goToEquipes" text="Equipes" />
+                  <MenuItem mnemonicParsing="false" text="Pistas" />
+               </items></Menu>
          </menus>
       </MenuBar>
       <AnchorPane maxHeight="-1.0" maxWidth="-1.0" VBox.vgrow="ALWAYS">
@@ -49,11 +53,11 @@
                                     <Font name="System Bold" size="24.0" />
                                  </font>
                               </Label>
-                              <TableView prefHeight="228.0" prefWidth="865.0">
+                              <TableView fx:id="tableView" prefHeight="228.0" prefWidth="865.0">
                                  <columns>
-                                    <TableColumn prefWidth="262.0" text="Nome" />
-                                    <TableColumn prefWidth="350.0" text="País" />
-                                    <TableColumn minWidth="3.0" prefWidth="252.0" text="Cidade" />
+                                    <TableColumn fx:id="tableColumn1" prefWidth="262.0" text="Nome" />
+                                    <TableColumn fx:id="tableColumn2" prefWidth="350.0" text="País" />
+                                    <TableColumn fx:id="tableColumn3" minWidth="3.0" prefWidth="252.0" text="Cidade" />
                                  </columns>
                               </TableView>
                            </children>
@@ -65,11 +69,11 @@
                                     <Font name="System Bold" size="24.0" />
                                  </font>
                               </Label>
-                              <TableView prefHeight="204.0" prefWidth="864.0">
+                              <TableView fx:id="tableView2" prefHeight="204.0" prefWidth="864.0">
                                  <columns>
-                                    <TableColumn prefWidth="257.0" text="Ano de alteração" />
-                                    <TableColumn prefWidth="353.0" text="Distância" />
-                                    <TableColumn prefWidth="269.0" text="Número de voltas" />
+                                    <TableColumn fx:id="t2tableColumn1" prefWidth="257.0" text="Ano de alteração" />
+                                    <TableColumn fx:id="t2tableColumn2" prefWidth="353.0" text="Distância" />
+                                    <TableColumn fx:id="t2tableColumn3" prefWidth="269.0" text="Número de voltas" />
                                  </columns>
                               </TableView>
                            </children>

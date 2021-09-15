@@ -10,16 +10,22 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import pista.pistaDAO;
+import pista.pistaMainTableModel;
+import pista.pistaTracadoModel;
 import sample.Main;
 import sample.utils.ConnectPostgre;
 import sample.utils.controlledScreen;
 import sample.utils.screensController;
+import pista.pistaMainTableController;
 
-public class listaPistasController implements Initializable, controlledScreen {
+public class listaPistasController extends pistaMainTableController implements Initializable, controlledScreen {
     screensController myController;
     @FXML private TableView<listaPistaModel> tableView;
     @FXML private TableColumn<listaPistaModel, SimpleStringProperty> tableColumn1;
@@ -30,6 +36,19 @@ public class listaPistasController implements Initializable, controlledScreen {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initTable();
+
+        tableView.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                listaPistaModel listaPista = tableView.getSelectionModel().getSelectedItem();
+                if (mouseEvent.getClickCount() == 2){ //Checking double click
+                    goToPista();
+                    ObservableList<pistaMainTableModel> pistas = FXCollections.observableArrayList(pistaDAO.readListaPistas(listaPista.getNome()));
+                    staticTableView.setItems(pistas);
+                    ObservableList<pistaTracadoModel> tracado = FXCollections.observableArrayList(pistaDAO.readListaTracados(listaPista.getNome()));
+                    staticTableView2.setItems(tracado);
+                }
+            }});
     }
 
     @Override
@@ -53,6 +72,11 @@ public class listaPistasController implements Initializable, controlledScreen {
     @FXML
     private void goToHome(ActionEvent event){
         myController.setScreen(Main.screen1ID);
+    }
+
+
+    private void goToPista(){
+        myController.setScreen(Main.screen6ID);
     }
 
     public void initTable(){

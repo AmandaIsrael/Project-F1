@@ -6,7 +6,6 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.RadioMenuItem?>
 <?import javafx.scene.control.SplitMenuButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -22,11 +21,11 @@
          <menus>
             <Menu mnemonicParsing="false" text="Telas">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Home" onAction="#goToHome" />
+                  <MenuItem mnemonicParsing="false" onAction="#goToHome" text="Home" />
                   <MenuItem mnemonicParsing="false" text="Ano" />
-                  <MenuItem mnemonicParsing="false" text="Pilotos" onAction="#goToPilotos"/>
-                  <MenuItem mnemonicParsing="false" text="Equipes" onAction="#goToEquipes"/>
-                  <MenuItem mnemonicParsing="false" text="Pistas" onAction="#goToPistas"/>
+                  <MenuItem mnemonicParsing="false" onAction="#goToPilotos" text="Pilotos" />
+                  <MenuItem mnemonicParsing="false" onAction="#goToEquipes" text="Equipes" />
+                  <MenuItem mnemonicParsing="false" onAction="#goToPistas" text="Pistas" />
                </items></Menu>
          </menus>
       </MenuBar>
@@ -89,7 +88,7 @@
                   </HBox>
                </top>
                <center>
-                  <TableView fx:id="tableView" prefHeight="403.0" prefWidth="575.0">
+                  <TableView fx:id="tableView" editable="true" prefHeight="403.0" prefWidth="575.0">
                     <columns>
                       <TableColumn fx:id="tableColumn1" prefWidth="194.0" text="Nome Grand Prix" />
                       <TableColumn fx:id="tableColumn2" prefWidth="205.0" text="Pista" />
