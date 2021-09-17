@@ -18,12 +18,22 @@ public class Main extends Application {
     public static String screen4File = "/listaEquipes/ListaEquipes.fxml";
     public static String screen5ID = "Pistas";
     public static String screen5File = "/listaPista/ListaPistas.fxml";
-
     public static String screen6ID = "Pista";
     public static String screen6File = "/pista/pista.fxml";
     public static String screen7ID = "Equipe";
     public static String screen7File = "/equipe/equipe.fxml";
-
+    public static String screen8ID = "Piloto";
+    public static String screen8File = "/piloto/piloto.fxml";
+    public static String screen9ID = "WCC";
+    public static String screen9File = "/WCC/WCC.fxml";
+    public static String screen10ID = "WDC";
+    public static String screen10File = "/WDC/WDC.fxml";
+    public static String screen11ID = "Resumo Grand Prix";
+    public static String screen11File = "/grandPrix/grandPrix/grandPrixResumo.fxml";
+    public static String screen12ID = "Grand Prix Corrida";
+    public static String screen12File = "/grandPrix/grandPrix/grandPrixCorrida.fxml";
+    public static String screen13ID = "Grand Prix Qualificatório";
+    public static String screen13File = "/grandPrix/grandPrix/grandPrixQuali.fxml";
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -35,6 +45,12 @@ public class Main extends Application {
         mainContainer.loadScreen(Main.screen5ID, Main.screen5File);
         mainContainer.loadScreen(Main.screen6ID, Main.screen6File);
         mainContainer.loadScreen(Main.screen7ID, Main.screen7File);
+        mainContainer.loadScreen(Main.screen8ID, Main.screen8File);
+        mainContainer.loadScreen(Main.screen9ID, Main.screen9File);
+        mainContainer.loadScreen(Main.screen10ID, Main.screen10File);
+        mainContainer.loadScreen(Main.screen11ID, Main.screen11File);
+        mainContainer.loadScreen(Main.screen12ID, Main.screen12File);
+        mainContainer.loadScreen(Main.screen13ID, Main.screen13File);
 
         mainContainer.setScreen(Main.screen1ID);
 

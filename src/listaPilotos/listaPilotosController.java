@@ -10,17 +10,23 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import sample.Main;
 import sample.utils.ConnectPostgre;
 import sample.utils.controlledScreen;
 import sample.utils.screensController;
+import piloto.pilotoMainTableController;
+import piloto.pilotoDAO;
+import piloto.pilotoContratoModel;
+import piloto.pilotoMainTableModel;
 
 
-public class listaPilotosController implements Initializable, controlledScreen {
+public class listaPilotosController extends pilotoMainTableController implements Initializable, controlledScreen {
     screensController myController;
     @FXML private TableView<listaPilotosModel> tableView;
     @FXML private TableColumn<listaPilotosModel, SimpleStringProperty> tableColumn1;
@@ -30,6 +36,21 @@ public class listaPilotosController implements Initializable, controlledScreen {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initTable();
+
+        tableView.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                listaPilotosModel listaPilotos = tableView.getSelectionModel().getSelectedItem();
+                if (mouseEvent.getClickCount() == 2){
+                    goToPiloto();
+
+                    ObservableList<pilotoMainTableModel> piloto = FXCollections.observableArrayList(pilotoDAO.readListaPilotos(listaPilotos.getNome(), listaPilotos.getSobrenome()));
+                    staticTableView.setItems(piloto);
+                    ObservableList<pilotoContratoModel> contrato = FXCollections.observableArrayList(pilotoDAO.readListaContratos(listaPilotos.getNome(), listaPilotos.getSobrenome()));
+                    staticTableView2.setItems(contrato);
+                    
+                }
+            }});
     }
 
     @Override
@@ -53,6 +74,10 @@ public class listaPilotosController implements Initializable, controlledScreen {
     @FXML
     private void goToPistas(ActionEvent event){
         myController.setScreen(Main.screen5ID);
+    }
+
+    private void goToPiloto(){
+        myController.setScreen(Main.screen8ID);
     }
 
     public void initTable(){
