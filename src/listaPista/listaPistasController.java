@@ -81,6 +81,11 @@ public class listaPistasController extends pistaMainTableController{
         myController.setScreen(Main.screen1ID);
     }
 
+    @FXML
+    private void goToAddPista(ActionEvent event){
+        myController.setScreen(Main.screen15ID);
+    }
+
 
     private void goToPista(){
         myController.setScreen(Main.screen6ID);

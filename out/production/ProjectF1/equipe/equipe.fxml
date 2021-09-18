@@ -5,10 +5,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -16,11 +18,14 @@
    <children>
       <MenuBar VBox.vgrow="NEVER">
          <menus>
-            <Menu mnemonicParsing="false" text="Home" />
-            <Menu mnemonicParsing="false" text="Ano" />
-            <Menu mnemonicParsing="false" text="Pilotos" />
-            <Menu mnemonicParsing="false" text="Equipes" />
-            <Menu mnemonicParsing="false" text="Pistas" />
+            <Menu mnemonicParsing="false" text="Telas">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#goToHome" text="Home" />
+                  <MenuItem mnemonicParsing="false" onAction="#goToAno" text="Ano" />
+                  <MenuItem mnemonicParsing="false" onAction="#goToPilotos" text="Pilotos" />
+                  <MenuItem mnemonicParsing="false" onAction="#goToEquipes" text="Equipes" />
+                  <MenuItem mnemonicParsing="false" onAction="#goToPistas" text="Pistas" />
+               </items></Menu>
          </menus>
       </MenuBar>
       <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="720.0" prefWidth="1280.0" VBox.vgrow="ALWAYS">
@@ -44,24 +49,14 @@
                         </TableView>
                      </children>
                      <BorderPane.margin>
-                        <Insets right="120.0" top="20.0" />
+                        <Insets right="120.0" top="70.0" />
                      </BorderPane.margin>
                   </VBox>
                </right>
-               <top>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="39.0" prefWidth="176.0" style="-fx-background-color: #000000;" text="Editar" textFill="WHITE" BorderPane.alignment="TOP_RIGHT">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                     <BorderPane.margin>
-                        <Insets right="30.0" top="20.0" />
-                     </BorderPane.margin>
-                  </Button>
-               </top>
                <left>
                   <VBox prefHeight="370.0" prefWidth="564.0" spacing="20.0" BorderPane.alignment="CENTER">
                      <BorderPane.margin>
-                        <Insets bottom="20.0" left="120.0" top="20.0" />
+                        <Insets bottom="20.0" left="120.0" top="70.0" />
                      </BorderPane.margin>
                      <children>
                         <VBox prefHeight="148.0" prefWidth="545.0" spacing="20.0">
@@ -73,9 +68,9 @@
                               </Label>
                               <TableView fx:id="tableView4" prefHeight="95.0" prefWidth="548.0">
                                  <columns>
-                                    <TableColumn fx:id="t4tableColumn1" prefWidth="86.0" text="Nome" />
-                                    <TableColumn fx:id="t4tableColumn2" prefWidth="110.0" text="Cidade" />
-                                    <TableColumn fx:id="t4tableColumn3" minWidth="3.0" prefWidth="163.0" text="Nacionalidade" />
+                                    <TableColumn fx:id="t4tableColumn1" prefWidth="167.0" text="Nome" />
+                                    <TableColumn fx:id="t4tableColumn2" prefWidth="183.0" text="Cidade" />
+                                    <TableColumn fx:id="t4tableColumn3" minWidth="3.0" prefWidth="213.0" text="Nacionalidade" />
                                  </columns>
                               </TableView>
                            </children>
@@ -103,25 +98,54 @@
                   </VBox>
                </left>
                <bottom>
-                  <VBox prefHeight="226.0" prefWidth="1029.0" spacing="20.0" BorderPane.alignment="CENTER">
+                  <VBox prefHeight="252.0" prefWidth="1040.0" spacing="20.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Label text="Líderes" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="24.0" />
-                           </font>
-                        </Label>
-                        <TableView fx:id="tableView" prefHeight="131.0" prefWidth="1025.0">
-                           <columns>
-                              <TableColumn fx:id="tableColumn1" prefWidth="77.0" text="Nome" />
-                              <TableColumn fx:id="tableColumn2" prefWidth="122.66668701171875" text="Sobrenome" />
-                              <TableColumn fx:id="tableColumn3" prefWidth="107.33334350585938" text="Cargo" />
-                              <TableColumn fx:id="tableColumn4" prefWidth="160.33331298828125" text="Data de nascimento" />
-                              <TableColumn fx:id="tableColumn5" prefWidth="110.66668701171875" text="Cidade" />
-                              <TableColumn fx:id="tableColumn6" prefWidth="164.0" text="Nacionalidade" />
-                              <TableColumn fx:id="tableColumn7" maxWidth="405.0" prefWidth="135.0" text="Ano Inicial" />
-                              <TableColumn fx:id="tableColumn8" prefWidth="148.3333740234375" text="Ano final" />
-                           </columns>
-                        </TableView>
+                        <VBox>
+                           <children>
+                              <Label text="Líderes" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <TableView fx:id="tableView" prefHeight="131.0" prefWidth="1025.0">
+                                 <columns>
+                                    <TableColumn fx:id="tableColumn1" prefWidth="77.0" text="Nome" />
+                                    <TableColumn fx:id="tableColumn2" prefWidth="122.66668701171875" text="Sobrenome" />
+                                    <TableColumn fx:id="tableColumn3" prefWidth="107.33334350585938" text="Cargo" />
+                                    <TableColumn fx:id="tableColumn4" prefWidth="160.33331298828125" text="Data de nascimento" />
+                                    <TableColumn fx:id="tableColumn5" prefWidth="110.66668701171875" text="Cidade" />
+                                    <TableColumn fx:id="tableColumn6" prefWidth="164.0" text="Nacionalidade" />
+                                    <TableColumn fx:id="tableColumn7" maxWidth="405.0" prefWidth="135.0" text="Ano Inicial" />
+                                    <TableColumn fx:id="tableColumn8" prefWidth="148.3333740234375" text="Ano final" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </VBox>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="1087.0" spacing="20.0" BorderPane.alignment="BOTTOM_RIGHT">
+                           <BorderPane.margin>
+                              <Insets bottom="30.0" right="50.0" />
+                           </BorderPane.margin>
+                           <children>
+                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="39.0" prefWidth="227.0" style="-fx-background-color: #000000;" text="Adicionar Nome Antigo" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="39.0" prefWidth="176.0" style="-fx-background-color: #000000;" text="Adicionar Líder" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="39.0" prefWidth="176.0" style="-fx-background-color: #000000;" text="Adicionar Motor" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </HBox>
                      </children>
                      <BorderPane.margin>
                         <Insets left="120.0" right="120.0" />

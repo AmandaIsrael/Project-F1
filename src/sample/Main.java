@@ -34,6 +34,10 @@ public class Main extends Application {
     public static String screen12File = "/grandPrix/grandPrixCorrida/grandPrixCorrida.fxml";
     public static String screen13ID = "Grand Prix Qualificatório";
     public static String screen13File = "/grandPrix/grandPrixQuali/grandPrixQuali.fxml";
+    public static String screen14ID = "addTracado";
+    public static String screen14File = "/pista/addTracado.fxml";
+    public static String screen15ID = "addPista";
+    public static String screen15File = "/listaPista/addPista.fxml";
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -51,6 +55,8 @@ public class Main extends Application {
         mainContainer.loadScreen(Main.screen11ID, Main.screen11File);
         mainContainer.loadScreen(Main.screen12ID, Main.screen12File);
         mainContainer.loadScreen(Main.screen13ID, Main.screen13File);
+        mainContainer.loadScreen(Main.screen14ID, Main.screen14File);
+        mainContainer.loadScreen(Main.screen15ID, Main.screen15File);
 
         mainContainer.setScreen(Main.screen1ID);
 
