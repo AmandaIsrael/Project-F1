@@ -123,149 +123,149 @@ public class WDCModel {
         return gbr;
     }
 
-    public String getg70a() {
+    public String getG70a() {
         return this.g70a.get();
     }
 
-    public void setg70a(String g70a) {
+    public void setG70a(String g70a) {
         this.g70a.set(g70a);
     }
     
-    public SimpleStringProperty setg70aProperty() {
+    public SimpleStringProperty setG70aProperty() {
         return g70a;
     }
-    public String getesp() {
+    public String getEsp() {
         return this.esp.get();
     }
 
-    public void setesp(String esp) {
+    public void setEsp(String esp) {
         this.esp.set(esp);
     }
     
-    public SimpleStringProperty setespProperty() {
+    public SimpleStringProperty setEspProperty() {
         return esp;
     }
-    public String getbel() {
+    public String getBel() {
         return this.bel.get();
     }
 
-    public void setbel(String bel) {
+    public void setBel(String bel) {
         this.bel.set(bel);
     }
     
-    public SimpleStringProperty setbelProperty() {
+    public SimpleStringProperty setBelProperty() {
         return bel;
     }
-    public String getita() {
+    public String getIta() {
         return this.ita.get();
     }
 
-    public void setita(String ita) {
+    public void setIta(String ita) {
         this.ita.set(ita);
     }
     
-    public SimpleStringProperty setitaProperty() {
+    public SimpleStringProperty setItaProperty() {
         return ita;
     }
-    public String gettus() {
+    public String getTus() {
         return this.tus.get();
     }
 
-    public void settus(String tus) {
+    public void setTus(String tus) {
         this.tus.set(tus);
     }
     
-    public SimpleStringProperty settusProperty() {
+    public SimpleStringProperty setTusProperty() {
         return tus;
     }
-    public String getrus() {
+    public String getRus() {
         return this.rus.get();
     }
 
-    public void setrus(String rus) {
+    public void setRus(String rus) {
         this.rus.set(rus);
     }
     
-    public SimpleStringProperty setrusProperty() {
+    public SimpleStringProperty setRusProperty() {
         return rus;
     }
-    public String geteif() {
+    public String getEif() {
         return this.eif.get();
     }
 
-    public void seteif(String eif) {
+    public void setEif(String eif) {
         this.eif.set(eif);
     }
     
-    public SimpleStringProperty seteifProperty() {
+    public SimpleStringProperty setEifProperty() {
         return eif;
     }
-    public String getpor() {
+    public String getPor() {
         return this.por.get();
     }
 
-    public void setpor(String por) {
+    public void setPor(String por) {
         this.por.set(por);
     }
     
-    public SimpleStringProperty setporProperty() {
+    public SimpleStringProperty setPorProperty() {
         return por;
     }
-    public String getemi() {
+    public String getEmi() {
         return this.emi.get();
     }
 
-    public void setemi(String emi) {
+    public void setEmi(String emi) {
         this.emi.set(emi);
     }
     
-    public SimpleStringProperty setemiProperty() {
+    public SimpleStringProperty setEmiProperty() {
         return emi;
     }
-    public String gettur() {
+    public String getTur() {
         return this.tur.get();
     }
 
-    public void settur(String tur) {
+    public void setTur(String tur) {
         this.tur.set(tur);
     }
     
-    public SimpleStringProperty setturProperty() {
+    public SimpleStringProperty setTurProperty() {
         return tur;
     }
     
-    public String getbhr() {
+    public String getBhr() {
         return this.bhr.get();
     }
 
-    public void setbhr(String bhr) {
+    public void setBhr(String bhr) {
         this.bhr.set(bhr);
     }
     
-    public SimpleStringProperty setbhrProperty() {
+    public SimpleStringProperty setBhrProperty() {
         return bhr;
     }
-    public String getskh() {
+    public String getSkh() {
         return this.skh.get();
     }
 
-    public void setskh(String skh) {
+    public void setSkh(String skh) {
         this.skh.set(skh);
     }
     
-    public SimpleStringProperty setskhProperty() {
+    public SimpleStringProperty setSkhProperty() {
         return skh;
     }
 
-    public String getabu() {
+    public String getAbu() {
         return this.abu.get();
     }
 
-    public void setabu(String abu) {
+    public void setAbu(String abu) {
         this.abu.set(abu);
     }
     
-    public SimpleStringProperty setabuProperty() {
+    public SimpleStringProperty setAbuProperty() {
         return abu;
     }
 
