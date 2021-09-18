@@ -17,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import piloto.pilotoContratoModel;
 import sample.Main;
 import sample.utils.ConnectPostgre;
 import sample.utils.controlledScreen;
@@ -66,6 +67,9 @@ public class WCCController extends pilotoMainTableController implements Initiali
 
                     ObservableList<pilotoMainTableModel> piloto = FXCollections.observableArrayList(pilotoDAO.readListaPilotos(pilotoNome, pilotoSobrenome));
                     staticTableView.setItems(piloto);
+
+                    ObservableList<pilotoContratoModel> contrato = FXCollections.observableArrayList(pilotoDAO.readListaContratos(pilotoNome, pilotoSobrenome));
+                    staticTableView2.setItems(contrato);
                     
                 }
             }});

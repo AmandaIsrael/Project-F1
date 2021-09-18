@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #3d3c41;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #3d3c41;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="piloto.pilotoMainTableController">
    <children>
       <MenuBar VBox.vgrow="NEVER">
          <menus>
@@ -44,17 +44,17 @@
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Label>
-                        <TableView prefHeight="241.0" prefWidth="970.0">
+                        <TableView fx:id="tableView" prefHeight="241.0" prefWidth="970.0">
                            <columns>
-                              <TableColumn prefWidth="62.0" text="Nome" />
-                              <TableColumn prefWidth="91.0" text="Sobrenome" />
-                              <TableColumn minWidth="3.0" prefWidth="87.0" text="Número" />
-                              <TableColumn minWidth="3.0" prefWidth="100.0" text="Abreviação" />
-                              <TableColumn minWidth="3.0" prefWidth="134.0" text="Data de nascimento" />
-                              <TableColumn minWidth="3.0" text="Cidade" />
-                              <TableColumn minWidth="3.0" prefWidth="121.0" text="Nacionalidade" />
-                              <TableColumn minWidth="3.0" prefWidth="126.0" text="Número de poles" />
-                              <TableColumn minWidth="3.0" prefWidth="160.0" text="Número de vitórias" />
+                              <TableColumn fx:id="tableColumn1" prefWidth="62.0" text="Nome" />
+                              <TableColumn fx:id="tableColumn2" prefWidth="91.0" text="Sobrenome" />
+                              <TableColumn fx:id="tableColumn3" minWidth="3.0" prefWidth="87.0" text="Número" />
+                              <TableColumn fx:id="tableColumn4" minWidth="3.0" prefWidth="100.0" text="Abreviação" />
+                              <TableColumn fx:id="tableColumn5" minWidth="3.0" prefWidth="134.0" text="Data de nascimento" />
+                              <TableColumn fx:id="tableColumn6" minWidth="3.0" text="Cidade" />
+                              <TableColumn fx:id="tableColumn7" minWidth="3.0" prefWidth="121.0" text="Nacionalidade" />
+                              <TableColumn fx:id="tableColumn8" minWidth="3.0" prefWidth="126.0" text="Número de poles" />
+                              <TableColumn fx:id="tableColumn9" minWidth="3.0" prefWidth="160.0" text="Número de vitórias" />
                            </columns>
                            <VBox.margin>
                               <Insets right="120.0" />
@@ -65,12 +65,12 @@
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Label>
-                        <TableView prefHeight="200.0" prefWidth="655.0">
+                        <TableView fx:id="tableView2" prefHeight="200.0" prefWidth="655.0">
                            <columns>
-                              <TableColumn prefWidth="158.0" text="Equipe" />
-                              <TableColumn prefWidth="143.0" text="Ano inicial" />
-                              <TableColumn prefWidth="176.0" text="Ano Final" />
-                              <TableColumn prefWidth="176.0" text="Salário" />
+                              <TableColumn fx:id="t2tableColumn1" prefWidth="158.0" text="Equipe" />
+                              <TableColumn fx:id="t2tableColumn2" prefWidth="143.0" text="Ano inicial" />
+                              <TableColumn fx:id="t2tableColumn3" prefWidth="176.0" text="Ano Final" />
+                              <TableColumn fx:id="t2tableColumn4" prefWidth="176.0" text="Salário" />
                            </columns>
                            <VBox.margin>
                               <Insets right="430.0" />

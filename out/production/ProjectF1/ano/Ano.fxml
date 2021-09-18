@@ -59,12 +59,12 @@
                               </HBox>
                               <HBox spacing="50.0">
                                  <children>
-                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="39.0" prefWidth="176.0" style="-fx-background-color: #000000;" text="Resultado WDC" textFill="WHITE">
+                                    <Button onAction="#goToWDC" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="39.0" prefWidth="176.0" style="-fx-background-color: #000000;" text="Resultado WDC" textFill="WHITE">
                                        <font>
                                           <Font name="System Bold" size="18.0" />
                                        </font>
                                     </Button>
-                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="39.0" prefWidth="176.0" style="-fx-background-color: #000000;" text="Resultado WCC" textFill="WHITE">
+                                    <Button onAction="#goToWCC" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="39.0" prefWidth="176.0" style="-fx-background-color: #000000;" text="Resultado WCC" textFill="WHITE">
                                        <font>
                                           <Font name="System Bold" size="18.0" />
                                        </font>

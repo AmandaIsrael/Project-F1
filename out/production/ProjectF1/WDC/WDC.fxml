@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #3d3c41;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="listaPista.listaPistasController">
+<VBox prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #3d3c41;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WCC.WCCController">
     <children>
         <MenuBar VBox.vgrow="NEVER">
             <menus>
@@ -51,28 +51,27 @@
                         </Label>
                     </top>
                     <center>
-                        <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                        <TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                             <columns>
-                                <TableColumn prefWidth="75.0" text="Nome" />
-                        <TableColumn prefWidth="91.0" text="Sobrenome" />
-                                <TableColumn prefWidth="71.0" text="AUT" />
-                                <TableColumn prefWidth="63.0" text="STY" />
-                                <TableColumn prefWidth="75.0" text="HUN" />
-                                <TableColumn prefWidth="75.0" text="GBR" />
-                                <TableColumn prefWidth="75.0" text="70" />
-                                <TableColumn prefWidth="75.0" text="ESP" />
-                                <TableColumn prefWidth="75.0" text="BEL" />
-                                <TableColumn prefWidth="75.0" text="ITA" />
-                                <TableColumn prefWidth="75.0" text="TOS" />
-                                <TableColumn prefWidth="82.0" text="RUS" />
-                                <TableColumn prefWidth="73.0" text="EIF" />
-                                <TableColumn prefWidth="78.0" text="PRT" />
-                                <TableColumn prefWidth="67.0" text="ERO" />
-                                <TableColumn prefWidth="75.0" text="TUR" />
-                                <TableColumn prefWidth="75.0" text="BHR" />
-                                <TableColumn prefWidth="75.0" text="SAK" />
-                                <TableColumn prefWidth="75.0" text="ABD" />
-                                <TableColumn prefWidth="75.0" text="Total" />
+                                <TableColumn fx:id="tableColumn1"   prefWidth="91.0" text="Piloto" />
+                                <TableColumn fx:id="tableColumn2"   prefWidth="71.0" text="AUT" />
+                                <TableColumn fx:id="tableColumn3"   prefWidth="63.0" text="STY" />
+                                <TableColumn fx:id="tableColumn4"   prefWidth="75.0" text="HUN" />
+                                <TableColumn fx:id="tableColumn5"   prefWidth="75.0" text="GBR" />
+                                <TableColumn fx:id="tableColumn6"   prefWidth="75.0" text="70" />
+                                <TableColumn fx:id="tableColumn7"   prefWidth="75.0" text="ESP" />
+                                <TableColumn fx:id="tableColumn8"   prefWidth="75.0" text="BEL" />
+                                <TableColumn fx:id="tableColumn9"   prefWidth="75.0" text="ITA" />
+                                <TableColumn fx:id="tableColumn10"  prefWidth="75.0" text="TOS" />
+                                <TableColumn fx:id="tableColumn11"  prefWidth="82.0" text="RUS" />
+                                <TableColumn fx:id="tableColumn12"  prefWidth="73.0" text="EIF" />
+                                <TableColumn fx:id="tableColumn13"  prefWidth="78.0" text="PRT" />
+                                <TableColumn fx:id="tableColumn14"  prefWidth="67.0" text="ERO" />
+                                <TableColumn fx:id="tableColumn15"  prefWidth="75.0" text="TUR" />
+                                <TableColumn fx:id="tableColumn16"  prefWidth="75.0" text="BHR" />
+                                <TableColumn fx:id="tableColumn17"  prefWidth="75.0" text="SAK" />
+                                <TableColumn fx:id="tableColumn18"  prefWidth="75.0" text="ABD" />
+                                <TableColumn fx:id="tableColumn19"  prefWidth="75.0" text="Total" />
                             </columns>
                             <BorderPane.margin>
                                 <Insets bottom="50.0" left="150.0" right="150.0" top="40.0" />

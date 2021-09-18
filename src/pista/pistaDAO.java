@@ -27,7 +27,7 @@ public final class pistaDAO {
     }
 
     public static void deletePista(pistaMainTableModel pista){
-        /*
+
         String sql = "DELETE FROM pista WHERE nomepista = ?";
 
         try{
@@ -37,42 +37,12 @@ public final class pistaDAO {
             ps.executeUpdate();
 
         } catch (SQLException throwables) {
+            System.out.println(throwables);
             System.out.println("Error deletePista");
         }
 
-         */
     }
 
-    public static void updateTracado(pistaTracadoModel tracado){
-
-
-    }
-
-    public static void idPistaRegistro(String nomePista){
-        /*
-        String sql = "SELECT pistaID FROM pista WHERE nomePista = '"+ nomePista  + "'";
-
-        try{
-            Statement declaracao = con.createStatement();
-            ResultSet resultado = declaracao.executeQuery(sql);
-
-            while(resultado.next()){
-
-                int nome = new SimpleStringProperty(resultado.getString("nomepista"));
-
-                pistaMainTableModel pista = new pistaMainTableModel(nome, pais, cidade);
-
-                pistas.add(pista);
-
-            }
-
-        }catch(SQLException e){
-            System.out.println("Error readListaPistas");
-        }
-        return pistas;
-
-         */
-    }
 
 
     public static ArrayList<pistaMainTableModel> readListaPistas(String nomePista){
