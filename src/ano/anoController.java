@@ -6,6 +6,12 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+
+import grandPrix.grandPrixResumo.grandPrixPodioModel;
+import grandPrix.grandPrixResumo.grandPrixResumoController;
+import grandPrix.grandPrixResumo.grandPrixResumoDAO;
+import grandPrix.grandPrixResumo.grandPrixResumoMainTableModel;
+import grandPrix.grandPrixResumo.grandPrixTempoModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,8 +24,14 @@ import sample.Main;
 import sample.utils.ConnectPostgre;
 import sample.utils.controlledScreen;
 import sample.utils.screensController;
+import javafx.event.EventHandler;
+import javafx.scene.input.MouseEvent;
+import pista.pistaDAO;
+import pista.pistaMainTableModel;
+import pista.pistaTracadoModel;
+import pista.pistaMainTableController;
 
-public class anoController implements Initializable, controlledScreen {
+public class anoController extends grandPrixResumoController {
     screensController myController;
     @FXML private TableView<anoModel> tableView;
     @FXML private TableColumn<anoModel, SimpleStringProperty> tableColumn1;
@@ -30,6 +42,22 @@ public class anoController implements Initializable, controlledScreen {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initTable();
+
+        tableView.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                anoModel ano = tableView.getSelectionModel().getSelectedItem();
+                if (mouseEvent.getClickCount() == 2){
+                    goToGP();
+                    ObservableList<grandPrixResumoMainTableModel> gp = FXCollections.observableArrayList(grandPrixResumoDAO.readGrandPrix(ano.getNome()));
+                    gpstaticTableView.setItems(gp);
+                    ObservableList<grandPrixPodioModel> podio = FXCollections.observableArrayList(grandPrixResumoDAO.readListaPodio(ano.getNome()));
+                    gpstaticTableView2.setItems(podio);
+                    ObservableList<grandPrixTempoModel> tempo = FXCollections.observableArrayList(grandPrixResumoDAO.readListaTempos(ano.getNome()));
+                    gpstaticTableView3.setItems(tempo);
+
+                }
+            }});
     }
 
     @Override
@@ -65,6 +93,10 @@ public class anoController implements Initializable, controlledScreen {
         myController.setScreen(Main.screen10ID);
     }
 
+    private void goToGP(){
+        myController.setScreen(Main.screen11ID);
+    }
+
 
     public void initTable(){
 
@@ -73,7 +105,7 @@ public class anoController implements Initializable, controlledScreen {
         tableColumn3.setCellValueFactory(new PropertyValueFactory<>("data"));
 
         ObservableList<anoModel> anos = FXCollections.observableArrayList(readListaPistas());
-
+        
         tableView.setItems(anos);
     }
 

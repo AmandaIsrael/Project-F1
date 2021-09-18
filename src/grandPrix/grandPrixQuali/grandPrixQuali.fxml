@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #3d3c41;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #3d3c41;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="grandPrix.grandPrixQuali.grandPrixQualiMainTableController">
    <children>
       <MenuBar VBox.vgrow="NEVER">
          <menus>
@@ -77,14 +77,15 @@
                      </BorderPane.margin>
                      <children>
                         <Label />
-                        <TableView prefHeight="235.0" prefWidth="880.0">
+                        <TableView fx:id="tableView" prefHeight="235.0" prefWidth="880.0">
                            <columns>
-                              <TableColumn prefWidth="128.0" text="Posição" />
-                              <TableColumn prefWidth="135.0" text="Número" />
-                              <TableColumn minWidth="3.0" prefWidth="157.0" text="Nome" />
-                              <TableColumn minWidth="0.0" prefWidth="171.0" text="Sobrenome" />
-                              <TableColumn minWidth="0.0" prefWidth="142.0" text="Equipe" />
-                              <TableColumn minWidth="0.0" prefWidth="146.0" text="Tempo" />
+                              <TableColumn fx:id="tableColumn1" prefWidth="128.0" text="Posição" />
+                              <TableColumn fx:id="tableColumn2" prefWidth="135.0" text="Número" />
+                              <TableColumn fx:id="tableColumn3" minWidth="3.0" prefWidth="157.0" text="Nome" />
+                              <TableColumn fx:id="tableColumn4" minWidth="0.0" prefWidth="171.0" text="Sobrenome" />
+                              <TableColumn fx:id="tableColumn5" minWidth="0.0" prefWidth="142.0" text="Equipe" />
+                              <TableColumn fx:id="tableColumn6" minWidth="0.0" prefWidth="146.0" text="Tempo" />
+                              <TableColumn fx:id="tableColumn7" minWidth="0.0" prefWidth="146.0" text="Substituto" />
                            </columns>
                         </TableView>
                         <Label text="Penalidades" textFill="WHITE">
@@ -92,12 +93,12 @@
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Label>
-                        <TableView prefHeight="200.0" prefWidth="579.0">
+                        <TableView fx:id="tableView2" prefHeight="200.0" prefWidth="579.0">
                            <columns>
-                              <TableColumn prefWidth="135.0" text="Nome" />
-                              <TableColumn prefWidth="155.0" text="Sobrenome" />
-                              <TableColumn prefWidth="159.0" text="Penalidade" />
-                              <TableColumn prefWidth="130.0" text="Causa" />
+                              <TableColumn fx:id="t2tableColumn1" prefWidth="135.0" text="Nome" />
+                              <TableColumn fx:id="t2tableColumn2" prefWidth="155.0" text="Sobrenome" />
+                              <TableColumn fx:id="t2tableColumn3" prefWidth="159.0" text="Penalidade" />
+                              <TableColumn fx:id="t2tableColumn4" prefWidth="130.0" text="Causa" />
                            </columns>
                            <VBox.margin>
                               <Insets bottom="10.0" right="300.0" />

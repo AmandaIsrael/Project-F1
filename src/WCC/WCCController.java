@@ -13,21 +13,18 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import piloto.pilotoContratoModel;
 import sample.Main;
 import sample.utils.ConnectPostgre;
-import sample.utils.controlledScreen;
 import sample.utils.screensController;
 import piloto.pilotoMainTableController;
 import piloto.pilotoMainTableModel;
 import piloto.pilotoDAO;
-import WCC.WCCModel;
 
-public class WCCController extends pilotoMainTableController implements Initializable, controlledScreen {
+public class WCCController extends pilotoMainTableController{
     screensController myController;
     @FXML private TableView<WCCModel> tableView;
     @FXML private TableColumn<WCCModel, SimpleStringProperty> tableColumn1;

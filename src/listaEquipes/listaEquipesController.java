@@ -12,13 +12,11 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import sample.Main;
 import sample.utils.ConnectPostgre;
-import sample.utils.controlledScreen;
 import sample.utils.screensController;
 import equipe.equipeMainTableController;
 import equipe.equipeDAO;
@@ -27,7 +25,7 @@ import equipe.equipeMainTableModel;
 import equipe.equipeMotoresModel;
 import equipe.equipeNomeAntigoModel;
 
-public class listaEquipesController extends equipeMainTableController implements Initializable, controlledScreen {
+public class listaEquipesController extends equipeMainTableController{
     screensController myController;
     @FXML private TableView<listaEquipesModel> tableView;
     @FXML private TableColumn<listaEquipesModel, SimpleStringProperty> tableColumn1;

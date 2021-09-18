@@ -1,40 +1,36 @@
-package grandPrix.grandPrixCorrida;
+package grandPrix.grandPrixQuali;
 
 import javafx.beans.property.SimpleStringProperty;
 
-public class grandPrixCorridaMainTableModel {
-    SimpleStringProperty colocacao;
-    SimpleStringProperty grid;
+public class grandPrixQualiMainTableModel {
+    SimpleStringProperty posicao;
+    SimpleStringProperty tempo;
     SimpleStringProperty equipe;
     SimpleStringProperty num;
     SimpleStringProperty nome;
     SimpleStringProperty sobrenome;
-    SimpleStringProperty pontos;
-    SimpleStringProperty dnf;
     SimpleStringProperty substituto;
 
-    public grandPrixCorridaMainTableModel(SimpleStringProperty colocacao, SimpleStringProperty num, SimpleStringProperty nome, SimpleStringProperty sobrenome, SimpleStringProperty equipe, SimpleStringProperty grid, SimpleStringProperty pontos, SimpleStringProperty dnf, SimpleStringProperty substituto) {
-        this.colocacao = colocacao;
-        this.grid = grid;
+    public grandPrixQualiMainTableModel(SimpleStringProperty posicao, SimpleStringProperty num, SimpleStringProperty nome, SimpleStringProperty sobrenome, SimpleStringProperty equipe, SimpleStringProperty tempo, SimpleStringProperty substituto) {
+        this.posicao = posicao;
+        this.tempo = tempo;
         this.equipe = equipe;
         this.num = num;
         this.nome = nome;
         this.sobrenome = sobrenome;
-        this.pontos = pontos;
-        this.dnf = dnf;
         this.substituto = substituto;
     }
 
-    public String getColocacao() {
-        return this.colocacao.get();
+    public String getPosicao() {
+        return this.posicao.get();
     }
 
-    public void setColocacao(String colocacao) {
-        this.colocacao.set(colocacao);
+    public void setPosicao(String posicao) {
+        this.posicao.set(posicao);
     }
 
-    public SimpleStringProperty setColocacaoProperty() {
-        return colocacao;
+    public SimpleStringProperty setPosicaoProperty() {
+        return posicao;
     }
 
     public String getNum() {
@@ -61,16 +57,16 @@ public class grandPrixCorridaMainTableModel {
         return nome;
     }
 
-    public String getGrid() {
-        return this.grid.get();
+    public String getTempo() {
+        return this.tempo.get();
     }
 
-    public void setGrid(String grid) {
-        this.grid.set(grid);
+    public void setTempo(String tempo) {
+        this.tempo.set(tempo);
     }
     
-    public SimpleStringProperty setGridProperty() {
-        return grid;
+    public SimpleStringProperty setTempoProperty() {
+        return tempo;
     }
 
     public String getSobrenome() {
@@ -95,30 +91,6 @@ public class grandPrixCorridaMainTableModel {
 
     public SimpleStringProperty setEquipeProperty() {
         return equipe;
-    }
-
-    public String getPontos() {
-        return this.pontos.get();
-    }
-
-    public void setPontos(String pontos) {
-        this.pontos.set(pontos);
-    }
-    
-    public SimpleStringProperty setPontosProperty() {
-        return pontos;
-    }
-
-    public String getDnf() {
-        return this.dnf.get();
-    }
-
-    public void setDnf(String dnf) {
-        this.dnf.set(dnf);
-    }
-    
-    public SimpleStringProperty setDnfProperty() {
-        return dnf;
     }
 
     public String getSubstituto() {
