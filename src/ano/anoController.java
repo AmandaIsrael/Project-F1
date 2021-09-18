@@ -17,19 +17,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import sample.Main;
 import sample.utils.ConnectPostgre;
-import sample.utils.controlledScreen;
 import sample.utils.screensController;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
-import pista.pistaDAO;
-import pista.pistaMainTableModel;
-import pista.pistaTracadoModel;
-import pista.pistaMainTableController;
 
 public class anoController extends grandPrixResumoController {
     screensController myController;

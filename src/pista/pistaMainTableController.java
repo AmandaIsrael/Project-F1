@@ -15,6 +15,10 @@ import listaPista.listaPistasController;
 import sample.Main;
 import sample.utils.controlledScreen;
 import sample.utils.screensController;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+
 
 public class pistaMainTableController implements Initializable, controlledScreen {
     screensController myController;
