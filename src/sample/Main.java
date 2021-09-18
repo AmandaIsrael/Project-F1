@@ -29,11 +29,11 @@ public class Main extends Application {
     public static String screen10ID = "WDC";
     public static String screen10File = "/WDC/WDC.fxml";
     public static String screen11ID = "Resumo Grand Prix";
-    public static String screen11File = "/grandPrix/grandPrix/grandPrixResumo.fxml";
+    public static String screen11File = "/grandPrix/grandPrixResumo/grandPrixResumo.fxml";
     public static String screen12ID = "Grand Prix Corrida";
-    public static String screen12File = "/grandPrix/grandPrix/grandPrixCorrida.fxml";
+    public static String screen12File = "/grandPrix/grandPrixCorrida/grandPrixCorrida.fxml";
     public static String screen13ID = "Grand Prix Qualificatório";
-    public static String screen13File = "/grandPrix/grandPrix/grandPrixQuali.fxml";
+    public static String screen13File = "/grandPrix/grandPrixQuali/grandPrixQuali.fxml";
 
     @Override
     public void start(Stage primaryStage) throws Exception{

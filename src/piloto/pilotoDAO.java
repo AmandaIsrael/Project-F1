@@ -53,10 +53,10 @@ public class pilotoDAO {
             ResultSet resultado = declaracao.executeQuery(sql);
 
             while(resultado.next()){
-                SimpleStringProperty equipe = new SimpleStringProperty(resultado.getString("motorNome"));
-                SimpleStringProperty salario = new SimpleStringProperty("US$ "+resultado.getString("nacionalidadeFornecedor")+"k");
-                SimpleStringProperty anoInicio = new SimpleStringProperty(resultado.getString("motorAnoInicio"));
-                SimpleStringProperty anoFim = new SimpleStringProperty(resultado.getString("motorAnoFim"));
+                SimpleStringProperty equipe = new SimpleStringProperty(resultado.getString("equipeRegistroNome"));
+                SimpleStringProperty salario = new SimpleStringProperty("US$ "+resultado.getString("contratoSalario")+"K");
+                SimpleStringProperty anoInicio = new SimpleStringProperty(resultado.getString("contratoAnoInicio"));
+                SimpleStringProperty anoFim = new SimpleStringProperty(resultado.getString("contratoAnoFim"));
 
                 if(anoFim.get().equals("-1")){
                     anoFim.set("Atual");

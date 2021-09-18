@@ -123,7 +123,7 @@ public class WCCModel {
         return gbr;
     }
 
-    public String getg70a() {
+    public String getG70a() {
         return this.g70a.get();
     }
 

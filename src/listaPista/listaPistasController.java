@@ -28,6 +28,7 @@ import pista.pistaMainTableController;
 public class listaPistasController extends pistaMainTableController implements Initializable, controlledScreen {
     screensController myController;
     @FXML private TableView<listaPistaModel> tableView;
+    private static TableView<listaPistaModel> statictableView;
     @FXML private TableColumn<listaPistaModel, SimpleStringProperty> tableColumn1;
     @FXML private TableColumn<listaPistaModel, SimpleStringProperty> tableColumn2;
     @FXML private TableColumn<listaPistaModel, SimpleStringProperty> tableColumn3;
@@ -35,6 +36,7 @@ public class listaPistasController extends pistaMainTableController implements I
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        statictableView = tableView;
         initTable();
 
         tableView.setOnMousePressed(new EventHandler<MouseEvent>() {
@@ -49,11 +51,10 @@ public class listaPistasController extends pistaMainTableController implements I
                     staticTableView2.setItems(tracado);
 
                     for(int i = 0; i < staticTableView.getItems().size(); ++i){
-                        staticPistaValuesAnterior.add(staticTableView.getItems().get(i));
+                        statictabelaPistaAtual.put(i, staticTableView.getItems().get(i));
                     }
-
                     for(int i = 0; i < staticTableView2.getItems().size(); ++i){
-                        staticTracadoValuesAnterior.add(staticTableView2.getItems().get(i));
+                        statictabelaTracadoAtual.put(i, staticTableView2.getItems().get(i));
                     }
                 }
             }});
@@ -92,10 +93,14 @@ public class listaPistasController extends pistaMainTableController implements I
         tableColumn1.setCellValueFactory(new PropertyValueFactory<>("nome"));
         tableColumn2.setCellValueFactory(new PropertyValueFactory<>("pais"));
         tableColumn3.setCellValueFactory(new PropertyValueFactory<>("cidade"));
+        refreshTable();
 
+    }
+
+    public static void refreshTable(){
         ObservableList<listaPistaModel> pistas = FXCollections.observableArrayList(readListaPistas());
-
-        tableView.setItems(pistas);
+        statictableView.getItems().clear();
+        statictableView.setItems(pistas);
     }
 
     public static ArrayList<listaPistaModel> readListaPistas(){

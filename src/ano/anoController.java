@@ -55,6 +55,16 @@ public class anoController implements Initializable, controlledScreen {
         myController.setScreen(Main.screen5ID);
     }
 
+    @FXML
+    private void goToWCC(ActionEvent event){
+        myController.setScreen(Main.screen9ID);
+    }
+
+    @FXML
+    private void goToWDC(ActionEvent event){
+        myController.setScreen(Main.screen10ID);
+    }
+
 
     public void initTable(){
 

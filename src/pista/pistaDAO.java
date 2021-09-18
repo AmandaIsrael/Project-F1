@@ -3,40 +3,77 @@ package pista;
 import javafx.beans.property.SimpleStringProperty;
 import sample.utils.ConnectPostgre;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
 public final class pistaDAO {
     private static Connection con = ConnectPostgre.ConnectDatabase();
 
-    public static void updatePista(pistaMainTableModel pistaAnterior, pistaMainTableModel pistaAtual){
+    public static void updatePista(pistaMainTableModel pista){
 
-        String sql = "UPDATE pista SET nomepista = '" + pistaAtual.getNome() + "', paispista = '" + pistaAtual.getPais() + "', cidadepista = '" + pistaAtual.getCidade() + "' WHERE nomepista = '" + pistaAnterior.getNome() +"' AND paispista = '" + pistaAnterior.getPais() + "' AND cidadepista = '" + pistaAnterior.getCidade() + "'";
+        String sql = "UPDATE pista SET paispista = ?, cidadepista = ? WHERE nomepista = ?;";
 
         try{
-            Statement declaracao = con.createStatement();
-            declaracao.executeQuery(sql);
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, pista.getPais());
+            ps.setString(2, pista.getCidade());
+            ps.setString(3, pista.getNome());
+
+            ps.executeUpdate();
 
         }catch(SQLException e){
             System.out.println("Error updatePista");
         }
     }
 
-    public static void updateTracado(pistaTracadoModel tracadoAnterior, pistaTracadoModel tracadoAtual){
+    public static void deletePista(pistaMainTableModel pista){
+        /*
+        String sql = "DELETE FROM pista WHERE nomepista = ?";
 
-        String sql = "UPDATE tracado SET anoAlteracaoTracado = '" + tracadoAtual.getAnoAlteracao() + "', distanciaTracado = '" + tracadoAtual.getDistancia() + "', numeroVoltasTracado = '" + tracadoAtual.getNumeroVoltas() + "' WHERE anoAlteracaoTracado = '" + tracadoAtual.getAnoAlteracao() + "' AND distanciaTracado = '" + tracadoAtual.getAnoAlteracao() + "' AND numeroVoltasTracado = '" + tracadoAtual.getNumeroVoltas() + "'";
+        try{
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, pista.getNome());
+
+            ps.executeUpdate();
+
+        } catch (SQLException throwables) {
+            System.out.println("Error deletePista");
+        }
+
+         */
+    }
+
+    public static void updateTracado(pistaTracadoModel tracado){
+
+
+    }
+
+    public static void idPistaRegistro(String nomePista){
+        /*
+        String sql = "SELECT pistaID FROM pista WHERE nomePista = '"+ nomePista  + "'";
 
         try{
             Statement declaracao = con.createStatement();
-            declaracao.executeQuery(sql);
+            ResultSet resultado = declaracao.executeQuery(sql);
+
+            while(resultado.next()){
+
+                int nome = new SimpleStringProperty(resultado.getString("nomepista"));
+
+                pistaMainTableModel pista = new pistaMainTableModel(nome, pais, cidade);
+
+                pistas.add(pista);
+
+            }
 
         }catch(SQLException e){
-            System.out.println("Error updateTracado");
+            System.out.println("Error readListaPistas");
         }
+        return pistas;
+
+         */
     }
+
 
     public static ArrayList<pistaMainTableModel> readListaPistas(String nomePista){
 
