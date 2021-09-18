@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #3d3c41;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #3d3c41;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="grandPrix.grandPrixResumo.grandPrixResumoController">
    <children>
       <MenuBar VBox.vgrow="NEVER">
          <menus>
@@ -69,26 +69,26 @@
                         <Insets bottom="35.0" left="200.0" right="200.0" top="10.0" />
                      </BorderPane.margin>
                      <children>
-                        <TableView prefHeight="429.0" prefWidth="880.0">
+                        <TableView fx:id="tableView" prefHeight="429.0" prefWidth="880.0">
                            <columns>
-                              <TableColumn prefWidth="194.0" text="Nome" />
-                              <TableColumn prefWidth="219.0" text="Data Início" />
-                              <TableColumn minWidth="3.0" prefWidth="255.0" text="Data Fim" />
-                              <TableColumn minWidth="0.0" prefWidth="211.0" text="Pista" />
+                              <TableColumn fx:id="tableColumn1" prefWidth="194.0" text="Nome" />
+                              <TableColumn fx:id="tableColumn2" prefWidth="219.0" text="Data Início" />
+                              <TableColumn fx:id="tableColumn3" minWidth="3.0" prefWidth="255.0" text="Data Fim" />
+                              <TableColumn fx:id="tableColumn4" minWidth="0.0" prefWidth="211.0" text="Pista" />
                            </columns>
                         </TableView>
-                        <TableView prefHeight="429.0" prefWidth="885.0">
+                        <TableView fx:id="tableView2" prefHeight="429.0" prefWidth="885.0">
                            <columns>
-                              <TableColumn prefWidth="298.0" text="1º Colocado" />
-                              <TableColumn prefWidth="296.0" text="2º Colocado" />
-                              <TableColumn minWidth="3.0" prefWidth="285.0" text="3º Colocado" />
+                              <TableColumn fx:id="t2tableColumn1" prefWidth="298.0" text="1º Colocado" />
+                              <TableColumn fx:id="t2tableColumn2" prefWidth="296.0" text="2º Colocado" />
+                              <TableColumn fx:id="t2tableColumn3" minWidth="3.0" prefWidth="285.0" text="3º Colocado" />
                            </columns>
                         </TableView>
-                        <TableView prefHeight="429.0" prefWidth="885.0">
+                        <TableView fx:id="tableView3" prefHeight="429.0" prefWidth="885.0">
                            <columns>
-                              <TableColumn prefWidth="299.0" text="Driver of the day" />
-                              <TableColumn prefWidth="295.0" text="Melhor Volta (tempo)" />
-                              <TableColumn minWidth="3.0" prefWidth="285.0" text="Melhor Volta (Piloto)" />
+                              <TableColumn fx:id="t3tableColumn1" prefWidth="299.0" text="Driver of the day" />
+                              <TableColumn fx:id="t3tableColumn2" prefWidth="295.0" text="Melhor Volta (tempo)" />
+                              <TableColumn fx:id="t3tableColumn3" minWidth="3.0" prefWidth="285.0" text="Melhor Volta (Piloto)" />
                            </columns>
                         </TableView>
                      </children>

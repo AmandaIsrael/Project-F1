@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #3d3c41;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #3d3c41;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="grandPrix.grandPrixCorrida.grandPrixCorridaMainTableController">
    <children>
       <MenuBar VBox.vgrow="NEVER">
          <menus>
@@ -68,28 +68,29 @@
                         <Insets left="100.0" right="100.0" top="20.0" />
                      </BorderPane.margin>
                      <children>
-                        <TableView prefHeight="262.0" prefWidth="1080.0">
+                        <TableView fx:id="tableView" prefHeight="262.0" prefWidth="1080.0">
                            <columns>
-                              <TableColumn prefWidth="90.0" text="Colocação" />
-                              <TableColumn prefWidth="117.0" text="Número" />
-                              <TableColumn minWidth="3.0" prefWidth="114.0" text="Nome" />
-                              <TableColumn minWidth="0.0" prefWidth="137.0" text="Sobrenome" />
-                              <TableColumn minWidth="0.0" prefWidth="158.0" text="Equipe" />
-                              <TableColumn minWidth="0.0" prefWidth="164.0" text="Grid Pontos" />
-                              <TableColumn minWidth="0.0" prefWidth="150.0" text="DNF" />
-                              <TableColumn prefWidth="149.0" text="Substituto" />
+                              <TableColumn fx:id="tableColumn1" prefWidth="128.0" text="Colocação" />
+                              <TableColumn fx:id="tableColumn2" prefWidth="135.0" text="Número" />
+                              <TableColumn fx:id="tableColumn3" minWidth="3.0" prefWidth="157.0" text="Nome" />
+                              <TableColumn fx:id="tableColumn4" minWidth="0.0" prefWidth="171.0" text="Sobrenome" />
+                              <TableColumn fx:id="tableColumn5" minWidth="0.0" prefWidth="189.0" text="Equipe" />
+                              <TableColumn fx:id="tableColumn6" minWidth="0.0" prefWidth="154.0" text="Grid" />
+                              <TableColumn fx:id="tableColumn7" minWidth="0.0" prefWidth="154.0" text="Pontos" />
+                              <TableColumn fx:id="tableColumn8" minWidth="0.0" prefWidth="145.0" text="DNF" />
+                              <TableColumn fx:id="tableColumn9" minWidth="0.0" prefWidth="145.0" text="Substituto" />
                            </columns>
                         </TableView>
                         <Label text="Penalidades" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font></Label>
-                        <TableView prefHeight="200.0" prefWidth="580.0">
+                        <TableView fx:id="tableView2" prefHeight="200.0" prefWidth="580.0">
                           <columns>
-                            <TableColumn prefWidth="130.0" text="Nome" />
-                            <TableColumn prefWidth="152.0" text="Sobrenome" />
-                              <TableColumn prefWidth="141.0" text="Penalidade" />
-                              <TableColumn prefWidth="122.0" text="Causa" />
+                              <TableColumn fx:id="t2tableColumn1" prefWidth="130.0" text="Nome" />
+                              <TableColumn fx:id="t2tableColumn2" prefWidth="152.0" text="Sobrenome" />
+                              <TableColumn fx:id="t2tableColumn3" prefWidth="141.0" text="Penalidade" />
+                              <TableColumn fx:id="t2tableColumn4" prefWidth="122.0" text="Causa" />
                           </columns>
                            <VBox.margin>
                               <Insets bottom="10.0" right="540.0" />

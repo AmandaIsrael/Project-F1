@@ -4,8 +4,6 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -17,6 +15,10 @@ import listaPista.listaPistasController;
 import sample.Main;
 import sample.utils.controlledScreen;
 import sample.utils.screensController;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+
 
 public class pistaMainTableController implements Initializable, controlledScreen {
     screensController myController;

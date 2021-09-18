@@ -1,5 +1,4 @@
-package grandPrix.grandPrixCorrida;
-
+package grandPrix.grandPrixQuali;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -14,20 +13,18 @@ import sample.Main;
 import sample.utils.controlledScreen;
 import sample.utils.screensController;
 
-public class grandPrixCorridaController implements Initializable, controlledScreen {
+public class grandPrixQualiMainTableController implements Initializable, controlledScreen{
     screensController myController;
     
-    @FXML private TableView<grandPrixCorridaMainTableModel> tableView;
-    public static TableView<grandPrixCorridaMainTableModel> staticTableView;
-    @FXML private TableColumn<grandPrixCorridaMainTableModel, SimpleStringProperty> tableColumn1;
-    @FXML private TableColumn<grandPrixCorridaMainTableModel, SimpleStringProperty> tableColumn2;
-    @FXML private TableColumn<grandPrixCorridaMainTableModel, SimpleStringProperty> tableColumn3;
-    @FXML private TableColumn<grandPrixCorridaMainTableModel, SimpleStringProperty> tableColumn4;
-    @FXML private TableColumn<grandPrixCorridaMainTableModel, SimpleStringProperty> tableColumn5;
-    @FXML private TableColumn<grandPrixCorridaMainTableModel, SimpleStringProperty> tableColumn6;
-    @FXML private TableColumn<grandPrixCorridaMainTableModel, SimpleStringProperty> tableColumn7;
-    @FXML private TableColumn<grandPrixCorridaMainTableModel, SimpleStringProperty> tableColumn8;
-    @FXML private TableColumn<grandPrixCorridaMainTableModel, SimpleStringProperty> tableColumn9;
+    @FXML private TableView<grandPrixQualiMainTableModel> tableView;
+    public static TableView<grandPrixQualiMainTableModel> staticTableView;
+    @FXML private TableColumn<grandPrixQualiMainTableModel, SimpleStringProperty> tableColumn1;
+    @FXML private TableColumn<grandPrixQualiMainTableModel, SimpleStringProperty> tableColumn2;
+    @FXML private TableColumn<grandPrixQualiMainTableModel, SimpleStringProperty> tableColumn3;
+    @FXML private TableColumn<grandPrixQualiMainTableModel, SimpleStringProperty> tableColumn4;
+    @FXML private TableColumn<grandPrixQualiMainTableModel, SimpleStringProperty> tableColumn5;
+    @FXML private TableColumn<grandPrixQualiMainTableModel, SimpleStringProperty> tableColumn6;
+    @FXML private TableColumn<grandPrixQualiMainTableModel, SimpleStringProperty> tableColumn7;
     
     @FXML private TableView<grandPrixPenalidadeModel> tableView2;
     public static TableView<grandPrixPenalidadeModel> staticTableView2;
@@ -74,15 +71,13 @@ public class grandPrixCorridaController implements Initializable, controlledScre
 
     public void initTable(){
 
-        tableColumn1.setCellValueFactory(new PropertyValueFactory<>("colocacao"));
-        tableColumn2.setCellValueFactory(new PropertyValueFactory<>("grid"));
-        tableColumn3.setCellValueFactory(new PropertyValueFactory<>("equipe"));
-        tableColumn4.setCellValueFactory(new PropertyValueFactory<>("num"));
-        tableColumn5.setCellValueFactory(new PropertyValueFactory<>("nome"));
-        tableColumn6.setCellValueFactory(new PropertyValueFactory<>("sobrenome"));
-        tableColumn7.setCellValueFactory(new PropertyValueFactory<>("pontos"));
-        tableColumn8.setCellValueFactory(new PropertyValueFactory<>("dnf"));
-        tableColumn8.setCellValueFactory(new PropertyValueFactory<>("substituto"));
+        tableColumn1.setCellValueFactory(new PropertyValueFactory<>("posicao"));
+        tableColumn2.setCellValueFactory(new PropertyValueFactory<>("num"));
+        tableColumn3.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        tableColumn4.setCellValueFactory(new PropertyValueFactory<>("sobrenome"));
+        tableColumn5.setCellValueFactory(new PropertyValueFactory<>("equipe"));
+        tableColumn6.setCellValueFactory(new PropertyValueFactory<>("tempo"));
+        tableColumn7.setCellValueFactory(new PropertyValueFactory<>("substituto"));
 
     }
 
