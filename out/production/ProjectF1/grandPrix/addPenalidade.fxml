@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="piloto.addContratoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TelaInicialController">
     <children>
         <BorderPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #3d3c41;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <bottom>
@@ -18,12 +18,12 @@
                     <children>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
                             <children>
-                                <Button onAction="#goToPiloto" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" style="-fx-background-color: #000000;" text="Voltar" textFill="WHITE">
+                                <Button mnemonicParsing="false" onAction="#goToAno" prefHeight="60.0" prefWidth="150.0" style="-fx-background-color: #000000;" text="Voltar" textFill="WHITE">
                                     <font>
                                         <Font name="System Bold" size="24.0" />
                                     </font>
                                 </Button>
-                                <Button mnemonicParsing="false"  prefHeight="60.0" prefWidth="150.0" style="-fx-background-color: #000000;" text="Adicionar" textFill="WHITE">
+                                <Button mnemonicParsing="false" onAction="#goToPilotos" prefHeight="60.0" prefWidth="150.0" style="-fx-background-color: #000000;" text="Adicionar" textFill="WHITE">
                                     <font>
                                         <Font name="System Bold" size="24.0" />
                                     </font>
@@ -39,7 +39,7 @@
             <center>
                 <VBox alignment="CENTER" prefHeight="520.0" prefWidth="691.0" spacing="20.0">
                     <children>
-                        <Label text="Novo Contrato" textFill="WHITE">
+                        <Label text="Nova Penalidade" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="36.0" />
                             </font>
@@ -49,7 +49,7 @@
                         </Label>
                         <VBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="591.0">
                             <children>
-                                <Label text="Equipe" textFill="WHITE">
+                                <Label text="Nome" textFill="WHITE">
                                     <font>
                                         <Font size="24.0" />
                                     </font>
@@ -69,7 +69,7 @@
                         </VBox>
                         <VBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="591.0">
                             <children>
-                                <Label text="Ano Inicial" textFill="WHITE">
+                                <Label text="Sobrenome" textFill="WHITE">
                                     <font>
                                         <Font size="24.0" />
                                     </font>
@@ -86,7 +86,7 @@
                         </VBox>
                         <VBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="591.0">
                             <children>
-                                <Label text="Ano Final" textFill="WHITE">
+                                <Label text="Penalidade" textFill="WHITE">
                                     <font>
                                         <Font size="24.0" />
                                     </font>
@@ -101,23 +101,23 @@
                                 <Insets left="300.0" right="300.0" />
                             </VBox.margin>
                         </VBox>
-                  <VBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="591.0">
-                     <children>
-                        <Label text="Salário" textFill="WHITE">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Label>
-                        <TextField>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </TextField>
-                     </children>
-                     <VBox.margin>
-                        <Insets left="300.0" right="300.0" />
-                     </VBox.margin>
-                  </VBox>
+                        <VBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="591.0">
+                            <children>
+                                <Label text="Causa" textFill="WHITE">
+                                    <font>
+                                        <Font size="24.0" />
+                                    </font>
+                                </Label>
+                                <TextField>
+                                    <VBox.margin>
+                                        <Insets />
+                                    </VBox.margin>
+                                </TextField>
+                            </children>
+                            <VBox.margin>
+                                <Insets left="300.0" right="300.0" />
+                            </VBox.margin>
+                        </VBox>
                     </children>
                     <BorderPane.margin>
                         <Insets top="50.0" />

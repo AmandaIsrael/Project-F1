@@ -79,6 +79,11 @@ public class pilotoMainTableController implements Initializable, controlledScree
         myController.setScreen(Main.screen5ID);
     }
 
+    @FXML
+    private void goToAddContrato(ActionEvent event){
+        myController.setScreen(Main.screen16ID);
+    }
+
     public void initTable(){
 
         tableColumn1.setCellValueFactory(new PropertyValueFactory<>("nome"));

@@ -77,7 +77,7 @@
                   </VBox>
                </center>
                <bottom>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="39.0" prefWidth="196.0" style="-fx-background-color: #000000;" text="Adicionar Contrato" textFill="WHITE" BorderPane.alignment="BOTTOM_RIGHT">
+                  <Button onAction="#goToAddContrato" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="39.0" prefWidth="196.0" style="-fx-background-color: #000000;" text="Adicionar Contrato" textFill="WHITE" BorderPane.alignment="BOTTOM_RIGHT">
                      <BorderPane.margin>
                         <Insets bottom="30.0" right="50.0" />
                      </BorderPane.margin>

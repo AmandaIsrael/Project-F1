@@ -38,6 +38,8 @@ public class Main extends Application {
     public static String screen14File = "/pista/addTracado.fxml";
     public static String screen15ID = "addPista";
     public static String screen15File = "/listaPista/addPista.fxml";
+    public static String screen16ID = "addContrato";
+    public static String screen16File = "/piloto/addContrato.fxml";
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -57,6 +59,7 @@ public class Main extends Application {
         mainContainer.loadScreen(Main.screen13ID, Main.screen13File);
         mainContainer.loadScreen(Main.screen14ID, Main.screen14File);
         mainContainer.loadScreen(Main.screen15ID, Main.screen15File);
+        mainContainer.loadScreen(Main.screen16ID, Main.screen16File);
 
         mainContainer.setScreen(Main.screen1ID);
 
