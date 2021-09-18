@@ -78,6 +78,12 @@ public class pistaMainTableController implements Initializable, controlledScreen
     private void goToPistas(ActionEvent event){
         myController.setScreen(Main.screen5ID);
     }
+
+    @FXML
+    private void goToAddTracado(ActionEvent event){
+        myController.setScreen(Main.screen14ID);
+    }
+
     private void goToPistasDelete(){
         myController.setScreen(Main.screen5ID);
     }

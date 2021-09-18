@@ -84,9 +84,10 @@ public class listaPistasController extends pistaMainTableController implements I
     }
 
     @FXML
-    private void createPista(ActionEvent event){
-
+    private void goToAddPista(ActionEvent event){
+        myController.setScreen(Main.screen15ID);
     }
+
 
     private void goToPista(){
         myController.setScreen(Main.screen6ID);
