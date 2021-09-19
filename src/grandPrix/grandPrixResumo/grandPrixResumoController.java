@@ -2,6 +2,9 @@ package grandPrix.grandPrixResumo;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import grandPrix.grandPrixCorrida.grandPrixCorridaDAO;
+import grandPrix.grandPrixCorrida.grandPrixCorridaMainTableModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -99,6 +102,24 @@ public class grandPrixResumoController extends pistaMainTableController{
         myController.setScreen(Main.screen5ID);
     }
 
+
+
+
+    @FXML
+    private void goToCorrida(ActionEvent event){
+
+        myController.setScreen(Main.screen12ID);
+
+        //ObservableList<grandPrixCorridaMainTableModel> gp = FXCollections.observableArrayList(grandPrixCorridaDAO.readListaResultados(getNome()));
+        //gpstaticTableView.setItems(gp);
+    }
+
+    @FXML
+    private void goToQuali(ActionEvent event){
+        myController.setScreen(Main.screen13ID);
+    }
+
+
     private void goToPista(){
         myController.setScreen(Main.screen6ID);
     }
@@ -106,25 +127,25 @@ public class grandPrixResumoController extends pistaMainTableController{
     public void initTable(){
 
         tableColumn1.setCellValueFactory(new PropertyValueFactory<>("nome"));
-        tableColumn2.setCellValueFactory(new PropertyValueFactory<>("sobrenome"));
-        tableColumn3.setCellValueFactory(new PropertyValueFactory<>("cargo"));
-        tableColumn4.setCellValueFactory(new PropertyValueFactory<>("nascimento"));
+        tableColumn2.setCellValueFactory(new PropertyValueFactory<>("dataInicio"));
+        tableColumn3.setCellValueFactory(new PropertyValueFactory<>("dataFim"));
+        tableColumn4.setCellValueFactory(new PropertyValueFactory<>("pista"));
     
     }
 
     public void initTable2(){
 
-        t2tableColumn1.setCellValueFactory(new PropertyValueFactory<>("nomeAntigo"));
-        t2tableColumn2.setCellValueFactory(new PropertyValueFactory<>("anoInicio"));
-        t2tableColumn3.setCellValueFactory(new PropertyValueFactory<>("anoFim"));
+        t2tableColumn1.setCellValueFactory(new PropertyValueFactory<>("primeiro"));
+        t2tableColumn2.setCellValueFactory(new PropertyValueFactory<>("segundo"));
+        t2tableColumn3.setCellValueFactory(new PropertyValueFactory<>("terceiro"));
 
     }
 
     public void initTable3(){
 
-        t3tableColumn1.setCellValueFactory(new PropertyValueFactory<>("motor"));
-        t3tableColumn2.setCellValueFactory(new PropertyValueFactory<>("nacionalidade"));
-        t3tableColumn3.setCellValueFactory(new PropertyValueFactory<>("anoInicio"));
+        t3tableColumn1.setCellValueFactory(new PropertyValueFactory<>("dotd"));
+        t3tableColumn2.setCellValueFactory(new PropertyValueFactory<>("melhorVoltaTempo"));
+        t3tableColumn3.setCellValueFactory(new PropertyValueFactory<>("melhorVoltaPiloto"));
 
     }
 }

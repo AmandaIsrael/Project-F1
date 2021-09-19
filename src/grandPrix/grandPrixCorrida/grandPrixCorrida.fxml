@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -14,15 +13,19 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #3d3c41;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="grandPrix.grandPrixCorrida.grandPrixCorridaMainTableController">
+<?import javafx.scene.control.MenuItem?>
+<VBox prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #3d3c41;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="grandPrix.grandPrixCorrida.grandPrixCorridaController">
    <children>
       <MenuBar VBox.vgrow="NEVER">
          <menus>
-            <Menu mnemonicParsing="false" text="Home" />
-            <Menu mnemonicParsing="false" text="Ano" />
-            <Menu mnemonicParsing="false" text="Pilotos" />
-            <Menu mnemonicParsing="false" text="Equipes" />
-            <Menu mnemonicParsing="false" text="Pistas" />
+            <Menu mnemonicParsing="false" text="Telas">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#goToHome" text="Home" />
+                  <MenuItem mnemonicParsing="false" onAction="#goToAno" text="Ano" />
+                  <MenuItem mnemonicParsing="false" onAction="#goToPilotos" text="Pilotos" />
+                  <MenuItem mnemonicParsing="false" onAction="#goToEquipes" text="Equipes" />
+                  <MenuItem mnemonicParsing="false" onAction="#goToPistas" text="Pistas" />
+               </items></Menu>
          </menus>
       </MenuBar>
       <AnchorPane maxHeight="-1.0" maxWidth="-1.0" VBox.vgrow="ALWAYS">
@@ -31,33 +34,27 @@
                <top>
                   <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <HBox prefHeight="100.0" prefWidth="1060.0">
+                        <HBox prefHeight="100.0" prefWidth="1060.0" spacing="50.0">
                            <children>
-                              <RadioButton mnemonicParsing="false" prefHeight="35.0" prefWidth="257.0" text="Resumo" textFill="WHITE">
+                              <Button onAction="#goToResumo" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="39.0" prefWidth="118.0" style="-fx-background-color: #000000;" text="Resumo" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="18.0" />
                                  </font>
-                                 <HBox.margin>
-                                    <Insets left="30.0" top="30.0" />
-                                 </HBox.margin>
-                              </RadioButton>
-                              <RadioButton mnemonicParsing="false" prefHeight="35.0" prefWidth="257.0" text="Corrida" textFill="WHITE">
+                              </Button>
+                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="39.0" prefWidth="124.0" style="-fx-background-color: #000000;" text="Corrida" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="18.0" />
                                  </font>
-                                 <HBox.margin>
-                                    <Insets top="30.0" />
-                                 </HBox.margin>
-                              </RadioButton>
-                              <RadioButton mnemonicParsing="false" prefHeight="35.0" prefWidth="257.0" text="Qualificatório" textFill="WHITE">
+                              </Button>
+                              <Button onAction="#goToQuali" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="39.0" prefWidth="150.0" style="-fx-background-color: #000000;" text="Qualificatório" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="18.0" />
                                  </font>
-                                 <HBox.margin>
-                                    <Insets top="30.0" />
-                                 </HBox.margin>
-                              </RadioButton>
+                              </Button>
                            </children>
+                           <HBox.margin>
+                              <Insets left="20.0" top="20.0" />
+                           </HBox.margin>
                         </HBox>
                      </children>
                   </HBox>

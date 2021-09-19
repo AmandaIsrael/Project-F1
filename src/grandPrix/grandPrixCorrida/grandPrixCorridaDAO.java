@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 import grandPrix.grandPrixPenalidadeModel;
 
-public class grandPrixCorridaDAO {
+public final class grandPrixCorridaDAO {
     private static Connection con = ConnectPostgre.ConnectDatabase();
 
     public static ArrayList<grandPrixCorridaMainTableModel> readListaResultados(String grandPrixNome){

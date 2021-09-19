@@ -74,9 +74,9 @@ public class grandPrixResumoDAO {
             ResultSet resultado = declaracao.executeQuery(sql);
 
             while(resultado.next()){
-                SimpleStringProperty dotd = new SimpleStringProperty(resultado.getString("nomeAntigo"));
-                SimpleStringProperty melhorVoltaTempo = new SimpleStringProperty(resultado.getString("nomeAntigoAnoInicio"));
-                SimpleStringProperty melhorVoltaPiloto = new SimpleStringProperty(resultado.getString("nomeAntigoAnoFim"));
+                SimpleStringProperty dotd = new SimpleStringProperty(resultado.getString("dotd"));
+                SimpleStringProperty melhorVoltaTempo = new SimpleStringProperty(resultado.getString("melhorTempoVolta"));
+                SimpleStringProperty melhorVoltaPiloto = new SimpleStringProperty(resultado.getString("melhorVoltaPiloto"));
 
                 grandPrixTempoModel tempo = new grandPrixTempoModel(dotd, melhorVoltaTempo, melhorVoltaPiloto);
 

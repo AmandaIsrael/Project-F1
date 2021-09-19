@@ -57,7 +57,7 @@ public class grandPrixQualiMainTableController extends pilotoMainTableController
                     pilostaticTableView.setItems(piloto);
                     ObservableList<pilotoContratoModel> contrato = FXCollections.observableArrayList(pilotoDAO.readListaContratos(listaPilotos.getNome(), listaPilotos.getSobrenome()));
                     pilostaticTableView2.setItems(contrato);
-                    
+
                 }
             }});
 
@@ -72,7 +72,7 @@ public class grandPrixQualiMainTableController extends pilotoMainTableController
                     pilostaticTableView.setItems(piloto);
                     ObservableList<pilotoContratoModel> contrato = FXCollections.observableArrayList(pilotoDAO.readListaContratos(listaPilotos.getNome(), listaPilotos.getSobrenome()));
                     pilostaticTableView2.setItems(contrato);
-                    
+
                 }
             }});
     }
@@ -107,6 +107,16 @@ public class grandPrixQualiMainTableController extends pilotoMainTableController
 
     private void goToPiloto(){
         myController.setScreen(Main.screen8ID);
+    }
+
+    @FXML
+    private void goToCorrida(ActionEvent event){
+        myController.setScreen(Main.screen11ID);
+    }
+
+    @FXML
+    private void goToResumo(ActionEvent event){
+        myController.setScreen(Main.screen12ID);
     }
 
     public void initTable(){

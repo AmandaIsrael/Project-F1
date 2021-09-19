@@ -32,6 +32,7 @@ public class anoController extends grandPrixResumoController {
     @FXML private TableColumn<anoModel, SimpleStringProperty> tableColumn2;
     @FXML private TableColumn<anoModel, SimpleStringProperty> tableColumn3;
     private static Connection con = ConnectPostgre.ConnectDatabase();
+    static anoModel ano;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -40,7 +41,7 @@ public class anoController extends grandPrixResumoController {
         tableView.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                anoModel ano = tableView.getSelectionModel().getSelectedItem();
+                ano = tableView.getSelectionModel().getSelectedItem();
                 if (mouseEvent.getClickCount() == 2){
                     goToGP();
                     ObservableList<grandPrixResumoMainTableModel> gp = FXCollections.observableArrayList(grandPrixResumoDAO.readGrandPrix(ano.getNome()));
@@ -50,8 +51,13 @@ public class anoController extends grandPrixResumoController {
                     ObservableList<grandPrixTempoModel> tempo = FXCollections.observableArrayList(grandPrixResumoDAO.readListaTempos(ano.getNome()));
                     gpstaticTableView3.setItems(tempo);
 
+
                 }
             }});
+    }
+
+    public static String getNome(){
+        return ano.getNome();
     }
 
     @Override

@@ -102,6 +102,11 @@ public class pilotoMainTableController extends equipeMainTableController{
         myController.setScreen(Main.screen7ID);
     }
 
+    @FXML
+    private void goToAddContrato(ActionEvent event){
+        myController.setScreen(Main.screen16ID);
+    }
+
     public void initTable(){
 
         tableColumn1.setCellValueFactory(new PropertyValueFactory<>("nome"));
