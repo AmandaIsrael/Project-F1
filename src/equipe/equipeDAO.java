@@ -16,6 +16,239 @@ import javax.swing.*;
 public class equipeDAO {
     private static Connection con = ConnectPostgre.ConnectDatabase();
     
+    public static int getIDEquipeRegistro(){
+        String sql = "SELECT MAX(equipeID) as id FROM equiperegistro;";
+        int id = -1;
+        try {
+            Statement declaracao = con.createStatement();
+            ResultSet ps = declaracao.executeQuery(sql);
+
+            while (ps.next()) {
+                id = ps.getInt("id");
+                return id;
+            }
+
+        }
+        catch (SQLException throwables) {
+            System.out.println(throwables);
+            System.out.println("Erro ao pegar ID em equiperegistro!");
+        }
+        return id;
+    }
+
+    public static void inserirEquipeRegistro(String nome){
+        String sql = "INSERT INTO equiperegistro (equipeID,	equipeRegistroNome) VALUES (?,?);";
+        int id = getIDEquipeRegistro() + 1;
+        try{
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ps.setString(2, nome);
+
+            ps.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
+
+        }catch (SQLException throwables) {
+            System.out.println("Erro ao inserir EquipeRegistro!");
+        }
+
+    }
+
+    public static void inserirEquipeTable(String nome, String cidade, String nacionalidade,String motorAtual, String anoInicioMotorAtual){
+        String sql = "INSERT INTO Equipe (equipeNome,equipeCidade,equipeNacionalidade,equipeMotorAtual,equipeAnoInicioMotorAtual) VALUES (?,?,?,?,?);";
+
+        try{
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, nome);
+            ps.setString(2, cidade);
+            ps.setString(3, nacionalidade);
+            ps.setString(4, motorAtual);
+            ps.setInt(5, Integer.parseInt(anoInicioMotorAtual));
+
+            ps.executeUpdate();
+
+        }catch (SQLException throwables) {
+            String erro = throwables.toString();
+            JOptionPane.showMessageDialog(null, erro.replace("org.postgresql.util.PSQLException: ERROR:", "ERROR: "));
+            System.out.println("Erro ao inserir Equipe!");
+        }
+    }
+
+    public static void inserirFornecedorMotorAtual(String motorAtual, String nacionalidadeMotorAtual){
+        String sql = "INSERT INTO MotorEquipe (motorAtual,nacionalidadeMotorAtual) VALUES (?,?);";
+
+        try{
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, motorAtual);
+            ps.setString(2, nacionalidadeMotorAtual);
+
+            ps.executeUpdate();
+
+        }catch (SQLException throwables) {
+            String erro = throwables.toString();
+            JOptionPane.showMessageDialog(null, erro.replace("org.postgresql.util.PSQLException: ERROR:", "ERROR: "));
+            System.out.println("Erro ao inserir fornecedorMotor!");
+        }
+    }
+    
+    public static void inserirEquipe(String nome, String cidade, String nacionalidade, String motorAtual, String anoInicioMotorAtual, String nacionalidadeMotorAtual){
+        inserirFornecedorMotorAtual(motorAtual, nacionalidadeMotorAtual);
+        inserirEquipeTable(nome, cidade, nacionalidade, motorAtual, anoInicioMotorAtual);
+        inserirEquipeRegistro(nome);
+    }
+
+    public static void inserirNomeAntigo(String nomeAntigo, String equipe, String anoInicio, String anoFim){
+        String sql = "INSERT INTO NomeAntigo (nomeAntigo,nomeAntigoEquipeID,nomeAntigoAnoInicio,nomeAntigoAnoFim) VALUES (?,?,?,?);";
+
+        try{
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, nomeAntigo);
+            ps.setInt(2, IDGetter.getPistaID(equipe));
+            ps.setInt(3, Integer.parseInt(anoInicio));
+            ps.setInt(4, Integer.parseInt(anoFim));
+
+            ps.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
+
+        }catch (SQLException throwables) {
+            String erro = throwables.toString();
+            JOptionPane.showMessageDialog(null, erro.replace("org.postgresql.util.PSQLException: ERROR:", "ERROR: "));
+            System.out.println("Erro ao inserir Nome Antigo!");
+        }
+    }
+
+    public static void inserirFornecedorMotor(String nomeMotor, String nacionalidadeMotor){
+        String sql = "INSERT INTO FornecedorMotor (nomeFornecedor,nacionalidadeFornecedor) VALUES (?,?);";
+
+        try{
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, nomeMotor);
+            ps.setString(2, nacionalidadeMotor);
+
+            ps.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
+
+        }catch (SQLException throwables) {
+            String erro = throwables.toString();
+            JOptionPane.showMessageDialog(null, erro.replace("org.postgresql.util.PSQLException: ERROR:", "ERROR: "));
+            System.out.println("Erro ao inserir fornecedorMotor!");
+        }
+    }
+
+    public static void inserirUtilizouMotor(String nomeMotor, String nomeEquipe, String anoInicio, String anoFim){
+        String sql = "INSERT INTO UtilizouMotor (motorNome,motorEquipe,motorAnoInicio,motorAnoFim) VALUES (?,?,?,?);";
+
+        try{
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, nomeMotor);
+            ps.setInt(2, IDGetter.getEquipeID(nomeEquipe));
+            ps.setInt(3, Integer.parseInt(anoInicio));
+            ps.setInt(4, Integer.parseInt(anoFim));
+
+            ps.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
+
+        }catch (SQLException throwables) {
+            String erro = throwables.toString();
+            JOptionPane.showMessageDialog(null, erro.replace("org.postgresql.util.PSQLException: ERROR:", "ERROR: "));
+            System.out.println("Erro ao inserir utilizouMotor!");
+        }
+    }
+
+    public static void inserirMotor(String nomeMotor, String nomeEquipe, String nacionalidadeMotor, String anoInicio, String anoFim){
+        inserirFornecedorMotor(nomeMotor, nacionalidadeMotor);
+        inserirUtilizouMotor(nomeMotor, nomeEquipe, anoInicio, anoFim);
+    }
+
+    public static int getIDLiderRegistro(){
+        String sql = "SELECT MAX(LiderID) as id FROM Liderregistro;";
+        int id = -1;
+        try {
+            Statement declaracao = con.createStatement();
+            ResultSet ps = declaracao.executeQuery(sql);
+
+            while (ps.next()) {
+                id = ps.getInt("id");
+                return id;
+            }
+
+        }
+        catch (SQLException throwables) {
+            System.out.println(throwables);
+            System.out.println("Erro ao pegar ID em Liderregistro!");
+        }
+        return id;
+    }
+
+    public static void inserirLiderTable(String liderNome, String liderSobrenome, String liderNacionalidade, String liderCidade, String liderNascimento){
+        String sql = "INSERT INTO Lider (liderNome,liderSobrenome,liderNacionalidade,liderCidade ,liderNascimento) VALUES (?,?,?,?,?);";
+
+        try{
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, liderNome);
+            ps.setString(2, liderSobrenome);
+            ps.setString(3, liderNacionalidade);
+            ps.setString(4, liderCidade);
+            ps.setDate(5, Date.valueOf(liderNascimento));
+
+            ps.executeUpdate();
+
+        }catch (SQLException throwables) {
+            String erro = throwables.toString();
+            JOptionPane.showMessageDialog(null, erro.replace("org.postgresql.util.PSQLException: ERROR:", "ERROR: "));
+            System.out.println("Erro ao inserir Lider!");
+        }
+    }
+
+    public static void inserirLiderRegistro(String liderNome, String liderSobrenome){
+        String sql = "INSERT INTO pistaRegistro (pistaID, registroNomePista) VALUES (?,?);";
+        int id = getIDLiderRegistro() + 1;
+        try{
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ps.setString(2, liderNome);
+            ps.setString(3, liderSobrenome);
+
+            ps.executeUpdate();
+
+        }catch (SQLException throwables) {
+            System.out.println("Erro ao inserir LiderRegistro!");
+        }
+    }
+
+    public static void inserirLiderada(String liderNome, String liderSobrenome, String cargo, String lideradaAnoInicio, String lideradaAnoFim, String equipeNome){
+        
+        String sql = "INSERT INTO Liderada (lideradaLiderID,lideradaEquipeID,cargo,lideradaAnoInicio,lideradaAnoFim) VALUES (?,?,?,?,?);";
+
+        try{
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, IDGetter.getLiderID(liderNome, liderSobrenome));
+            ps.setInt(2, IDGetter.getEquipeID(equipeNome));
+            ps.setString(3, cargo);
+            ps.setDate(4, Date.valueOf(lideradaAnoInicio));
+            ps.setDate(5, Date.valueOf(lideradaAnoFim));
+
+            ps.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
+
+        }catch (SQLException throwables) {
+            String erro = throwables.toString();
+            JOptionPane.showMessageDialog(null, erro.replace("org.postgresql.util.PSQLException: ERROR:", "ERROR: "));
+            System.out.println("Erro ao inserir Liderada!");
+        }
+
+    }
+
+    public static void inserirLider(String liderNome, String liderSobrenome, String liderNacionalidade, String liderCidade, String liderNascimento, String cargo, String lideradaAnoInicio, String lideradaAnoFim, String equipeNome){
+        inserirLiderTable(liderNome, liderSobrenome, liderNacionalidade, liderCidade, liderNascimento);
+        inserirLiderRegistro(liderNome, liderSobrenome);
+        inserirLiderada(liderNome, liderSobrenome, cargo, lideradaAnoInicio, lideradaAnoFim, equipeNome);
+    }
+
     public static void updateEquipe(equipeMainTableModel equipe){
         String sql = "UPDATE equipe SET equipeCidade = ?, equipeNacionalidade = ? WHERE equipeNome = ?";
 

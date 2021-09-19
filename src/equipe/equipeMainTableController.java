@@ -164,10 +164,10 @@ public class equipeMainTableController implements Initializable, controlledScree
         refreshTabelaNomeAntigo();
     }
 
-    private void refreshTabelaNomeAntigo(){
-        ObservableList<equipeNomeAntigoModel> nomeAntigo = FXCollections.observableArrayList(equipeDAO.readListaNomesAntigos(tabelaEquipeAtual.get(0).getNome()));
-        tableView2.getItems().clear();
-        tableView2.setItems(nomeAntigo);
+    public static void refreshTabelaNomeAntigo(){
+        ObservableList<equipeNomeAntigoModel> nomeAntigo = FXCollections.observableArrayList(equipeDAO.readListaNomesAntigos(statictabelaEquipeAtual.get(0).getNome()));
+        staticTableView2.getItems().clear();
+        staticTableView2.setItems(nomeAntigo);
     }
 
     private void updateMotor(equipeMotoresModel motor){
@@ -184,10 +184,10 @@ public class equipeMainTableController implements Initializable, controlledScree
         refreshTabelaMotor();
     }
 
-    private void refreshTabelaMotor(){
-        ObservableList<equipeMotoresModel> motor = FXCollections.observableArrayList(equipeDAO.readListaMotores(tabelaEquipeAtual.get(0).getNome()));
-        tableView3.getItems().clear();
-        tableView3.setItems(motor);
+    public static void refreshTabelaMotor(){
+        ObservableList<equipeMotoresModel> motor = FXCollections.observableArrayList(equipeDAO.readListaMotores(statictabelaEquipeAtual.get(0).getNome()));
+        staticTableView3.getItems().clear();
+        staticTableView3.setItems(motor);
     }
 
     private void updateLider(equipeLiderModel equipe){
@@ -204,10 +204,10 @@ public class equipeMainTableController implements Initializable, controlledScree
         refreshTabelaLider();
     }
 
-    private void refreshTabelaLider(){
-        ObservableList<equipeLiderModel> equipe = FXCollections.observableArrayList(equipeDAO.readListaLideres(tabelaEquipeAtual.get(0).getNome()));
-        tableView.getItems().clear();
-        tableView.setItems(equipe);
+    public static void refreshTabelaLider(){
+        ObservableList<equipeLiderModel> equipe = FXCollections.observableArrayList(equipeDAO.readListaLideres(statictabelaEquipeAtual.get(0).getNome()));
+        staticTableView.getItems().clear();
+        staticTableView.setItems(equipe);
     }
 
     public void initTable(){
