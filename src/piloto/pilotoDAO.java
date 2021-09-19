@@ -3,7 +3,6 @@ package piloto;
 import javafx.beans.property.SimpleStringProperty;
 import sample.utils.ConnectPostgre;
 
-import java.sql.*;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.sql.Connection;
@@ -11,7 +10,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import sample.IDGetter;
-import grandPrix.grandPrixPenalidadeModel;
 
 public final class pilotoDAO {
     private static Connection con = ConnectPostgre.ConnectDatabase();
