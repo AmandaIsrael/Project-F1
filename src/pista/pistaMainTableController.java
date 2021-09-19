@@ -117,7 +117,6 @@ public class pistaMainTableController implements Initializable, controlledScreen
     private void deleteTracado(pistaTracadoModel tracado){
         pistaDAO.deleteTracado(tracado, tabelaPistaAtual.get(0).getNome());
         refreshTabelaTracado();
-
     }
 
     private void refreshTabelaTracado(){

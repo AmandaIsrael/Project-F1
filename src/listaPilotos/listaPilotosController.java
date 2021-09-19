@@ -27,6 +27,7 @@ import piloto.pilotoMainTableModel;
 public class listaPilotosController extends pilotoMainTableController {
     screensController myController;
     @FXML private TableView<listaPilotosModel> tableView;
+    private static TableView<listaPilotosModel> statictableView;
     @FXML private TableColumn<listaPilotosModel, SimpleStringProperty> tableColumn1;
     @FXML private TableColumn<listaPilotosModel, SimpleStringProperty> tableColumn2;
     private static Connection con = ConnectPostgre.ConnectDatabase();
@@ -91,6 +92,12 @@ public class listaPilotosController extends pilotoMainTableController {
         ObservableList<listaPilotosModel> pilotos = FXCollections.observableArrayList(readListaPilotos());
 
         tableView.setItems(pilotos);
+    }
+
+    public static void refreshTable(){
+        ObservableList<listaPilotosModel> pistas = FXCollections.observableArrayList(readListaPilotos());
+        statictableView.getItems().clear();
+        statictableView.setItems(pistas);
     }
 
     public static ArrayList<listaPilotosModel> readListaPilotos(){

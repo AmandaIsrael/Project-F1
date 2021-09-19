@@ -6,6 +6,7 @@ import sample.utils.ConnectPostgre;
 import javax.swing.*;
 import java.sql.*;
 import java.util.ArrayList;
+import sample.IDGetter;
 
 public final class pistaDAO {
     private static Connection con = ConnectPostgre.ConnectDatabase();
@@ -62,22 +63,6 @@ public final class pistaDAO {
         }
     }
 
-    public static int getPistaID(String nomePista){
-        String sql = "SELECT pistaID FROM PistaRegistro WHERE registroNomePista = '" + nomePista + "'";
-        int id = 0;
-        try {
-            Statement declaracao = con.createStatement();
-            ResultSet resultado = declaracao.executeQuery(sql);
-
-            while(resultado.next()){
-                id = resultado.getInt("pistaID");
-            }
-        }catch (SQLException throwables){
-            System.out.println("Error pistaID");
-        }
-        return id;
-    }
-
     public static void updateTracado(pistaTracadoModel tracado, String nomePista){
 
         String sql = "UPDATE tracado SET distanciaTracado = ?, numeroVoltasTracado = ? WHERE anoAlteracaoTracado = ? AND TracadoPistaID = ?;";
@@ -99,7 +84,7 @@ public final class pistaDAO {
             }else{
                 ps.setInt(3, Integer.parseInt(tracado.getAnoAlteracao()));
             }
-            ps.setInt(4, getPistaID(nomePista));
+            ps.setInt(4, IDGetter.getPistaID(nomePista));
             ps.executeUpdate();
 
         }catch(SQLException e){
@@ -114,7 +99,7 @@ public final class pistaDAO {
         try{
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, Integer.parseInt(tracado.getAnoAlteracao()));
-            ps.setInt(2, getPistaID(nomePista));
+            ps.setInt(2, IDGetter.getPistaID(nomePista));
 
             ps.executeUpdate();
 
