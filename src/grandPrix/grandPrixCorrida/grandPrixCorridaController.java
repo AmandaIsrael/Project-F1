@@ -3,7 +3,12 @@ package grandPrix.grandPrixCorrida;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import ano.anoController;
 import grandPrix.grandPrixPenalidadeModel;
+import grandPrix.grandPrixQuali.grandPrixQualiDAO;
+import grandPrix.grandPrixQuali.grandPrixQualiMainTableController;
+import grandPrix.grandPrixQuali.grandPrixQualiMainTableModel;
+import grandPrix.grandPrixResumo.*;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,6 +24,8 @@ import javafx.scene.input.MouseEvent;
 import piloto.pilotoDAO;
 import piloto.pilotoContratoModel;
 import piloto.pilotoMainTableModel;
+
+import static grandPrix.grandPrixResumo.grandPrixResumoController.gpstaticTableView2;
 
 public class grandPrixCorridaController extends pilotoMainTableController{
     screensController myController;
@@ -57,6 +64,7 @@ public class grandPrixCorridaController extends pilotoMainTableController{
                     goToPiloto();
 
                     ObservableList<pilotoMainTableModel> piloto = FXCollections.observableArrayList(pilotoDAO.readListaPilotos(listaPilotos.getNome(), listaPilotos.getSobrenome()));
+
                     pilostaticTableView.setItems(piloto);
                     ObservableList<pilotoContratoModel> contrato = FXCollections.observableArrayList(pilotoDAO.readListaContratos(listaPilotos.getNome(), listaPilotos.getSobrenome()));
                     pilostaticTableView2.setItems(contrato);
@@ -108,18 +116,54 @@ public class grandPrixCorridaController extends pilotoMainTableController{
         myController.setScreen(Main.screen5ID);
     }
 
+    @FXML
+    private void goToPenalidade(ActionEvent event){
+        myController.setScreen(Main.screen24ID);
+    }
+    @FXML
+    private void goToResultadoIndividual(ActionEvent event){
+        myController.setScreen(Main.screen23ID);
+    }
+
+
     private void goToPiloto(){
         myController.setScreen(Main.screen8ID);
+    }
+
+    @FXML
+    private void goToResumo(ActionEvent event){
+
+        myController.setScreen(Main.screen11ID);
+
+        ObservableList<grandPrixResumoMainTableModel> gp = FXCollections.observableArrayList(grandPrixResumoDAO.readGrandPrix(anoController.getNome()));
+        grandPrixResumoController.gpstaticTableView.setItems(gp);
+        ObservableList<grandPrixPodioModel> podio = FXCollections.observableArrayList(grandPrixResumoDAO.readListaPodio(anoController.getNome()));
+        grandPrixResumoController.gpstaticTableView2.setItems(podio);
+        ObservableList<grandPrixTempoModel> tempo = FXCollections.observableArrayList(grandPrixResumoDAO.readListaTempos(anoController.getNome()));
+        grandPrixResumoController.gpstaticTableView3.setItems(tempo);
+    }
+    @FXML
+    private void goToQuali(){
+
+        myController.setScreen(Main.screen13ID);
+
+        myController.setScreen(Main.screen13ID);
+
+        ObservableList<grandPrixQualiMainTableModel> listaLideres = FXCollections.observableArrayList(grandPrixQualiDAO.readListaLideres(anoController.getNome()));
+        grandPrixQualiMainTableController.staticTableView.setItems(listaLideres);
+
+        ObservableList<grandPrixPenalidadeModel> penalidades = FXCollections.observableArrayList(grandPrixQualiDAO.readListaPenalidades(anoController.getNome()));
+        grandPrixQualiMainTableController.staticTableView2.setItems(penalidades);
     }
 
     public void initTable(){
 
         tableColumn1.setCellValueFactory(new PropertyValueFactory<>("colocacao"));
-        tableColumn2.setCellValueFactory(new PropertyValueFactory<>("grid"));
-        tableColumn3.setCellValueFactory(new PropertyValueFactory<>("equipe"));
-        tableColumn4.setCellValueFactory(new PropertyValueFactory<>("num"));
-        tableColumn5.setCellValueFactory(new PropertyValueFactory<>("nome"));
-        tableColumn6.setCellValueFactory(new PropertyValueFactory<>("sobrenome"));
+        tableColumn2.setCellValueFactory(new PropertyValueFactory<>("num"));
+        tableColumn3.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        tableColumn4.setCellValueFactory(new PropertyValueFactory<>("sobrenome"));
+        tableColumn5.setCellValueFactory(new PropertyValueFactory<>("equipe"));
+        tableColumn6.setCellValueFactory(new PropertyValueFactory<>("grid"));
         tableColumn7.setCellValueFactory(new PropertyValueFactory<>("pontos"));
         tableColumn8.setCellValueFactory(new PropertyValueFactory<>("dnf"));
         tableColumn8.setCellValueFactory(new PropertyValueFactory<>("substituto"));

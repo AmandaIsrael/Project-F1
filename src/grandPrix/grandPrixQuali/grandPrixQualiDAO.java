@@ -23,13 +23,13 @@ public class grandPrixQualiDAO {
             ResultSet resultado = declaracao.executeQuery(sql);
 
             while(resultado.next()){
-                SimpleStringProperty posicao = new SimpleStringProperty(resultado.getString("liderNome"));
-                SimpleStringProperty tempo = new SimpleStringProperty(resultado.getString("liderSobrenome"));
-                SimpleStringProperty equipe = new SimpleStringProperty(resultado.getString("cargo"));
-                SimpleStringProperty num = new SimpleStringProperty(resultado.getString("liderNascimento"));
-                SimpleStringProperty nome = new SimpleStringProperty(resultado.getString("liderCidade"));
-                SimpleStringProperty sobrenome = new SimpleStringProperty(resultado.getString("liderNacionalidade"));
-                SimpleStringProperty substituto = new SimpleStringProperty(resultado.getString("lideradaAnoInicio"));
+                SimpleStringProperty posicao = new SimpleStringProperty(resultado.getString("grid"));
+                SimpleStringProperty num = new SimpleStringProperty(resultado.getString("número"));
+                SimpleStringProperty nome = new SimpleStringProperty(resultado.getString("nome"));
+                SimpleStringProperty sobrenome = new SimpleStringProperty(resultado.getString("sobrenome"));
+                SimpleStringProperty equipe = new SimpleStringProperty(resultado.getString("equipe"));
+                SimpleStringProperty tempo = new SimpleStringProperty(resultado.getString("tempo"));
+                SimpleStringProperty substituto = new SimpleStringProperty(resultado.getString("case"));
 
                 grandPrixQualiMainTableModel resultadoQuali = new grandPrixQualiMainTableModel(posicao, num, nome, sobrenome, equipe, tempo, substituto);
                 resultadosQuali.add(resultadoQuali);
@@ -55,7 +55,7 @@ public class grandPrixQualiDAO {
                 SimpleStringProperty nome = new SimpleStringProperty(resultado.getString("pilotoRegistroNome"));
                 SimpleStringProperty sobrenome = new SimpleStringProperty(resultado.getString("pilotoRegistroSobrenome"));
                 SimpleStringProperty penalidade = new SimpleStringProperty(resultado.getString("descrpenalidade"));
-                SimpleStringProperty causa = new SimpleStringProperty(resultado.getString("penalidadeCorridaCausa"));
+                SimpleStringProperty causa = new SimpleStringProperty(resultado.getString("penalidadeQualiCausa"));
 
                 grandPrixPenalidadeModel penalidadeElement = new grandPrixPenalidadeModel(nome, sobrenome, penalidade, causa);
 

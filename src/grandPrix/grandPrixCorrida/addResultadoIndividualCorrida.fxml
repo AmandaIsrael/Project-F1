@@ -10,27 +10,27 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TelaInicialController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="grandPrix.grandPrixCorrida.addResultadoIndividualCorridaController">
     <children>
         <BorderPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #3d3c41;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <bottom>
-                <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                     <children>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+                        <HBox alignment="CENTER" prefHeight="145.0" prefWidth="1280.0" spacing="50.0">
                             <children>
-                                <Button mnemonicParsing="false" onAction="#goToAno" prefHeight="60.0" prefWidth="150.0" style="-fx-background-color: #000000;" text="Voltar" textFill="WHITE">
+                                <Button mnemonicParsing="false" onAction="#goToCorrida" prefHeight="60.0" prefWidth="150.0" style="-fx-background-color: #000000;" text="Voltar" textFill="WHITE">
                                     <font>
                                         <Font name="System Bold" size="24.0" />
                                     </font>
                                 </Button>
-                                <Button mnemonicParsing="false" onAction="#goToPilotos" prefHeight="60.0" prefWidth="150.0" style="-fx-background-color: #000000;" text="Adicionar" textFill="WHITE">
+                                <Button mnemonicParsing="false"  prefHeight="60.0" prefWidth="150.0" style="-fx-background-color: #000000;" text="Adicionar" textFill="WHITE">
                                     <font>
                                         <Font name="System Bold" size="24.0" />
                                     </font>
                                 </Button>
                             </children>
                             <VBox.margin>
-                                <Insets bottom="110.0" />
+                                <Insets />
                             </VBox.margin>
                         </HBox>
                     </children>
@@ -39,15 +39,18 @@
             <center>
                 <VBox alignment="CENTER">
                     <BorderPane.margin>
-                        <Insets top="50.0" />
+                        <Insets />
                     </BorderPane.margin>
                     <children>
-                        <Label text="Novo Resultado Individual" textFill="WHITE">
+                        <Label text="Novo Resultado Individual Corrida" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="36.0" />
                             </font>
+                     <VBox.margin>
+                        <Insets bottom="15.0" />
+                     </VBox.margin>
                         </Label>
-                        <HBox alignment="CENTER">
+                        <HBox alignment="CENTER" prefHeight="289.0" prefWidth="1280.0">
                             <children>
                                 <VBox alignment="CENTER" prefHeight="417.0" prefWidth="1306.0" spacing="20.0">
                                     <children>
@@ -122,6 +125,23 @@
                                                 <Insets left="100.0" right="100.0" />
                                             </VBox.margin>
                                         </VBox>
+                              <VBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="591.0">
+                                 <children>
+                                    <Label text="Substituto" textFill="WHITE">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </TextField>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="100.0" right="100.0" />
+                                 </VBox.margin>
+                              </VBox>
                                     </children>
                                 </VBox>
                                 <VBox alignment="CENTER" prefHeight="417.0" prefWidth="1306.0" spacing="20.0">
@@ -148,7 +168,7 @@
                                         </VBox>
                                         <VBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="591.0">
                                             <children>
-                                                <Label text="Grid Pontos" textFill="WHITE">
+                                                <Label text="Grid " textFill="WHITE">
                                                     <font>
                                                         <Font size="24.0" />
                                                     </font>
@@ -165,7 +185,7 @@
                                         </VBox>
                                         <VBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="591.0">
                                             <children>
-                                                <Label text="DNF" textFill="WHITE">
+                                                <Label text="Pontos" textFill="WHITE">
                                                     <font>
                                                         <Font size="24.0" />
                                                     </font>
@@ -182,7 +202,7 @@
                                         </VBox>
                               <VBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="591.0">
                                  <children>
-                                    <Label text="Substituto" textFill="WHITE">
+                                    <Label text="DNF" textFill="WHITE">
                                        <font>
                                           <Font size="24.0" />
                                        </font>

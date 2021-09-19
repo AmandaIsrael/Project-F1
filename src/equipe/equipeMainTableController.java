@@ -85,6 +85,21 @@ public class equipeMainTableController implements Initializable, controlledScree
         myController.setScreen(Main.screen5ID);
     }
 
+    @FXML
+    private void goToAddLider(ActionEvent event){
+        myController.setScreen(Main.screen19ID);
+    }
+
+    @FXML
+    private void goToAddMotor(ActionEvent event){
+        myController.setScreen(Main.screen20ID);
+    }
+
+    @FXML
+    private void goToAddNomeAntigo(ActionEvent event){
+        myController.setScreen(Main.screen21ID);
+    }
+
     public void initTable(){
 
         tableColumn1.setCellValueFactory(new PropertyValueFactory<>("nome"));

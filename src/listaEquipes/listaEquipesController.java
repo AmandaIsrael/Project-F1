@@ -78,6 +78,11 @@ public class listaEquipesController extends equipeMainTableController{
         myController.setScreen(Main.screen5ID);
     }
 
+    @FXML
+    private void goToAddEquipe(ActionEvent event){
+        myController.setScreen(Main.screen18ID);
+    }
+
     private void goToEquipe(){
         myController.setScreen(Main.screen7ID);
     }

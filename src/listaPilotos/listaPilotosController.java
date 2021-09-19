@@ -74,6 +74,11 @@ public class listaPilotosController extends pilotoMainTableController {
         myController.setScreen(Main.screen5ID);
     }
 
+    @FXML
+    private void goToAddPiloto(ActionEvent event){
+        myController.setScreen(Main.screen17ID);
+    }
+
     private void goToPiloto(){
         myController.setScreen(Main.screen8ID);
     }

@@ -71,7 +71,7 @@
                   </TableView>
                </center>
                <bottom>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="39.0" prefWidth="176.0" style="-fx-background-color: #000000;" text="Adicionar GP" textFill="WHITE" BorderPane.alignment="CENTER_RIGHT">
+                  <Button onAction="#goToAddGrandPrix" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="39.0" prefWidth="176.0" style="-fx-background-color: #000000;" text="Adicionar GP" textFill="WHITE" BorderPane.alignment="CENTER_RIGHT">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>

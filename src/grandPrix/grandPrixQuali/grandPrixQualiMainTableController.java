@@ -2,7 +2,12 @@ package grandPrix.grandPrixQuali;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import ano.anoController;
+import grandPrix.grandPrixCorrida.grandPrixCorridaController;
+import grandPrix.grandPrixCorrida.grandPrixCorridaDAO;
+import grandPrix.grandPrixCorrida.grandPrixCorridaMainTableModel;
 import grandPrix.grandPrixPenalidadeModel;
+import grandPrix.grandPrixResumo.*;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -105,18 +110,44 @@ public class grandPrixQualiMainTableController extends pilotoMainTableController
         myController.setScreen(Main.screen5ID);
     }
 
+    @FXML
+    private void goToPenalidade(ActionEvent event){
+        myController.setScreen(Main.screen26ID);
+    }
+
+    @FXML
+    private void goToResultadoIndividual(ActionEvent event){
+        myController.setScreen(Main.screen25ID);
+    }
+
     private void goToPiloto(){
         myController.setScreen(Main.screen8ID);
     }
 
     @FXML
     private void goToCorrida(ActionEvent event){
-        myController.setScreen(Main.screen11ID);
+
+
+        myController.setScreen(Main.screen12ID);
+
+        ObservableList<grandPrixCorridaMainTableModel> listaResultados = FXCollections.observableArrayList(grandPrixCorridaDAO.readListaResultados(anoController.getNome()));
+        grandPrixCorridaController.staticTableView.setItems(listaResultados);
+
+        ObservableList<grandPrixPenalidadeModel> penalidades = FXCollections.observableArrayList(grandPrixCorridaDAO.readListaPenalidades(anoController.getNome()));
+        grandPrixCorridaController.staticTableView2.setItems(penalidades);
     }
 
     @FXML
     private void goToResumo(ActionEvent event){
+
         myController.setScreen(Main.screen12ID);
+
+        ObservableList<grandPrixResumoMainTableModel> gp = FXCollections.observableArrayList(grandPrixResumoDAO.readGrandPrix(anoController.getNome()));
+        grandPrixResumoController.gpstaticTableView.setItems(gp);
+        ObservableList<grandPrixPodioModel> podio = FXCollections.observableArrayList(grandPrixResumoDAO.readListaPodio(anoController.getNome()));
+        grandPrixResumoController.gpstaticTableView2.setItems(podio);
+        ObservableList<grandPrixTempoModel> tempo = FXCollections.observableArrayList(grandPrixResumoDAO.readListaTempos(anoController.getNome()));
+        grandPrixResumoController.gpstaticTableView3.setItems(tempo);
     }
 
     public void initTable(){

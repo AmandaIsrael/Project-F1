@@ -5,6 +5,10 @@ import java.util.ResourceBundle;
 
 import grandPrix.grandPrixCorrida.grandPrixCorridaDAO;
 import grandPrix.grandPrixCorrida.grandPrixCorridaMainTableModel;
+import grandPrix.grandPrixPenalidadeModel;
+import grandPrix.grandPrixQuali.grandPrixQualiDAO;
+import grandPrix.grandPrixQuali.grandPrixQualiMainTableController;
+import grandPrix.grandPrixQuali.grandPrixQualiMainTableModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,6 +24,8 @@ import pista.pistaDAO;
 import pista.pistaMainTableController;
 import pista.pistaMainTableModel;
 import pista.pistaTracadoModel;
+import ano.anoController;
+import grandPrix.grandPrixCorrida.grandPrixCorridaController;
 
 public class grandPrixResumoController extends pistaMainTableController{
     screensController myController;
@@ -110,13 +116,23 @@ public class grandPrixResumoController extends pistaMainTableController{
 
         myController.setScreen(Main.screen12ID);
 
-        //ObservableList<grandPrixCorridaMainTableModel> gp = FXCollections.observableArrayList(grandPrixCorridaDAO.readListaResultados(getNome()));
-        //gpstaticTableView.setItems(gp);
+        ObservableList<grandPrixCorridaMainTableModel> listaResultados = FXCollections.observableArrayList(grandPrixCorridaDAO.readListaResultados(anoController.getNome()));
+        grandPrixCorridaController.staticTableView.setItems(listaResultados);
+
+        ObservableList<grandPrixPenalidadeModel> penalidades = FXCollections.observableArrayList(grandPrixCorridaDAO.readListaPenalidades(anoController.getNome()));
+        grandPrixCorridaController.staticTableView2.setItems(penalidades);
     }
 
     @FXML
     private void goToQuali(ActionEvent event){
+
         myController.setScreen(Main.screen13ID);
+
+        ObservableList<grandPrixQualiMainTableModel> listaLideres = FXCollections.observableArrayList(grandPrixQualiDAO.readListaLideres(anoController.getNome()));
+        grandPrixQualiMainTableController.staticTableView.setItems(listaLideres);
+
+        ObservableList<grandPrixPenalidadeModel> penalidades = FXCollections.observableArrayList(grandPrixQualiDAO.readListaPenalidades(anoController.getNome()));
+        grandPrixQualiMainTableController.staticTableView2.setItems(penalidades);
     }
 
 

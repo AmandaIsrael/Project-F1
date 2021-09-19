@@ -1,4 +1,4 @@
-package listaPilotos;
+package grandPrix.grandPrixQuali;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,7 +10,7 @@ import sample.utils.screensController;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class addPilotoController implements Initializable, controlledScreen {
+public class addPenalidadeQualiController implements Initializable, controlledScreen {
 
     screensController myController;
 
@@ -21,7 +21,7 @@ public class addPilotoController implements Initializable, controlledScreen {
     public void setScreenParent(screensController screenPage) { myController = screenPage; }
 
     @FXML
-    private void goToListaPilotos(ActionEvent event){
-        myController.setScreen(Main.screen3ID);
+    private void goToQuali(ActionEvent event){
+        myController.setScreen(Main.screen13ID);
     }
 }

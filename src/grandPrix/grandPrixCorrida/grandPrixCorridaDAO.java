@@ -25,11 +25,11 @@ public final class grandPrixCorridaDAO {
 
             while(resultado.next()){
                 SimpleStringProperty colocacao = new SimpleStringProperty(resultado.getString("Colocação"));
-                SimpleStringProperty grid = new SimpleStringProperty(resultado.getString("Número"));
-                SimpleStringProperty equipe = new SimpleStringProperty(resultado.getString("Nome"));
-                SimpleStringProperty num = new SimpleStringProperty(resultado.getString("Sobrenome"));
-                SimpleStringProperty nome = new SimpleStringProperty(resultado.getString("Equipe"));
-                SimpleStringProperty sobrenome = new SimpleStringProperty(resultado.getString("Grid"));
+                SimpleStringProperty grid = new SimpleStringProperty(resultado.getString("grid"));
+                SimpleStringProperty equipe = new SimpleStringProperty(resultado.getString("equipe"));
+                SimpleStringProperty num = new SimpleStringProperty(resultado.getString("número"));
+                SimpleStringProperty nome = new SimpleStringProperty(resultado.getString("nome"));
+                SimpleStringProperty sobrenome = new SimpleStringProperty(resultado.getString("sobrenome"));
                 SimpleStringProperty pontos = new SimpleStringProperty(resultado.getString("Pontos"));
                 SimpleStringProperty dnf = new SimpleStringProperty(resultado.getString("DNF"));
                 SimpleStringProperty substituto = new SimpleStringProperty(resultado.getString("case"));

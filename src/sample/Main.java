@@ -40,6 +40,26 @@ public class Main extends Application {
     public static String screen15File = "/listaPista/addPista.fxml";
     public static String screen16ID = "addContrato";
     public static String screen16File = "/piloto/addContrato.fxml";
+    public static String screen17ID = "addPiloto";
+    public static String screen17File = "/listaPilotos/addPiloto.fxml";
+    public static String screen18ID = "addEquipe";
+    public static String screen18File = "/listaEquipes/addEquipe.fxml";
+    public static String screen19ID = "addLider";
+    public static String screen19File = "/equipe/addLider.fxml";
+    public static String screen20ID = "addMotor";
+    public static String screen20File = "/equipe/addMotor.fxml";
+    public static String screen21ID = "addNomeAntigo";
+    public static String screen21File = "/equipe/addNomeAntigo.fxml";
+    public static String screen22ID = "addGrandPrix";
+    public static String screen22File = "/ano/addGrandPrix.fxml";
+    public static String screen23ID = "addResultadoIndividualCorrida";
+    public static String screen23File = "/grandPrix/grandPrixCorrida/addResultadoIndividualCorrida.fxml";
+    public static String screen24ID = "addPenalidadeCorrida";
+    public static String screen24File = "/grandPrix/grandPrixCorrida/addPenalidadeCorrida.fxml";
+    public static String screen25ID = "addResultadoIndividualQuali";
+    public static String screen25File = "/grandPrix/grandPrixQuali/addResultadoIndividualQuali.fxml";
+    public static String screen26ID = "addPenalidadeCorrida";
+    public static String screen26File = "/grandPrix/grandPrixQuali/addPenalidadeQuali.fxml";
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -60,6 +80,16 @@ public class Main extends Application {
         mainContainer.loadScreen(Main.screen14ID, Main.screen14File);
         mainContainer.loadScreen(Main.screen15ID, Main.screen15File);
         mainContainer.loadScreen(Main.screen16ID, Main.screen16File);
+        mainContainer.loadScreen(Main.screen17ID, Main.screen17File);
+        mainContainer.loadScreen(Main.screen18ID, Main.screen18File);
+        mainContainer.loadScreen(Main.screen19ID, Main.screen19File);
+        mainContainer.loadScreen(Main.screen20ID, Main.screen20File);
+        mainContainer.loadScreen(Main.screen21ID, Main.screen21File);
+        mainContainer.loadScreen(Main.screen22ID, Main.screen22File);
+        mainContainer.loadScreen(Main.screen23ID, Main.screen23File);
+        mainContainer.loadScreen(Main.screen24ID, Main.screen24File);
+        mainContainer.loadScreen(Main.screen25ID, Main.screen25File);
+        mainContainer.loadScreen(Main.screen26ID, Main.screen26File);
 
         mainContainer.setScreen(Main.screen1ID);
 

@@ -93,6 +93,11 @@ public class anoController extends grandPrixResumoController {
         myController.setScreen(Main.screen10ID);
     }
 
+    @FXML
+    private void goToAddGrandPrix(ActionEvent event){
+        myController.setScreen(Main.screen22ID);
+    }
+
     private void goToGP(){
         myController.setScreen(Main.screen11ID);
     }
