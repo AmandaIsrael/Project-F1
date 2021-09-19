@@ -6,14 +6,20 @@ import grandPrix.grandPrixPenalidadeModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import piloto.pilotoMainTableController;
 import sample.Main;
-import sample.utils.controlledScreen;
 import sample.utils.screensController;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
+import javafx.scene.input.MouseEvent;
+import piloto.pilotoDAO;
+import piloto.pilotoContratoModel;
+import piloto.pilotoMainTableModel;
 
-public class grandPrixQualiMainTableController implements Initializable, controlledScreen{
+public class grandPrixQualiMainTableController extends pilotoMainTableController{
     screensController myController;
     
     @FXML private TableView<grandPrixQualiMainTableModel> tableView;
@@ -39,6 +45,36 @@ public class grandPrixQualiMainTableController implements Initializable, control
         initTable2();
         staticTableView = tableView;
         staticTableView2 = tableView2;
+
+        tableView.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                grandPrixQualiMainTableModel listaPilotos = tableView.getSelectionModel().getSelectedItem();
+                if (mouseEvent.getClickCount() == 2){
+                    goToPiloto();
+
+                    ObservableList<pilotoMainTableModel> piloto = FXCollections.observableArrayList(pilotoDAO.readListaPilotos(listaPilotos.getNome(), listaPilotos.getSobrenome()));
+                    pilostaticTableView.setItems(piloto);
+                    ObservableList<pilotoContratoModel> contrato = FXCollections.observableArrayList(pilotoDAO.readListaContratos(listaPilotos.getNome(), listaPilotos.getSobrenome()));
+                    pilostaticTableView2.setItems(contrato);
+
+                }
+            }});
+
+        tableView2.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                grandPrixPenalidadeModel listaPilotos = tableView2.getSelectionModel().getSelectedItem();
+                if (mouseEvent.getClickCount() == 2){
+                    goToPiloto();
+
+                    ObservableList<pilotoMainTableModel> piloto = FXCollections.observableArrayList(pilotoDAO.readListaPilotos(listaPilotos.getNome(), listaPilotos.getSobrenome()));
+                    pilostaticTableView.setItems(piloto);
+                    ObservableList<pilotoContratoModel> contrato = FXCollections.observableArrayList(pilotoDAO.readListaContratos(listaPilotos.getNome(), listaPilotos.getSobrenome()));
+                    pilostaticTableView2.setItems(contrato);
+
+                }
+            }});
     }
 
     @Override
@@ -67,6 +103,10 @@ public class grandPrixQualiMainTableController implements Initializable, control
     @FXML
     private void goToPistas(ActionEvent event){
         myController.setScreen(Main.screen5ID);
+    }
+
+    private void goToPiloto(){
+        myController.setScreen(Main.screen8ID);
     }
 
     @FXML

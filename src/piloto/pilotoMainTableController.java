@@ -2,21 +2,31 @@ package piloto;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import equipe.equipeMainTableController;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import sample.Main;
-import sample.utils.controlledScreen;
 import sample.utils.screensController;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
+import javafx.scene.input.MouseEvent;
+import piloto.pilotoMainTableController;
+import equipe.equipeDAO;
+import equipe.equipeLiderModel;
+import equipe.equipeMainTableModel;
+import equipe.equipeMotoresModel;
+import equipe.equipeNomeAntigoModel;
 
-public class pilotoMainTableController implements Initializable, controlledScreen{
+public class pilotoMainTableController extends equipeMainTableController{
     screensController myController;
     
     @FXML private TableView<pilotoMainTableModel> tableView;
-    public static TableView<pilotoMainTableModel> staticTableView;
+    public static TableView<pilotoMainTableModel> pilostaticTableView;
     @FXML private TableColumn<pilotoMainTableModel, SimpleStringProperty> tableColumn1;
     @FXML private TableColumn<pilotoMainTableModel, SimpleStringProperty> tableColumn2;
     @FXML private TableColumn<pilotoMainTableModel, SimpleStringProperty> tableColumn3;
@@ -28,7 +38,7 @@ public class pilotoMainTableController implements Initializable, controlledScree
     @FXML private TableColumn<pilotoMainTableModel, SimpleStringProperty> tableColumn9;
 
     @FXML private TableView<pilotoContratoModel> tableView2;
-    public static TableView<pilotoContratoModel> staticTableView2;
+    public static TableView<pilotoContratoModel> pilostaticTableView2;
     @FXML private TableColumn<pilotoContratoModel, SimpleStringProperty> t2tableColumn1;
     @FXML private TableColumn<pilotoContratoModel, SimpleStringProperty> t2tableColumn2;
     @FXML private TableColumn<pilotoContratoModel, SimpleStringProperty> t2tableColumn3;
@@ -38,8 +48,26 @@ public class pilotoMainTableController implements Initializable, controlledScree
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initTable();
         initTable2();
-        staticTableView = tableView;
-        staticTableView2 = tableView2;
+        pilostaticTableView = tableView;
+        pilostaticTableView2 = tableView2;
+
+        tableView2.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                pilotoContratoModel contrato = tableView2.getSelectionModel().getSelectedItem();
+                if (mouseEvent.getClickCount() == 2){
+                    goToEquipe();
+
+                    ObservableList<equipeLiderModel> lider = FXCollections.observableArrayList(equipeDAO.readListaLideres(contrato.getEquipe()));
+                    staticTableView.setItems(lider);
+                    ObservableList<equipeNomeAntigoModel> nomes = FXCollections.observableArrayList(equipeDAO.readListaNomesAntigos(contrato.getEquipe()));
+                    staticTableView2.setItems(nomes);
+                    ObservableList<equipeMotoresModel> motores = FXCollections.observableArrayList(equipeDAO.readListaMotores(contrato.getEquipe()));
+                    staticTableView3.setItems(motores);
+                    ObservableList<equipeMainTableModel> equipe = FXCollections.observableArrayList(equipeDAO.readListaEquipes(contrato.getEquipe()));
+                    staticTableView4.setItems(equipe);
+                }
+            }});
     }
 
     @Override
@@ -68,6 +96,10 @@ public class pilotoMainTableController implements Initializable, controlledScree
     @FXML
     private void goToPistas(ActionEvent event){
         myController.setScreen(Main.screen5ID);
+    }
+
+    private void goToEquipe(){
+        myController.setScreen(Main.screen7ID);
     }
 
     @FXML
