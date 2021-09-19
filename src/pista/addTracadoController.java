@@ -6,8 +6,6 @@ import javafx.fxml.Initializable;
 import sample.Main;
 import sample.utils.controlledScreen;
 import sample.utils.screensController;
-
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 

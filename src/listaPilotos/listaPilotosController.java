@@ -43,9 +43,9 @@ public class listaPilotosController extends pilotoMainTableController {
                     goToPiloto();
 
                     ObservableList<pilotoMainTableModel> piloto = FXCollections.observableArrayList(pilotoDAO.readListaPilotos(listaPilotos.getNome(), listaPilotos.getSobrenome()));
-                    staticTableView.setItems(piloto);
+                    pilostaticTableView.setItems(piloto);
                     ObservableList<pilotoContratoModel> contrato = FXCollections.observableArrayList(pilotoDAO.readListaContratos(listaPilotos.getNome(), listaPilotos.getSobrenome()));
-                    staticTableView2.setItems(contrato);
+                    pilostaticTableView2.setItems(contrato);
                     
                 }
             }});

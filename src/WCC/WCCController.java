@@ -63,10 +63,10 @@ public class WCCController extends pilotoMainTableController{
                     
 
                     ObservableList<pilotoMainTableModel> piloto = FXCollections.observableArrayList(pilotoDAO.readListaPilotos(pilotoNome, pilotoSobrenome));
-                    staticTableView.setItems(piloto);
+                    pilostaticTableView.setItems(piloto);
 
                     ObservableList<pilotoContratoModel> contrato = FXCollections.observableArrayList(pilotoDAO.readListaContratos(pilotoNome, pilotoSobrenome));
-                    staticTableView2.setItems(contrato);
+                    pilostaticTableView2.setItems(contrato);
                     
                 }
             }});
