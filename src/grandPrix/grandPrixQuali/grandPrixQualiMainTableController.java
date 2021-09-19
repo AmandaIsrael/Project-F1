@@ -69,6 +69,16 @@ public class grandPrixQualiMainTableController implements Initializable, control
         myController.setScreen(Main.screen5ID);
     }
 
+    @FXML
+    private void goToCorrida(ActionEvent event){
+        myController.setScreen(Main.screen11ID);
+    }
+
+    @FXML
+    private void goToResumo(ActionEvent event){
+        myController.setScreen(Main.screen12ID);
+    }
+
     public void initTable(){
 
         tableColumn1.setCellValueFactory(new PropertyValueFactory<>("posicao"));

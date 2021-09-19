@@ -72,6 +72,16 @@ public class grandPrixCorridaController implements Initializable, controlledScre
         myController.setScreen(Main.screen5ID);
     }
 
+    @FXML
+    private void goToQuali(ActionEvent event){
+        myController.setScreen(Main.screen13ID);
+    }
+
+    @FXML
+    private void goToResumo(ActionEvent event){
+        myController.setScreen(Main.screen11ID);
+    }
+
     public void initTable(){
 
         tableColumn1.setCellValueFactory(new PropertyValueFactory<>("colocacao"));
