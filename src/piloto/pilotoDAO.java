@@ -3,15 +3,69 @@ package piloto;
 import javafx.beans.property.SimpleStringProperty;
 import sample.utils.ConnectPostgre;
 
+import java.sql.*;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
+import sample.IDGetter;
+import grandPrix.grandPrixPenalidadeModel;
 
-public class pilotoDAO {
+public final class pilotoDAO {
     private static Connection con = ConnectPostgre.ConnectDatabase();
     
+    public static void updatePiloto(pilotoMainTableModel piloto){
+        String sql = "UPDATE piloto SET pilotoNumero = ?, pilotoAbrev = ?, pilotoNascimento = ?, pilotoCidade = ?, pilotoNacionalidade = ? WHERE pilotoNome = ? AND pilotoSobrenome = ?;";
+
+        try{
+            PreparedStatement ps = con.prepareStatement(sql);
+            if(piloto.getNumero().equals("")){
+                ps.setInt(1, 0);
+            }else{
+                ps.setInt(1, Integer.parseInt(piloto.getNumero()));
+            }
+            ps.setString(2, piloto.getAbreviacao());
+            ps.setString(3, piloto.getNascimento());
+            ps.setString(4, piloto.getCidade());
+            ps.setString(5, piloto.getNacionalidade());
+            ps.setString(6, piloto.getNome());
+            ps.setString(7, piloto.getSobrenome());
+            
+            ps.executeUpdate();
+
+        }catch(SQLException e){
+            System.out.println("Error updatePiloto");
+        }
+    }
+
+    public static void updateContrato(pilotoContratoModel contrato, String pilotoNome, String pilotoSobrenome){
+        String sql = "UPDATE contrato SET contratoAnoFim = ?, contratoSalario = ? WHERE contratoPilotoID = ? AND contratoEquipeID = ? AND contratoAnoInicio = ?;";
+
+        try{
+            PreparedStatement ps = con.prepareStatement(sql);
+            if(contrato.getAnoFim().equals("")){
+                ps.setInt(1, -1);
+            }else{
+                ps.setInt(1, Integer.parseInt(contrato.getAnoFim()));
+            }
+            if(contrato.getSalario().equals("")){
+                ps.setInt(2, -1);
+            }else{
+                ps.setInt(2, Integer.parseInt(contrato.getSalario()));
+            }
+            ps.setInt(3, IDGetter.getPilotoID(pilotoNome, pilotoSobrenome));
+            ps.setInt(4, IDGetter.getEquipeID(contrato.getEquipe()));
+            ps.setString(5, contrato.getAnoInicio());
+            
+            ps.executeUpdate();
+
+        }catch(SQLException e){
+            System.out.println("Error updatePiloto");
+        }
+    }
+
     public static ArrayList<pilotoMainTableModel> readListaPilotos(String pilotoNome, String pilotoSobrenome){
         
         ArrayList<pilotoMainTableModel> pilotos = new ArrayList<>();
