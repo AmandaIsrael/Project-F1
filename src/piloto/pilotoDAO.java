@@ -8,13 +8,75 @@ import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Date;
 import java.util.ArrayList;
 import sample.IDGetter;
-import java.sql.Date;
 import javax.swing.*;
 
 public final class pilotoDAO {
     private static Connection con = ConnectPostgre.ConnectDatabase();
+
+    public static int getIDPilotoRegistro(){
+        String sql = "SELECT MAX(PilotoID) as id FROM Pilotoregistro;";
+        int id = -1;
+        try {
+            Statement declaracao = con.createStatement();
+            ResultSet ps = declaracao.executeQuery(sql);
+
+            while (ps.next()) {
+                id = ps.getInt("id");
+                return id;
+            }
+
+        }
+        catch (SQLException throwables) {
+            System.out.println(throwables);
+            System.out.println("Erro ao pegar ID em Pilotoregistro!");
+        }
+        return id;
+    }
+
+    public static void inserirPilotoRegistro(String nome, String sobrenome){
+        String sql = "INSERT INTO PilotoRegistro (pilotoID,	pilotoRegistroNome,	pilotoRegistroSobrenome) VALUES (?,?, ?);";
+        int id = getIDPilotoRegistro() + 1;
+        try{
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ps.setString(2, nome);
+            ps.setString(2, sobrenome);
+
+            ps.executeUpdate();
+
+        }catch (SQLException throwables) {
+            System.out.println("Erro ao inserir PilotoRegistro!");
+        }
+    }
+
+    public static void inserirPiloto(String nome, String sobrenome, String numero, String abrev, String nascimento, String cidade, String nacionalidade){
+        String sql = "INSERT INTO (pilotoNome,pilotoSobrenome,pilotoNumero,pilotoAbrev,pilotoNascimento,pilotoCidade,pilotoNacionalidade) VALUES (?,?,?,?,?,?,?);";
+
+        try{
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, nome);
+            ps.setString(2, sobrenome);
+            ps.setInt(3, Integer.parseInt(numero));
+            ps.setString(4, abrev);
+            ps.setDate(5, Date.valueOf(nascimento));
+            ps.setString(6, cidade);
+            ps.setString(7, nacionalidade);
+
+            ps.executeUpdate();
+
+            inserirPilotoRegistro(nome, sobrenome);
+
+            JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
+
+        }catch (SQLException throwables) {
+            String erro = throwables.toString();
+            JOptionPane.showMessageDialog(null, erro.replace("org.postgresql.util.PSQLException: ERROR:", "ERROR: "));
+            System.out.println("Erro ao inserir Piloto!");
+        }
+    }
     
     public static void updatePiloto(pilotoMainTableModel piloto){
         String sql = "UPDATE piloto SET pilotoNumero = ?, pilotoAbrev = ?, pilotoNascimento = ?, pilotoCidade = ?, pilotoNacionalidade = ? WHERE pilotoNome = ? AND pilotoSobrenome = ?;";
@@ -41,6 +103,29 @@ public final class pilotoDAO {
         }catch(SQLException e){
             System.out.println(e.toString());
             System.out.println("Error updatePiloto");
+        }
+    }
+
+    public static void inserirContrato(String nome, String sobrenome, String equipe, String anoInicio, String anoFim, String salario){
+        String sql = "INSERT INTO Contrato (contratoPilotoID,contratoEquipeID,contratoAnoInicio,contratoAnoFim,contratoSalario) VALUES (?,?,?,?,?);";
+
+        try{
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, IDGetter.getPilotoID(nome, sobrenome));
+            ps.setInt(2, IDGetter.getEquipeID(equipe));
+            ps.setInt(3, Integer.parseInt(anoInicio));
+            ps.setInt(4, Integer.parseInt(anoFim));
+            ps.setInt(5, Integer.parseInt(salario));
+
+
+            ps.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
+
+        }catch (SQLException throwables) {
+            String erro = throwables.toString();
+            JOptionPane.showMessageDialog(null, erro.replace("org.postgresql.util.PSQLException: ERROR:", "ERROR: "));
+            System.out.println("Erro ao inserir Contrato!");
         }
     }
 

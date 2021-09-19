@@ -154,10 +154,10 @@ public class pilotoMainTableController extends equipeMainTableController{
         refreshTabelaContrato();
     }
 
-    private void refreshTabelaContrato(){
-        ObservableList<pilotoContratoModel> contrato = FXCollections.observableArrayList(pilotoDAO.readListaContratos(tabelaPilotoAtual.get(0).getNome(), tabelaPilotoAtual.get(0).getSobrenome()));
-        tableView2.getItems().clear();
-        tableView2.setItems(contrato);
+    public static void refreshTabelaContrato(){
+        ObservableList<pilotoContratoModel> contrato = FXCollections.observableArrayList(pilotoDAO.readListaContratos(statictabelaPilotoAtual.get(0).getNome(), statictabelaPilotoAtual.get(0).getSobrenome()));
+        pilostaticTableView2.getItems().clear();
+        pilostaticTableView2.setItems(contrato);
     }
 
     public void initTable(){
