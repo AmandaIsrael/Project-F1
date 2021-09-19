@@ -11,6 +11,65 @@ import sample.IDGetter;
 public final class pistaDAO {
     private static Connection con = ConnectPostgre.ConnectDatabase();
 
+
+    public static int getIDPistaRegistro(){
+        String sql = "SELECT MAX(pistaID) as id FROM pistaregistro;";
+        int id = -1;
+        try {
+            Statement declaracao = con.createStatement();
+            ResultSet ps = declaracao.executeQuery(sql);
+
+            while (ps.next()) {
+                id = ps.getInt("id");
+                return id;
+            }
+
+        }
+        catch (SQLException throwables) {
+            System.out.println(throwables);
+            System.out.println("Erro ao pegar ID em pistaregistro!");
+        }
+        return id;
+    }
+
+    public static void inserirPistaRegistro(String nomePista){
+        String sql = "INSERT INTO pistaRegistro (pistaID, registroNomePista) VALUES (?,?);";
+        int id = getIDPistaRegistro() + 1;
+        try{
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ps.setString(2, nomePista);
+
+            ps.executeUpdate();
+
+        }catch (SQLException throwables) {
+            System.out.println("Erro ao inserir PistaRegistro!");
+        }
+    }
+
+    public static void inserirPista(String nome, String pais, String cidade){
+        String sql = "INSERT INTO pista (nomePista, paisPista, cidadePista) VALUES (?,?,?);";
+
+        try{
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, nome);
+            ps.setString(2, pais);
+            ps.setString(3, cidade);
+
+            ps.executeUpdate();
+
+            inserirPistaRegistro(nome);
+
+            JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
+
+        }catch (SQLException throwables) {
+            String erro = throwables.toString();
+            JOptionPane.showMessageDialog(null, erro.replace("org.postgresql.util.PSQLException: ERROR:", "ERROR: "));
+            System.out.println("Erro ao inserir Pista!");
+        }
+    }
+
+
     public static void updatePista(pistaMainTableModel pista){
 
         String sql = "UPDATE pista SET paispista = ?, cidadepista = ? WHERE nomepista = ?;";
@@ -57,9 +116,29 @@ public final class pistaDAO {
 
         } catch (SQLException throwables) {
             String erro = throwables.toString();
-            System.out.println(erro);
             JOptionPane.showMessageDialog(null, erro.replace("org.postgresql.util.PSQLException: ERROR:", "ERROR: "));
             System.out.println("Error deletePistaRegistro");
+        }
+    }
+
+    public static void inserirTracado(int anoAlteracao, int distancia, int numeroVoltas, String nome){
+        String sql = "INSERT INTO tracado (anoAlteracaoTracado, TracadoPistaID, distanciaTracado, numeroVoltasTracado) VALUES (?,?,?,?);";
+
+        try{
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, anoAlteracao);
+            ps.setInt(2, IDGetter.getPistaID(nome));
+            ps.setInt(3, distancia);
+            ps.setInt(4, numeroVoltas);
+
+            ps.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
+
+        }catch (SQLException throwables) {
+            String erro = throwables.toString();
+            JOptionPane.showMessageDialog(null, erro.replace("org.postgresql.util.PSQLException: ERROR:", "ERROR: "));
+            System.out.println("Erro ao inserir Tracado!");
         }
     }
 

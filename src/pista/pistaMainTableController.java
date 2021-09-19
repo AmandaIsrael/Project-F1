@@ -119,10 +119,10 @@ public class pistaMainTableController implements Initializable, controlledScreen
         refreshTabelaTracado();
     }
 
-    private void refreshTabelaTracado(){
-        ObservableList<pistaTracadoModel> tracado = FXCollections.observableArrayList(pistaDAO.readListaTracados(tabelaPistaAtual.get(0).getNome()));
-        tableView2.getItems().clear();
-        tableView2.setItems(tracado);
+    public static void refreshTabelaTracado(){
+        ObservableList<pistaTracadoModel> tracado = FXCollections.observableArrayList(pistaDAO.readListaTracados(statictabelaPistaAtual.get(0).getNome()));
+        staticTableView2.getItems().clear();
+        staticTableView2.setItems(tracado);
     }
 
 
