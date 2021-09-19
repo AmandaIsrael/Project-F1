@@ -11,6 +11,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import sample.IDGetter;
 
+import javax.swing.*;
+
 public final class pilotoDAO {
     private static Connection con = ConnectPostgre.ConnectDatabase();
     
@@ -61,6 +63,60 @@ public final class pilotoDAO {
 
         }catch(SQLException e){
             System.out.println("Error updatePiloto");
+        }
+    }
+
+    public static void deletePilotoRegistro(String nome, String sobrenome) {
+        String sql = "DELETE FROM pilotoRegistro WHERE pilotoRegistroNome = ? AND pilotoRegistroSobrenome = ?";
+
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, nome);
+            ps.setString(2, sobrenome);
+
+            ps.executeUpdate();
+
+        } catch (SQLException throwables) {
+            String erro = throwables.toString();
+            System.out.println(erro);
+            JOptionPane.showMessageDialog(null, erro.replace("org.postgresql.util.PSQLException: ERROR:", "ERROR: "));
+            System.out.println("Error deletePilotoRegistro");
+        }
+    }
+
+    public static void deletePiloto(pilotoMainTableModel piloto){
+
+        deletePilotoRegistro(piloto.getNome(), piloto.getSobrenome());
+
+        String sql = "DELETE FROM piloto WHERE pilotoNome = ?, pilotoSobrenome = ?";
+
+        try{
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, piloto.getNome());
+            ps.setString(2, piloto.getSobrenome());
+
+            ps.executeUpdate();
+
+        } catch (SQLException throwables) {
+            System.out.println("Error deletePiloto");
+        }
+
+    }
+
+    public static void deleteContrato(pilotoContratoModel contrato, String pilotoNome, String pilotoSobrenome){
+
+        String sql = "DELETE FROM contrato WHERE contratoPilotoID  = ? AND contratoEquipeID = ? AND contratoAnoInicio = ?";
+
+        try{
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, IDGetter.getPilotoID(pilotoNome, pilotoSobrenome));
+            ps.setInt(2, IDGetter.getEquipeID(contrato.getEquipe()));
+            ps.setInt(3, Integer.parseInt(contrato.getAnoInicio()));
+
+            ps.executeUpdate();
+
+        } catch (SQLException throwables) {
+            System.out.println("Error deleteContrato");
         }
     }
 
