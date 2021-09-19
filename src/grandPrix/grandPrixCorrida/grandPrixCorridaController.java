@@ -25,8 +25,6 @@ import piloto.pilotoDAO;
 import piloto.pilotoContratoModel;
 import piloto.pilotoMainTableModel;
 
-import static grandPrix.grandPrixResumo.grandPrixResumoController.gpstaticTableView2;
-
 public class grandPrixCorridaController extends pilotoMainTableController{
     screensController myController;
     

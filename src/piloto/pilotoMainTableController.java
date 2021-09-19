@@ -126,7 +126,6 @@ public class pilotoMainTableController extends equipeMainTableController{
     }
 
     private void updatePiloto(pilotoMainTableModel piloto){
-        System.out.println("aqui");
         if(piloto.getNumero().equals("") && piloto.getAbreviacao().equals("") && piloto.getNascimento().equals("") && piloto.getCidade().equals("") && piloto.getNacionalidade().equals("")){
             deletePiloto(piloto);
         }else{

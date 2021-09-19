@@ -54,4 +54,20 @@ public class IDGetter {
         }
         return id;
     }
+
+    public static int getLiderID(String nome, String sobrenome){
+        String sql = "SELECT liderID FROM LiderRegistro WHERE liderRegistroNome = '" + nome + "' AND liderRegistroSobrenome = '"+sobrenome+"'";
+        int id = 0;
+        try {
+            Statement declaracao = con.createStatement();
+            ResultSet resultado = declaracao.executeQuery(sql);
+
+            while(resultado.next()){
+                id = resultado.getInt("liderID");
+            }
+        }catch (SQLException throwables){
+            System.out.println("Error liderID");
+        }
+        return id;
+    }
 }

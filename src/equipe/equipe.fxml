@@ -39,7 +39,7 @@
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Label>
-                        <TableView fx:id="tableView3" prefHeight="304.0" prefWidth="372.0">
+                        <TableView fx:id="tableView3" editable="true" prefHeight="304.0" prefWidth="372.0">
                            <columns>
                               <TableColumn fx:id="t3tableColumn1" prefWidth="75.0" text="Motor" />
                               <TableColumn fx:id="t3tableColumn2" prefWidth="105.0" text="Nacionalidade" />
@@ -66,7 +66,7 @@
                                     <Font name="System Bold" size="24.0" />
                                  </font>
                               </Label>
-                              <TableView fx:id="tableView4" prefHeight="95.0" prefWidth="548.0">
+                              <TableView fx:id="tableView4" editable="true" prefHeight="95.0" prefWidth="548.0">
                                  <columns>
                                     <TableColumn fx:id="t4tableColumn1" prefWidth="167.0" text="Nome" />
                                     <TableColumn fx:id="t4tableColumn2" prefWidth="183.0" text="Cidade" />
@@ -82,7 +82,7 @@
                                     <Font name="System Bold" size="24.0" />
                                  </font>
                               </Label>
-                              <TableView fx:id="tableView2" prefHeight="134.0" prefWidth="549.0">
+                              <TableView fx:id="tableView2" editable="true" prefHeight="134.0" prefWidth="549.0">
                                  <columns>
                                     <TableColumn fx:id="t2tableColumn1" prefWidth="143.0" text="Nome antigo" />
                                     <TableColumn fx:id="t2tableColumn2" prefWidth="220.0" text="Ano inicial" />
@@ -107,7 +107,7 @@
                                     <Font name="System Bold" size="24.0" />
                                  </font>
                               </Label>
-                              <TableView fx:id="tableView" prefHeight="131.0" prefWidth="1025.0">
+                              <TableView fx:id="tableView" editable="true" prefHeight="131.0" prefWidth="1025.0">
                                  <columns>
                                     <TableColumn fx:id="tableColumn1" prefWidth="77.0" text="Nome" />
                                     <TableColumn fx:id="tableColumn2" prefWidth="122.66668701171875" text="Sobrenome" />

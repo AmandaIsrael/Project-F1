@@ -28,6 +28,7 @@ import equipe.equipeNomeAntigoModel;
 public class listaEquipesController extends equipeMainTableController{
     screensController myController;
     @FXML private TableView<listaEquipesModel> tableView;
+    private static TableView<listaEquipesModel> statictableView;
     @FXML private TableColumn<listaEquipesModel, SimpleStringProperty> tableColumn1;
     @FXML private TableColumn<listaEquipesModel, SimpleStringProperty> tableColumn2;
     private static Connection con = ConnectPostgre.ConnectDatabase();
@@ -51,6 +52,19 @@ public class listaEquipesController extends equipeMainTableController{
                     staticTableView3.setItems(motores);
                     ObservableList<equipeMainTableModel> equipe = FXCollections.observableArrayList(equipeDAO.readListaEquipes(listaEquipes.getNome()));
                     staticTableView4.setItems(equipe);
+
+                    for(int i = 0; i < staticTableView4.getItems().size(); ++i){
+                        statictabelaEquipeAtual.put(i, staticTableView4.getItems().get(i));
+                    }
+                    for(int i = 0; i < staticTableView2.getItems().size(); ++i){
+                        statictabelaNomesAntigosAtual.put(i, staticTableView2.getItems().get(i));
+                    }
+                    for(int i = 0; i < staticTableView3.getItems().size(); ++i){
+                        statictabelaMotoresAtual.put(i, staticTableView3.getItems().get(i));
+                    }
+                    for(int i = 0; i < staticTableView.getItems().size(); ++i){
+                        statictabelaLiderAtual.put(i, staticTableView.getItems().get(i));
+                    }
                 }
             }});
     }
@@ -95,6 +109,12 @@ public class listaEquipesController extends equipeMainTableController{
         ObservableList<listaEquipesModel> equipes = FXCollections.observableArrayList(readListaEquipes());
 
         tableView.setItems(equipes);
+    }
+
+    public static void refreshTable(){
+        ObservableList<listaEquipesModel> equipes = FXCollections.observableArrayList(readListaEquipes());
+        statictableView.getItems().clear();
+        statictableView.setItems(equipes);
     }
 
     public static ArrayList<listaEquipesModel> readListaEquipes(){
