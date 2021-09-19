@@ -23,7 +23,7 @@
                                         <Font name="System Bold" size="24.0" />
                                     </font>
                                 </Button>
-                                <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" style="-fx-background-color: #000000;" text="Adicionar" textFill="WHITE">
+                                <Button onAction="#Adicionar" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" style="-fx-background-color: #000000;" text="Adicionar" textFill="WHITE">
                                     <font>
                                         <Font name="System Bold" size="24.0" />
                                     </font>
@@ -61,7 +61,7 @@
                                                         <Insets />
                                                     </VBox.margin>
                                                 </Label>
-                                                <TextField>
+                                                <TextField fx:id="nome">
                                                     <VBox.margin>
                                                         <Insets />
                                                     </VBox.margin>
@@ -78,7 +78,7 @@
                                                         <Font size="24.0" />
                                                     </font>
                                                 </Label>
-                                                <TextField>
+                                                <TextField fx:id="sobrenome">
                                                     <VBox.margin>
                                                         <Insets />
                                                     </VBox.margin>
@@ -95,7 +95,7 @@
                                                         <Font size="24.0" />
                                                     </font>
                                                 </Label>
-                                                <TextField>
+                                                <TextField fx:id="cargo">
                                                     <VBox.margin>
                                                         <Insets />
                                                     </VBox.margin>
@@ -112,7 +112,7 @@
                                                         <Font size="24.0" />
                                                     </font>
                                                 </Label>
-                                                <TextField>
+                                                <TextField fx:id="nascimento">
                                                     <VBox.margin>
                                                         <Insets />
                                                     </VBox.margin>
@@ -136,7 +136,7 @@
                                                         <Insets />
                                                     </VBox.margin>
                                                 </Label>
-                                                <TextField>
+                                                <TextField fx:id="cidade">
                                                     <VBox.margin>
                                                         <Insets />
                                                     </VBox.margin>
@@ -153,7 +153,7 @@
                                                         <Font size="24.0" />
                                                     </font>
                                                 </Label>
-                                                <TextField>
+                                                <TextField fx:id="nacionalidade">
                                                     <VBox.margin>
                                                         <Insets />
                                                     </VBox.margin>
@@ -170,7 +170,7 @@
                                                         <Font size="24.0" />
                                                     </font>
                                                 </Label>
-                                                <TextField>
+                                                <TextField fx:id="anoInicial">
                                                     <VBox.margin>
                                                         <Insets />
                                                     </VBox.margin>
@@ -187,7 +187,7 @@
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <TextField>
+                                    <TextField fx:id="anoFinal">
                                        <VBox.margin>
                                           <Insets />
                                        </VBox.margin>

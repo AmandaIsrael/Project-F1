@@ -4,7 +4,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
-import listaPista.listaPistasController;
 import sample.Main;
 import sample.utils.controlledScreen;
 import sample.utils.screensController;

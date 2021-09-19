@@ -3,6 +3,7 @@ package equipe;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
 import sample.Main;
 import sample.utils.controlledScreen;
 import sample.utils.screensController;
@@ -13,6 +14,22 @@ import java.util.ResourceBundle;
 public class addLiderController implements Initializable, controlledScreen {
 
     screensController myController;
+    @FXML
+    TextField nome;
+    @FXML
+    TextField sobrenome;
+    @FXML
+    TextField cargo;
+    @FXML
+    TextField nascimento;
+    @FXML
+    TextField cidade;
+    @FXML
+    TextField nacionalidade;
+    @FXML
+    TextField anoInicial;
+    @FXML
+    TextField anoFinal;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {}
@@ -23,5 +40,13 @@ public class addLiderController implements Initializable, controlledScreen {
     @FXML
     private void goToEquipe(ActionEvent event){
         myController.setScreen(Main.screen7ID);
+    }
+
+    @FXML
+    private void Adicionar(ActionEvent event){
+
+        equipeDAO.inserirLider(nome.getText(), sobrenome.getText(), cargo.getText(), nascimento.getText(), cidade.getText(), nacionalidade.getText(), anoInicial.getText(), anoFinal.getText(), equipeMainTableController.statictabelaEquipeAtual.get(0).getNome());
+        myController.setScreen(Main.screen7ID);
+        equipeMainTableController.refreshTabelaLider();
     }
 }
