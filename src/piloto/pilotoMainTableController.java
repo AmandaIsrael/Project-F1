@@ -57,18 +57,19 @@ public class pilotoMainTableController extends equipeMainTableController{
     
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        initTable();
-        initTable2();
         pilostaticTableView = tableView;
         pilostaticTableView2 = tableView2;
         statictabelaPilotoAtual = tabelaPilotoAtual;
         statictabelaContratoAtual = tabelaContratoAtual;
+        initTable();
+        initTable2();
+        setTable();
 
         tableView2.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 pilotoContratoModel contrato = tableView2.getSelectionModel().getSelectedItem();
-                if (mouseEvent.getClickCount() == 2){
+                if (mouseEvent.getClickCount() == 3){
                     goToEquipe();
 
                     ObservableList<equipeLiderModel> lider = FXCollections.observableArrayList(equipeDAO.readListaLideres(contrato.getEquipe()));
@@ -125,6 +126,7 @@ public class pilotoMainTableController extends equipeMainTableController{
     }
 
     private void updatePiloto(pilotoMainTableModel piloto){
+        System.out.println("aqui");
         if(piloto.getNumero().equals("") && piloto.getAbreviacao().equals("") && piloto.getNascimento().equals("") && piloto.getCidade().equals("") && piloto.getNacionalidade().equals("")){
             deletePiloto(piloto);
         }else{
@@ -230,6 +232,7 @@ public class pilotoMainTableController extends equipeMainTableController{
         this.tableColumn7.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<pilotoMainTableModel, String>>() {
             @Override
             public void handle(TableColumn.CellEditEvent<pilotoMainTableModel, String> pilotoMainTableModelStringCellEditEvent) {
+                System.out.println("AQUI");
                 piloto = pilotoMainTableModelStringCellEditEvent.getRowValue();
                 piloto.setNacionalidade(pilotoMainTableModelStringCellEditEvent.getNewValue());
                 updatePiloto(piloto);

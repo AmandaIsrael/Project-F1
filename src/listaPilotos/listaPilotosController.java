@@ -34,6 +34,7 @@ public class listaPilotosController extends pilotoMainTableController {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        statictableView = tableView;
         initTable();
 
         tableView.setOnMousePressed(new EventHandler<MouseEvent>() {
@@ -47,6 +48,13 @@ public class listaPilotosController extends pilotoMainTableController {
                     pilostaticTableView.setItems(piloto);
                     ObservableList<pilotoContratoModel> contrato = FXCollections.observableArrayList(pilotoDAO.readListaContratos(listaPilotos.getNome(), listaPilotos.getSobrenome()));
                     pilostaticTableView2.setItems(contrato);
+
+                    for(int i = 0; i < pilostaticTableView.getItems().size(); ++i){
+                        statictabelaPilotoAtual.put(i, pilostaticTableView.getItems().get(i));
+                    }
+                    for(int i = 0; i < pilostaticTableView2.getItems().size(); ++i){
+                        statictabelaContratoAtual.put(i, pilostaticTableView2.getItems().get(i));
+                    }
                     
                 }
             }});

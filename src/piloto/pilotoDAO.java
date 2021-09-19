@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import sample.IDGetter;
-
+import java.sql.Date;
 import javax.swing.*;
 
 public final class pilotoDAO {
@@ -18,7 +18,6 @@ public final class pilotoDAO {
     
     public static void updatePiloto(pilotoMainTableModel piloto){
         String sql = "UPDATE piloto SET pilotoNumero = ?, pilotoAbrev = ?, pilotoNascimento = ?, pilotoCidade = ?, pilotoNacionalidade = ? WHERE pilotoNome = ? AND pilotoSobrenome = ?;";
-
         try{
             PreparedStatement ps = con.prepareStatement(sql);
             if(piloto.getNumero().equals("")){
@@ -27,7 +26,11 @@ public final class pilotoDAO {
                 ps.setInt(1, Integer.parseInt(piloto.getNumero()));
             }
             ps.setString(2, piloto.getAbreviacao());
-            ps.setString(3, piloto.getNascimento());
+            if(piloto.getNascimento().equals("")){
+                ps.setDate(3, Date.valueOf("1900-01-01"));
+            }else{
+                ps.setDate(3, Date.valueOf(piloto.getNascimento()));
+            }
             ps.setString(4, piloto.getCidade());
             ps.setString(5, piloto.getNacionalidade());
             ps.setString(6, piloto.getNome());
@@ -36,6 +39,7 @@ public final class pilotoDAO {
             ps.executeUpdate();
 
         }catch(SQLException e){
+            System.out.println(e.toString());
             System.out.println("Error updatePiloto");
         }
     }
@@ -53,15 +57,16 @@ public final class pilotoDAO {
             if(contrato.getSalario().equals("")){
                 ps.setInt(2, -1);
             }else{
-                ps.setInt(2, Integer.parseInt(contrato.getSalario()));
+                ps.setInt(2, Integer.parseInt(contrato.getSalario().replace("US$ ", "").replace("K", "")));
             }
             ps.setInt(3, IDGetter.getPilotoID(pilotoNome, pilotoSobrenome));
             ps.setInt(4, IDGetter.getEquipeID(contrato.getEquipe()));
-            ps.setString(5, contrato.getAnoInicio());
+            ps.setInt(5, Integer.parseInt(contrato.getAnoInicio()));
             
             ps.executeUpdate();
 
         }catch(SQLException e){
+            System.out.println(e);
             System.out.println("Error updatePiloto");
         }
     }
