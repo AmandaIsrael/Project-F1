@@ -45,7 +45,7 @@ public class addLiderController implements Initializable, controlledScreen {
     @FXML
     private void Adicionar(ActionEvent event){
 
-        equipeDAO.inserirLider(nome.getText(), sobrenome.getText(), cargo.getText(), nascimento.getText(), cidade.getText(), nacionalidade.getText(), anoInicial.getText(), anoFinal.getText(), equipeMainTableController.statictabelaEquipeAtual.get(0).getNome());
+        equipeDAO.inserirLider(nome.getText(), sobrenome.getText(), nacionalidade.getText(), cidade.getText(), nascimento.getText(), cargo.getText(), anoInicial.getText(), anoFinal.getText(), equipeMainTableController.statictabelaEquipeAtual.get(0).getNome());
         myController.setScreen(Main.screen7ID);
         equipeMainTableController.refreshTabelaLider();
     }

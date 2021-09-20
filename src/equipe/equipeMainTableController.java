@@ -171,7 +171,7 @@ public class equipeMainTableController implements Initializable, controlledScree
     }
 
     private void updateMotor(equipeMotoresModel motor){
-        if(motor.getNacionalidade().equals("") && motor.getAnoInicio().equals("") && motor.getAnoFim().equals("")){
+        if(motor.getNacionalidade().equals("") && motor.getAnoFim().equals("")){
             deleteMotor(motor, tabelaEquipeAtual.get(0).getNome());
         }else{
             equipeDAO.updateMotor(motor, tabelaEquipeAtual.get(0).getNome());
@@ -191,7 +191,7 @@ public class equipeMainTableController implements Initializable, controlledScree
     }
 
     private void updateLider(equipeLiderModel equipe){
-        if(equipe.getNacionalidade().equals("") && equipe.getAnoInicio().equals("") && equipe.getAnoFim().equals("")){
+        if(equipe.getNacionalidade().equals("") && equipe.getAnoInicio().equals("") && equipe.getAnoFim().equals("") && equipe.getCargo().equals("") && equipe.getNascimento().equals("")){
             deleteLider(equipe, tabelaEquipeAtual.get(0).getNome());
         }else{
             equipeDAO.updateLider(equipe, tabelaEquipeAtual.get(0).getNome());
@@ -245,7 +245,6 @@ public class equipeMainTableController implements Initializable, controlledScree
         this.t3tableColumn2.setCellValueFactory(new PropertyValueFactory<>("nacionalidade"));
         this.t3tableColumn2.setCellFactory(TextFieldTableCell.forTableColumn());
         this.t3tableColumn3.setCellValueFactory(new PropertyValueFactory<>("anoInicio"));
-        this.t3tableColumn3.setCellFactory(TextFieldTableCell.forTableColumn());
         this.t3tableColumn4.setCellValueFactory(new PropertyValueFactory<>("anoFim"));
         this.t3tableColumn4.setCellFactory(TextFieldTableCell.forTableColumn());
     }
@@ -253,9 +252,9 @@ public class equipeMainTableController implements Initializable, controlledScree
     public void initTable4(){
 
         this.t4tableColumn1.setCellValueFactory(new PropertyValueFactory<>("nome"));
-        this.t4tableColumn2.setCellValueFactory(new PropertyValueFactory<>("cidade"));
+        this.t4tableColumn2.setCellValueFactory(new PropertyValueFactory<>("nacionalidade"));
         this.t4tableColumn2.setCellFactory(TextFieldTableCell.forTableColumn());
-        this.t4tableColumn3.setCellValueFactory(new PropertyValueFactory<>("nacionalidade"));
+        this.t4tableColumn3.setCellValueFactory(new PropertyValueFactory<>("cidade"));
         this.t4tableColumn3.setCellFactory(TextFieldTableCell.forTableColumn());
     }
 

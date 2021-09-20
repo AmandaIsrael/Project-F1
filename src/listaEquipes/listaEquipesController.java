@@ -35,6 +35,7 @@ public class listaEquipesController extends equipeMainTableController{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        statictableView = tableView;
         initTable();
 
         tableView.setOnMousePressed(new EventHandler<MouseEvent>() {

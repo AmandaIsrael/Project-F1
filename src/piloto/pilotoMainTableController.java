@@ -231,7 +231,6 @@ public class pilotoMainTableController extends equipeMainTableController{
         this.tableColumn7.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<pilotoMainTableModel, String>>() {
             @Override
             public void handle(TableColumn.CellEditEvent<pilotoMainTableModel, String> pilotoMainTableModelStringCellEditEvent) {
-                System.out.println("AQUI");
                 piloto = pilotoMainTableModelStringCellEditEvent.getRowValue();
                 piloto.setNacionalidade(pilotoMainTableModelStringCellEditEvent.getNewValue());
                 updatePiloto(piloto);

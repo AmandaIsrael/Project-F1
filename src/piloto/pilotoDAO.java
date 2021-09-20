@@ -37,23 +37,24 @@ public final class pilotoDAO {
     }
 
     public static void inserirPilotoRegistro(String nome, String sobrenome){
-        String sql = "INSERT INTO PilotoRegistro (pilotoID,	pilotoRegistroNome,	pilotoRegistroSobrenome) VALUES (?,?, ?);";
+        String sql = "INSERT INTO PilotoRegistro (pilotoID,	pilotoRegistroNome,	pilotoRegistroSobrenome) VALUES (?,?,?);";
         int id = getIDPilotoRegistro() + 1;
         try{
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
             ps.setString(2, nome);
-            ps.setString(2, sobrenome);
+            ps.setString(3, sobrenome);
 
             ps.executeUpdate();
 
         }catch (SQLException throwables) {
+            System.out.println(throwables);
             System.out.println("Erro ao inserir PilotoRegistro!");
         }
     }
 
     public static void inserirPiloto(String nome, String sobrenome, String numero, String abrev, String nascimento, String cidade, String nacionalidade){
-        String sql = "INSERT INTO (pilotoNome,pilotoSobrenome,pilotoNumero,pilotoAbrev,pilotoNascimento,pilotoCidade,pilotoNacionalidade) VALUES (?,?,?,?,?,?,?);";
+        String sql = "INSERT INTO piloto (pilotoNome,pilotoSobrenome,pilotoNumero,pilotoAbrev,pilotoNascimento,pilotoCidade,pilotoNacionalidade) VALUES (?,?,?,?,?,?,?);";
 
         try{
             PreparedStatement ps = con.prepareStatement(sql);
@@ -178,7 +179,7 @@ public final class pilotoDAO {
 
         deletePilotoRegistro(piloto.getNome(), piloto.getSobrenome());
 
-        String sql = "DELETE FROM piloto WHERE pilotoNome = ?, pilotoSobrenome = ?";
+        String sql = "DELETE FROM piloto WHERE pilotoNome = ? AND pilotoSobrenome = ?";
 
         try{
             PreparedStatement ps = con.prepareStatement(sql);
@@ -188,6 +189,7 @@ public final class pilotoDAO {
             ps.executeUpdate();
 
         } catch (SQLException throwables) {
+            System.out.println(throwables);
             System.out.println("Error deletePiloto");
         }
 

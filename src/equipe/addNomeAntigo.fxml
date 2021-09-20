@@ -57,7 +57,7 @@
                                         <Insets />
                                     </VBox.margin>
                                 </Label>
-                                <TextField fx:id="nomeAntigo">
+                                <TextField fx:id="nome">
                                     <VBox.margin>
                                         <Insets />
                                     </VBox.margin>

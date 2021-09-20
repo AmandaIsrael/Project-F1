@@ -103,7 +103,7 @@ public class equipeDAO {
         try{
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, nomeAntigo);
-            ps.setInt(2, IDGetter.getPistaID(equipe));
+            ps.setInt(2, IDGetter.getEquipeID(equipe));
             ps.setInt(3, Integer.parseInt(anoInicio));
             ps.setInt(4, Integer.parseInt(anoFim));
 
@@ -128,7 +128,6 @@ public class equipeDAO {
 
             ps.executeUpdate();
 
-            JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
 
         }catch (SQLException throwables) {
             String erro = throwables.toString();
@@ -185,8 +184,8 @@ public class equipeDAO {
 
     public static void inserirLiderTable(String liderNome, String liderSobrenome, String liderNacionalidade, String liderCidade, String liderNascimento){
         String sql = "INSERT INTO Lider (liderNome,liderSobrenome,liderNacionalidade,liderCidade ,liderNascimento) VALUES (?,?,?,?,?);";
-
         try{
+
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, liderNome);
             ps.setString(2, liderSobrenome);
@@ -204,7 +203,7 @@ public class equipeDAO {
     }
 
     public static void inserirLiderRegistro(String liderNome, String liderSobrenome){
-        String sql = "INSERT INTO pistaRegistro (pistaID, registroNomePista) VALUES (?,?);";
+        String sql = "INSERT INTO LiderRegistro (liderID,liderRegistroNome,liderRegistroSobrenome) VALUES (?,?,?);";
         int id = getIDLiderRegistro() + 1;
         try{
             PreparedStatement ps = con.prepareStatement(sql);
@@ -228,8 +227,8 @@ public class equipeDAO {
             ps.setInt(1, IDGetter.getLiderID(liderNome, liderSobrenome));
             ps.setInt(2, IDGetter.getEquipeID(equipeNome));
             ps.setString(3, cargo);
-            ps.setDate(4, Date.valueOf(lideradaAnoInicio));
-            ps.setDate(5, Date.valueOf(lideradaAnoFim));
+            ps.setInt(4, Integer.parseInt(lideradaAnoInicio));
+            ps.setInt(5, Integer.parseInt(lideradaAnoFim));
 
             ps.executeUpdate();
 
@@ -271,8 +270,17 @@ public class equipeDAO {
 
         try{
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, Integer.parseInt(nomeAntigo.getAnoInicio()));
-            ps.setInt(2, Integer.parseInt(nomeAntigo.getAnoFim()));
+            if(nomeAntigo.getAnoInicio().equals("")){
+                ps.setInt(1, -1);
+            }else{
+                ps.setInt(1, Integer.parseInt(nomeAntigo.getAnoInicio()));
+            }
+            if(nomeAntigo.getAnoFim().equals("")){
+                ps.setInt(2, -1);
+            }else{
+                ps.setInt(2, Integer.parseInt(nomeAntigo.getAnoFim()));
+            }
+
             ps.setInt(3, IDGetter.getEquipeID(equipeNome));
             ps.setString(4, nomeAntigo.getNomeAntigo());
 
@@ -317,14 +325,18 @@ public class equipeDAO {
     }
 
     public static void updateMotorAntigo(equipeMotoresModel motor, String equipeNome){
-        String sql = "UPDATE utilizouMotor SET motorAnoInicio = ?, motorAnoFim = ? WHERE motorNome = ? AND motorEquipe = ?";
+        String sql = "UPDATE utilizouMotor SET motorAnoFim = ? WHERE motorNome = ? AND motorEquipe = ?";
 
         try{
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, Integer.parseInt(motor.getAnoInicio()));
-            ps.setInt(2, Integer.parseInt(motor.getAnoFim()));
-            ps.setString(3, motor.getMotor());
-            ps.setInt(4, IDGetter.getEquipeID(equipeNome));
+
+            if(motor.getAnoFim().equals("")){
+                ps.setInt(1, -1);
+            }else{
+                ps.setInt(1, Integer.parseInt(motor.getAnoFim()));
+            }
+            ps.setString(2, motor.getMotor());
+            ps.setInt(3, IDGetter.getEquipeID(equipeNome));
 
             ps.executeUpdate();
             
@@ -339,7 +351,11 @@ public class equipeDAO {
 
         try{
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, Integer.parseInt(motor.getAnoInicio()));
+            if(motor.getAnoInicio().equals("")){
+                ps.setInt(1, -1);
+            }else{
+                ps.setInt(1, Integer.parseInt(motor.getAnoInicio()));
+            }
             ps.setString(2, motor.getMotor());
             ps.setString(3, equipeNome);
 
@@ -434,7 +450,7 @@ public class equipeDAO {
     }
 
     public static void deleteMotorTable(equipeMotoresModel motor, String nomeEquipe){
-        String sql = "DELETE FROM utilizouMotor WHERE motorNome = ? AND motorAnoInicio = ? AND equipeID = ?";
+        String sql = "DELETE FROM utilizouMotor WHERE motorNome = ? AND motorAnoInicio = ? AND motorequipe = ?";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -453,12 +469,12 @@ public class equipeDAO {
     }
 
     public static void deleteMotor(equipeMotoresModel motor, String nomeEquipe){
-        if(motor.getAnoFim()!="Atual"){
+        if(motor.getAnoFim()!= "Atual"){
             deleteMotorTable(motor, nomeEquipe);
             deleteFornecedorMotor(motor);
         }
         else{
-            JOptionPane.showMessageDialog(null, "ERRO: Não é possível remover o motor atualda equipe!");
+            JOptionPane.showMessageDialog(null, "ERRO: Não é possível remover o motor atual da equipe!");
         }
     }
 
