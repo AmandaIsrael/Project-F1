@@ -1,11 +1,7 @@
 # Project-F1
 
-Software em desenvolvimento
+Project developed by  [@MahatKC](https://www.github.com/MahatKC) and [@AmandaIsrael](https://www.github.com/AmandaIsrael) in pair programming in 2021.
 
-Feito para a matéria de Banco de dados
+This project was an assignment for the Databasesclass we took in our 3rd year of Computer Science.
 
-Autores:
-
-Amanda Israel Graeff Borges
-
-Mateus Karvat Camara
+Developed using PostgreSQL and Java, it shows the user historical information about the Formula 1 championship, such as data about drivers, races, tracks and teams.
